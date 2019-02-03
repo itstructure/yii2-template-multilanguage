@@ -16,6 +16,7 @@ class m180531_170328_create_technologies_table extends Migration
             'id' => $this->primaryKey(),
             'name' => $this->string(64)->notNull(),
             'share' => $this->integer(3)->notNull(),
+            'icon' => $this->string(64),
             'created_at' => $this->dateTime(),
             'updated_at' => $this->dateTime(),
         ]);

@@ -15,6 +15,8 @@ return [
     'Active' => 'Активно',
     'Inactive' => 'Не активно',
     'Blocked' => 'Заблокирован',
+    'Public' => 'Публичный',
+    'Private' => 'Приватный',
     'Default' => 'По умолчанию',
     'Default status' => 'Статус по умолчанию',
     'Set as default' => 'Сделать по умолчанию',
@@ -35,6 +37,8 @@ return [
     'Translate' => 'Перевод',
     'Parent object' => 'Родительский объект',
 
-    'Pack Develop' => 'Вендор пакеты',
     'Sitemap' => 'Карта сайта',
+
+    'Yii2 multilanguage project template' => 'Yii2 шаблон мультиязычного приложения',
+    'You do not have any permissions to perform this action.' => 'У Вас не достаточно прав для выполнения данной операции.'
 ];

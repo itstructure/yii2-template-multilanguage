@@ -14,24 +14,19 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/bootstrap.min.css',
-        'css/fontElegant.css',
-        'css/prettyPhoto.css',
-        'css/flexslider.css',
+        'css/font-awesome.min.css',
+        'css/animate.min.css',
         'css/style.css',
+        'css/navbar.css',
     ];
     public $js = [
-        'js/jquery.min.js',
-        'js/bootstrap.min.js',
-        'js/jquery.prettyPhoto.js',
-        'js/jquery-ui.min.js',
-        'js/jquery.twitter.js',
-        'js/superfish.min.js',
-        'js/jquery.flexslider-min.js',
-        'js/myscript.js',
+        'js/custom.js',
+        'js/navbar.js',
+        'js/wow.min.js',
+        'https://www.google.com/recaptcha/api.js',
     ];
     public $depends = [
-        //'yii\web\YiiAsset',
-        //'yii\bootstrap\BootstrapAsset',
+        'yii\web\YiiAsset',
+        'yii\bootstrap\BootstrapAsset',
     ];
 }

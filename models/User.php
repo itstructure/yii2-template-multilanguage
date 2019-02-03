@@ -16,9 +16,21 @@ use Itstructure\MFUploader\interfaces\UploadModelInterface;
 /**
  * Class User model.
  *
+ * @property int $id
+ * @property int $order
+ * @property int $public
+ * @property int $minOrder
+ * @property int $maxOrder
+ * @property string $first_name
+ * @property string $last_name
+ * @property string $patronymic
+ * @property string $login
+ * @property string $email
+ * @property string $phone
  * @property string  $passwordRepeat Password confirmed.
  * @property int|string  $thumbnail Thumbnail(mediafile id or url).
  * @property array|null|\yii\db\ActiveRecord|Mediafile $thumbnailModel
+ * @property Position $position
  *
  * @package app\models
  */
@@ -66,7 +78,7 @@ class User extends ActiveRecord implements RbacIdentityInterface, AdminMenuInter
             ],
             [
                 [
-                    'name',
+                    'first_name',
                     'login',
                     'email',
                 ],
@@ -75,18 +87,30 @@ class User extends ActiveRecord implements RbacIdentityInterface, AdminMenuInter
             [
                 [
                     'status',
+                    'public',
+                    'order',
+                    'position_id',
                 ],
                 'integer',
             ],
             [
                 [
-                    'name',
+                    'first_name',
+                    'last_name',
+                    'patronymic',
                     'login',
                     'email',
+                    'phone',
                     'hashedPassword',
                 ],
                 'string',
                 'max' => 255,
+            ],
+            [
+                [
+                    'about',
+                ],
+                'string',
             ],
             [
                 'login',
@@ -108,6 +132,15 @@ class User extends ActiveRecord implements RbacIdentityInterface, AdminMenuInter
                     }
                 },
                 'skipOnError' => false,
+            ],
+            [
+                [
+                    'position_id'
+                ],
+                'exist',
+                'skipOnError' => true,
+                'targetClass' => Position::class,
+                'targetAttribute' => ['position_id' => 'id']
             ],
         ];
     }
@@ -145,7 +178,7 @@ class User extends ActiveRecord implements RbacIdentityInterface, AdminMenuInter
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
+            'first_name' => 'First name',
             'login' => 'Login',
             'email' => 'Email',
             'password' => 'Password',
@@ -154,6 +187,29 @@ class User extends ActiveRecord implements RbacIdentityInterface, AdminMenuInter
             'updated_at' => 'Updated At',
             UploadModelInterface::FILE_TYPE_THUMB => 'Thumbnail',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery|Position
+     */
+    public function getPosition()
+    {
+        return $this->hasOne(Position::class, [
+            'id' => 'position_id'
+        ]);
+    }
+
+    /**
+     * @return array|\yii\db\ActiveRecord[]
+     */
+    public static function getPublicUsers()
+    {
+        return static::find()
+            ->where([
+                'public' => 1
+            ])->orderBy([
+                'order' => SORT_ASC
+            ])->all();
     }
 
     /**
@@ -254,7 +310,7 @@ class User extends ActiveRecord implements RbacIdentityInterface, AdminMenuInter
      */
     public function getFullName(): string
     {
-        return $this->name;
+        return $this->first_name . ' ' . $this->last_name;
     }
 
     /**
@@ -264,7 +320,7 @@ class User extends ActiveRecord implements RbacIdentityInterface, AdminMenuInter
      */
     public function getUserName(): string
     {
-        return $this->name;
+        return $this->first_name;
     }
 
     /**
@@ -374,6 +430,70 @@ class User extends ActiveRecord implements RbacIdentityInterface, AdminMenuInter
     {
         return Yii::$app->getSecurity()
             ->validatePassword($password, $this->hashedPassword);
+    }
+
+    /**
+     * @return int
+     */
+    public function getMinOrder(): int
+    {
+        $result = static::find()
+            ->select('order')
+            ->orderBy('order ASC')
+            ->one();
+
+        return $result == null ? 1 : $result->order;
+    }
+
+    /**
+     * @return int
+     */
+    public function getMaxOrder(): int
+    {
+        $result = static::find()
+            ->select('order')
+            ->orderBy('order DESC')
+            ->one();
+
+        return $result == null ? 1 : $result->order;
+    }
+
+    /**
+     * @param int $order
+     */
+    public function moveOrder(int $order): void
+    {
+        if ($order == $this->order){
+            return;
+        }
+
+        /* @var static $future */
+        $future = static::find()
+            ->where([
+                'order' => $order
+            ])
+            ->one();
+        $future->detachBehavior('mediafile');
+        $future->order = $order > $this->order ? $order-1 : $order+1;
+        $future->save();
+
+        $this->detachBehavior('mediafile');
+        $this->order = $order;
+        $this->save();
+    }
+
+    /**
+     * @param bool $insert
+     *
+     * @return bool
+     */
+    public function beforeSave($insert)
+    {
+        if ($this->isNewRecord){
+            $this->order = $this->maxOrder == null ? 1 : $this->maxOrder + 1;
+        }
+
+        return parent::beforeSave($insert);
     }
 
     /**

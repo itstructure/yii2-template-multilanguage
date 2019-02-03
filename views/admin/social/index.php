@@ -62,7 +62,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     foreach ($searchModel->contacts as $contactRecord) {
                         $contactRecords .= Html::tag('li',
                             Html::a($contactRecord->getDefaultTranslate('title'),
-                                Url::to(['/'.$this->params['shortLanguage'].'/admin/contact/view', 'id' => $contactRecord->id]),
+                                Url::to(['/'.$this->params['shortLanguage'].'/admin/contacts/view', 'id' => $contactRecord->id]),
                                 [
                                     'target' => '_blank'
                                 ]

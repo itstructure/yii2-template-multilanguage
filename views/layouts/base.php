@@ -1,15 +1,17 @@
 <?php
 use yii\helpers\Html;
+use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 use app\models\Contact;
 use Itstructure\MultiLevelMenu\MenuWidget;
 
+$contacts = $this->params['contacts'];
+$controllerId = $this->params['controllerId'];
+
 /* @var \yii\web\View $this */
 /* @var string $content */
 /* @var Contact $contacts */
-
-$contacts = $this->params['contacts'];
 
 AppAsset::register($this);
 ?>
@@ -24,151 +26,189 @@ AppAsset::register($this);
     <?php echo Html::csrfMetaTags(); ?>
 
     <link rel="shortcut icon" href="/images/favicon.ico">
-
-    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,200italic,300,300italic,400italic,600,600italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
     <?php $this->head() ?>
 </head>
 <body>
 <?php $this->beginBody() ?>
 
-<div id="preloader"><img src="/images/preloader.gif" alt="" /></div>
+<div class="wrap">
+    <?php
+    NavBar::begin([
+        'brandLabel' => Yii::t('app', 'Yii2 multilanguage project template'),
+        'brandUrl' => Yii::$app->homeUrl,
+        'options' => [
+            'class' => 'navbar navbar-inverse navbar-fixed-top',
+        ],
+    ]); ?>
 
-<div id="page">
+    <ul class="nav navbar-nav navbar-right">
+        <li class="nav-item <?php if($controllerId=='home'): ?>active<?php endif; ?>">
+            <a class="nav-link" href="/<?php echo $this->params['shortLanguage']; ?>"><?php echo Yii::t('app', 'Home') ?></a>
+        </li>
+        <li class="nav-item <?php if($controllerId=='about'): ?>active<?php endif; ?>">
+            <a class="nav-link" href="/<?php echo $this->params['shortLanguage']; ?>/about"><?php echo Yii::t('about', 'About') ?></a>
+        </li>
+        <li class="nav-item dropdown <?php if($controllerId=='page'): ?>active<?php endif; ?>">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <?php echo Yii::t('pages', 'Pages') ?>
+            </a>
+            <?php echo MenuWidget::widget([
+                'data' => $this->params['pages'],
+                'itemTemplate' => '@app/views/menu/pageItem.php',
+                'itemTemplateParams' => function ($level, $item) {
+                    return [
+                        'shortLanguage' => $this->params['shortLanguage'],
+                        'linkOptions' => isset($item['items']) && count($item['items']) > 0 ? [
+                            'class' => 'dropdown-toggle',
+                            'data-toggle' => 'dropdown',
+                            'aria-haspopup' => 'true',
+                            'aria-expanded' => 'false',
+                        ] : [],
+                    ];
+                },
+                'mainContainerOptions' => [
+                    'class' => 'dropdown-menu'
+                ],
+                'itemContainerOptions' => function ($level, $item) {
+                    return [
+                        'class' => isset($item['items']) && count($item['items']) > 0 ? 'dropdown-item dropdown' : 'dropdown-item'
+                    ];
+                }
+            ]) ?>
+        </li>
+        <li class="nav-item <?php if($controllerId=='contact'): ?>active<?php endif; ?>">
+            <a class="nav-link" href="/<?php echo $this->params['shortLanguage']; ?>/contact" ><?php echo Yii::t('contacts', 'Contacts') ?></a>
+        </li>
+        <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" id="dropdown_languages" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <?php echo Yii::t('site', 'Languages') ?>
+            </a>
+            <?php echo MenuWidget::widget([
+                'data' => $this->params['languages'],
+                'itemTemplate' => '@app/views/menu/languageItem.php',
+                'mainContainerOptions' => [
+                    'class' => 'dropdown-menu',
+                    'aria-labelledby' => 'dropdown_languages'
+                ],
+                'itemContainerOptions' => [
+                    'class' => 'dropdown-item'
+                ],
+            ]) ?>
+        </li>
+        <?php if (Yii::$app->user->isGuest): ?>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <?php echo Yii::t('site', 'Authorize') ?>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-item">
+                        <a href="/<?php echo $this->params['shortLanguage']; ?>/reg" ><?php echo Yii::t('site', 'Register') ?></a>
+                    </li>
+                    <li class="dropdown-item">
+                        <a href="/<?php echo $this->params['shortLanguage']; ?>/login" ><?php echo Yii::t('site', 'Login') ?></a>
+                    </li>
+                </ul>
+            </li>
+        <?php else: ?>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <?php echo Yii::t('site', 'Account') ?>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-item">
+                        <a href="/<?php echo $this->params['shortLanguage']; ?>/admin" ><?php echo Yii::t('site', 'Dashboard') ?></a>
+                    </li>
+                    <li class="dropdown-item">
+                        <a href="/<?php echo $this->params['shortLanguage']; ?>/logout" ><?php echo Yii::t('site', 'Sign out') ?></a>
+                    </li>
+                </ul>
+            </li>
+        <?php endif; ?>
+    </ul>
 
-    <div class="preloader_hide">
+    <?php NavBar::end(); ?>
 
-        <div class="page_block">
-
-            <header>
-                <div class="menu_block clearfix">
-
-                    <div class="container clearfix">
-
-                        <div class="logo">
-                            <a href="/<?php echo $this->params['shortLanguage']; ?>" ><?php echo Yii::t('app', 'Pack Develop') ?></a>
-                        </div>
-
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                                <em></em><em></em><em></em><em></em>
-                            </button>
-                        </div>
-
-                        <div class="navbar-collapse collapse">
-                            <ul class="nav navbar-nav">
-                                <li class="first active"><a href="/<?php echo $this->params['shortLanguage']; ?>" ><?php echo Yii::t('app', 'Home') ?></a></li>
-                                <li class="first"><a href="/<?php echo $this->params['shortLanguage']; ?>/about" ><?php echo Yii::t('about', 'About me') ?></a></li>
-                                <li class="sub-menu menu_middle"><a href="javascript:void(0);" ><?php echo Yii::t('site', 'Development') ?></a>
-                                    <?php echo MenuWidget::widget([
-                                        'data' => $this->params['pages'],
-                                        'itemTemplate' => '@app/views/menu/pageItem.php',
-                                        'itemTemplateParams' => [
-                                            'shortLanguage' => $this->params['shortLanguage']
-                                        ],
-                                    ]) ?>
-                                </li>
-                                <li class="sub-menu"><a href="/<?php echo $this->params['shortLanguage']; ?>/contact" ><?php echo Yii::t('contacts', 'Contacts') ?></a></li>
-                                <li class="sub-menu"><a href="javascript:void(0);" ><?php echo Yii::t('site', 'Languages') ?></a>
-                                    <?php echo MenuWidget::widget([
-                                        'data' => $this->params['languages'],
-                                        'itemTemplate' => '@app/views/menu/languageItem.php',
-                                    ]) ?>
-                                </li>
-                                <?php if (Yii::$app->user->isGuest): ?>
-                                    <li class="sub-menu"><a href="javascript:void(0);" ><?php echo Yii::t('site', 'Authorize') ?></a>
-                                        <ul>
-                                            <li><a href="/<?php echo $this->params['shortLanguage']; ?>/reg" ><?php echo Yii::t('site', 'Register') ?></a></li>
-                                            <li><a href="/<?php echo $this->params['shortLanguage']; ?>/login" ><?php echo Yii::t('site', 'Login') ?></a></li>
-                                        </ul>
-                                    </li>
-                                <?php else: ?>
-                                    <li class="sub-menu"><a href="javascript:void(0);" ><?php echo Yii::t('site', 'Account') ?></a>
-                                        <ul>
-                                            <li><a href="/<?php echo $this->params['shortLanguage']; ?>/admin" ><?php echo Yii::t('site', 'Dashboard') ?></a></li>
-                                            <li><a href="/<?php echo $this->params['shortLanguage']; ?>/logout" ><?php echo Yii::t('site', 'Sign out') ?></a></li>
-                                        </ul>
-                                    </li>
-                                <?php endif; ?>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </header>
-
-            <?php if (isset($this->params['breadcrumbs'])): ?>
-                <section class="full_width breadcrumbs_block clearfix">
-                    <div class="container">
-                        <div class="breadcrumbs_content">
-                            <h1 class="pull-left"><?php echo Html::encode($this->title) ?></h1>
-                            <?php echo Breadcrumbs::widget([
-                                'tag' => 'ol',
-                                'options' => [
-                                    'class' => 'pull-right breadcrumb'
-                                ],
-                                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-                                'homeLink' => [
-                                    'label' => Yii::t('yii', 'Home'),
-                                    'url' => rtrim(Yii::$app->homeUrl, '/') . '/' . $this->params['shortLanguage'],
-                                ]
-                            ]) ?>
-                        </div>
-                    </div>
-                    <div class="overlay"></div>
-                    <div class="overlay_black"></div>
-                </section>
-            <?php endif; ?>
-
-            <?php echo $content ?>
-
-            <footer class="full_width footer_block">
+    <div class="container">
+        <?php if (isset($this->params['breadcrumbs'])): ?>
+            <section class="full_width breadcrumbs_block clearfix">
                 <div class="container">
-                    <div class="row" data-animated="fadeInUp">
-                        <div class="col-lg-7 col-md-8 col-sm-8 padbot30">
-                            <ul class="foot_menu">
-                                <li class="active"><a href="/<?php echo $this->params['shortLanguage']; ?>" alt=""><?php echo Yii::t('app', 'Home') ?></a></li>
-                                <li><a href="/<?php echo $this->params['shortLanguage']; ?>/about" ><?php echo Yii::t('about', 'About me') ?></a></li>
-                                <li><a href="/<?php echo $this->params['shortLanguage']; ?>/contact" ><?php echo Yii::t('contacts', 'Contacts') ?></a></li>
-                            </ul>
-                            <hr>
-                            <?php if (null !== $contacts): ?>
-                                <ul class="foot_info">
-                                    <?php if (!empty($contacts->{'address_'.$this->params['shortLanguage']})): ?>
-                                        <li><i class="fe icon_house"></i><?php echo $contacts->{'address_'.$this->params['shortLanguage']} ?></li>
-                                    <?php endif; ?>
-                                    <?php if (!empty($contacts->{'phone_'.$this->params['shortLanguage']})): ?>
-                                        <li><i class="fe icon_phone"></i><?php echo $contacts->{'phone_'.$this->params['shortLanguage']} ?></li>
-                                    <?php endif; ?>
-                                    <?php if (!empty($contacts->{'email_'.$this->params['shortLanguage']})): ?>
-                                        <li><i class="fe icon_mail"></i><a href="mailto:<?php echo $contacts->{'email_'.$this->params['shortLanguage']} ?>"><?php echo $contacts->{'email_'.$this->params['shortLanguage']} ?></a></li>
-                                    <?php endif; ?>
-                                </ul>
-                            <?php endif; ?>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 padbot30 pull-right foot_social_block">
-                            <?php if (null !== $contacts && is_array($contacts->social)): ?>
-                                <h2><?php echo Yii::t('social', 'Social') ?></h2>
-                                <hr>
-                                <div class="social">
-                                    <?php foreach ($contacts->social as $social): ?>
-                                        <a href="<?php echo $social->url ?>" target="_blank" ><i class="<?php echo $social->icon ?>"></i></a>
-                                    <?php endforeach; ?>
-                                </div>
-                            <?php endif; ?>
-                        </div>
+                    <div class="breadcrumbs_content">
+                        <h1 class="pull-left"><?php echo Html::encode($this->title) ?></h1>
+                        <?php echo Breadcrumbs::widget([
+                            'tag' => 'ol',
+                            'options' => [
+                                'class' => 'pull-right breadcrumb'
+                            ],
+                            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                            'homeLink' => [
+                                'label' => Yii::t('yii', 'Home'),
+                                'url' => rtrim(Yii::$app->homeUrl, '/') . '/' . $this->params['shortLanguage'],
+                            ]
+                        ]) ?>
                     </div>
                 </div>
-                <div class="copyright clearfix">
-                    <div class="container">
-                        <div class="padbot20">
-                            <a class="copyright_logo" href="javascript:void(0);"><?php echo Yii::t('app', 'Pack Develop') ?></a> <span> &copy; Copyright 2018</span>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-        </div>
+                <div class="overlay"></div>
+                <div class="overlay_black"></div>
+            </section>
+        <?php endif; ?>
+
+        <?php echo $content ?>
     </div>
 </div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row" data-animated="fadeInUp">
+            <div class="col-lg-7 col-md-8 col-sm-8 padbot30">
+                <ul class="foot_menu">
+                    <li <?php if($controllerId=='home'): ?>class="active"<?php endif; ?> >
+                        <a href="/<?php echo $this->params['shortLanguage']; ?>" alt=""><?php echo Yii::t('app', 'Home') ?></a>
+                    </li>
+                    <li <?php if($controllerId=='about'): ?>class="active"<?php endif; ?> >
+                        <a href="/<?php echo $this->params['shortLanguage']; ?>/about" ><?php echo Yii::t('about', 'About me') ?></a>
+                    </li>
+                    <li <?php if($controllerId=='contact'): ?>class="active"<?php endif; ?> >
+                        <a href="/<?php echo $this->params['shortLanguage']; ?>/contact" ><?php echo Yii::t('contacts', 'Contacts') ?></a>
+                    </li>
+                </ul>
+                <hr>
+                <?php if (null !== $contacts): ?>
+                    <ul class="foot_info">
+                        <?php if (!empty($contacts->{'address_'.$this->params['shortLanguage']})): ?>
+                            <li><i class="fa fa-home"></i><?php echo $contacts->{'address_'.$this->params['shortLanguage']} ?></li>
+                        <?php endif; ?>
+                        <?php if (!empty($contacts->{'phone_'.$this->params['shortLanguage']})): ?>
+                            <li><i class="fa fa-phone"></i><?php echo $contacts->{'phone_'.$this->params['shortLanguage']} ?></li>
+                        <?php endif; ?>
+                        <?php if (!empty($contacts->{'email_'.$this->params['shortLanguage']})): ?>
+                            <li><i class="fa fa-envelope-o"></i><a href="mailto:<?php echo $contacts->{'email_'.$this->params['shortLanguage']} ?>"><?php echo $contacts->{'email_'.$this->params['shortLanguage']} ?></a></li>
+                        <?php endif; ?>
+                    </ul>
+                <?php endif; ?>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 padbot30 pull-right foot_social_block">
+                <?php if (null !== $contacts && is_array($contacts->social)): ?>
+                    <h2><?php echo Yii::t('social', 'Social') ?></h2>
+                    <hr>
+                    <div class="social">
+                        <?php foreach ($contacts->social as $social): ?>
+                            <a href="<?php echo $social->url ?>" target="_blank" ><i class="<?php echo $social->icon ?>"></i></a>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+    <div class="copyright clearfix">
+        <div class="container">
+            <div class="padbot20">
+                <a class="copyright_logo" href="javascript:void(0);"><?php echo Yii::t('app', 'Yii2 multilanguage project template') ?></a> <span> &copy; Copyright <?php echo date('Y') ?></span>
+            </div>
+        </div>
+    </div>
+</footer>
 
 <?php $this->endBody() ?>
 </body>

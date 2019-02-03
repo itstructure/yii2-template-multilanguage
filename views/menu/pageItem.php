@@ -1,11 +1,17 @@
 <?php
-use yii\helpers\{Html, Url};
+use yii\helpers\{Html, Url, ArrayHelper};
 /* @var app\models\Page $data */
 /* @var string $shortLanguage */
-?>
-<?php echo Html::a($data->{'title_'.$shortLanguage},
+/* @var array $linkOptions */
+
+if (!isset($linkOptions)) {
+    $linkOptions = [];
+}
+
+echo Html::a($data->{'title_'.$shortLanguage},
     Url::to('/'.$shortLanguage.'/page/'.$data->id),
-    [
+    ArrayHelper::merge([
         'target' => '_self'
-    ]);
+    ], $linkOptions)
+);
 ?>

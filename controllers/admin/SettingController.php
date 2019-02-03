@@ -3,7 +3,7 @@
 namespace app\controllers\admin;
 
 use Yii;
-use app\traits\{LanguageTrait, AdminBeforeActionTrait};
+use app\traits\{LanguageTrait, AdminBeforeActionTrait, AccessTrait};
 use Itstructure\AdminModule\controllers\AdminController;
 
 /**
@@ -14,7 +14,7 @@ use Itstructure\AdminModule\controllers\AdminController;
  */
 class SettingController extends AdminController
 {
-    use LanguageTrait, AdminBeforeActionTrait;
+    use LanguageTrait, AdminBeforeActionTrait, AccessTrait;
 
     /**
      * List of records.
@@ -23,6 +23,10 @@ class SettingController extends AdminController
      */
     public function actionIndex()
     {
+        if (!$this->checkAccessToAdministrate()) {
+            return $this->accessError();
+        }
+
         /* @var $model \app\models\Setting */
         $model = Yii::$app->get('settings')
             ->setModel()

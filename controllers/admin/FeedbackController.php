@@ -2,7 +2,7 @@
 
 namespace app\controllers\admin;
 
-use app\traits\{LanguageTrait, AdminBeforeActionTrait};
+use app\traits\{LanguageTrait, AdminBeforeActionTrait, AccessTrait};
 use app\models\{Feedback, FeedbackSearch};
 use Itstructure\AdminModule\controllers\CommonAdminController;
 
@@ -14,7 +14,7 @@ use Itstructure\AdminModule\controllers\CommonAdminController;
  */
 class FeedbackController extends CommonAdminController
 {
-    use LanguageTrait, AdminBeforeActionTrait;
+    use LanguageTrait, AdminBeforeActionTrait, AccessTrait;
 
     /**
      * Set read status to "1" after view record.
@@ -52,5 +52,45 @@ class FeedbackController extends CommonAdminController
     protected function getSearchModelName():string
     {
         return FeedbackSearch::class;
+    }
+
+    /**
+     * @return mixed|string
+     */
+    public function actionIndex()
+    {
+        if (!$this->checkAccessToIndex()) {
+            return $this->accessError();
+        }
+
+        return parent::actionIndex();
+    }
+
+    /**
+     * @param int|string $id
+     *
+     * @return mixed
+     */
+    public function actionView($id)
+    {
+        if (!$this->checkAccessToView()) {
+            return $this->accessError();
+        }
+
+        return parent::actionView($id);
+    }
+
+    /**
+     * @param int|string $id
+     *
+     * @return mixed|\yii\web\Response
+     */
+    public function actionDelete($id)
+    {
+        if (!$this->checkAccessToDelete()) {
+            return $this->accessError();
+        }
+
+        return parent::actionDelete($id);
     }
 }

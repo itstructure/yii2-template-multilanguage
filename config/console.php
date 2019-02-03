@@ -7,7 +7,7 @@ $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
 $config = [
-    'id' => 'basic-console',
+    'id' => 'yii2-template-multilanguage-console',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'app\commands',
@@ -21,8 +21,8 @@ $config = [
             'class' => 'yii\rbac\DbManager',
         ],
         'urlManager' => [
-            'hostInfo' => YII_DEBUG ? 'http://bizness-develop' : 'http://bizness-develop.org',
-            'scriptUrl' => YII_DEBUG ? 'http://bizness-develop' : 'http://bizness-develop.org',
+            'hostInfo' => YII_DEBUG ? 'http://yii2-template-multilanguage' : 'http://yii2-template-multilanguage',
+            'scriptUrl' => YII_DEBUG ? 'http://yii2-template-multilanguage' : 'http://yii2-template-multilanguage',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -49,7 +49,7 @@ $config = [
     'controllerMap' => [
         'sitemap' => [
             'class' => 'dreamjobs\sitemap\SitemapController',
-            'baseUrl' => YII_DEBUG ? 'http://bizness-develop' : 'http://bizness-develop.org',
+            'baseUrl' => YII_DEBUG ? 'http://yii2-template-multilanguage' : 'http://yii2-template-multilanguage',
             'modelsPath' => '@app/models/sitemap', // Sitemap-data models directory
             'modelsNamespace' => 'app\models\sitemap', // Namespace in [[modelsPath]] files
             'savePathAlias' => '@app/web', // Where would be placed the generated sitemap-files

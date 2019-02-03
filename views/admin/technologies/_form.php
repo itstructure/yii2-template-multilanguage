@@ -1,6 +1,6 @@
 <?php
 
-use yii\helpers\{Html, ArrayHelper};
+use yii\helpers\{Url, Html, ArrayHelper};
 use yii\widgets\ActiveForm;
 
 /* @var $this Itstructure\AdminModule\components\AdminView */
@@ -21,6 +21,21 @@ use yii\widgets\ActiveForm;
             <?php echo $form->field($model, 'share')->dropDownList(range(0, 100), [
                 'style' => 'width: 70px;'
             ])->label(Yii::t('technologies', 'Share')) ?>
+
+            <?php echo $form->field($model, 'icon')->textInput([
+                'maxlength' => true,
+                'style' => 'width: 25%;'
+            ])->label(Yii::t('app', 'Icon html class')); ?>
+            <div class="row" style="margin-bottom: 15px;">
+                <div class="col-md-4">
+                    <?php if(!$model->isNewRecord): ?>
+                        <?php echo Html::tag('i', '', ['class' => empty($model->icon) ? 'fa fa-file fa-2x' : $model->icon]) ?>
+                    <?php endif; ?>
+                    <?php echo Html::a('Fontawesome icons', Url::to('https://fontawesome.ru/all-icons/'), [
+                        'target' => '_blank'
+                    ]); ?>
+                </div>
+            </div>
 
             <?php echo $form->field($model, 'about')
                 ->checkboxList(ArrayHelper::map($aboutList, 'id', function ($item) {

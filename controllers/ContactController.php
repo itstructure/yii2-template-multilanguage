@@ -61,6 +61,7 @@ class ContactController extends BaseController
     public function actionIndex()
     {
         $feedback = new Feedback();
+        $feedback->setScenario(Feedback::SCENARIO_CONTACT);
 
         if ($feedback->load(Yii::$app->request->post()) && $feedback->contact(Yii::$app->params['adminEmail'])) {
 

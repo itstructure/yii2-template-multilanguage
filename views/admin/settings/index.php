@@ -4,7 +4,7 @@ use yii\widgets\ActiveForm;
 use yii\helpers\{ArrayHelper, Html};
 
 /* @var $this Itstructure\AdminModule\components\AdminView */
-/* @var $model app\models\Settings */
+/* @var $model app\models\Setting */
 /* @var $form yii\widgets\ActiveForm */
 /* @var $roles yii\rbac\Role[] */
 
@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <?php echo $form->field($model, 'initUserRole')->dropDownList(ArrayHelper::map($roles, 'name', 'name'), [
                 'prompt' => 'Not chosen'
-            ])->label(Yii::t('settings', 'User status after registration')) ?>
+            ])->label(Yii::t('settings', 'User role after registration')) ?>
 
             <?php echo $form->field($model, 'regBlock')->dropDownList([
                 0 => Yii::t('settings', 'Registration active'),

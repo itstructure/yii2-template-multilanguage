@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\ArrayHelper;
-use app\models\{Page, Product, About, Contact, Home};
+use app\models\{Page, Product, About, Contact, Home, Quality, Position};
 use Itstructure\AdminModule\components\MultilanguageValidateComponent;
 
 $dynamicFieldsMain = [
@@ -171,6 +171,54 @@ $dynamicFieldsHome = [
     ],
 ];
 
+$dynamicFieldsQuality = [
+    'title' => [
+        'name' => 'title',
+        'rules' => [
+            [
+                'required',
+                'message' => 'Field "{attribute}" must not be empty.'
+            ],
+            [
+                'string',
+                'max' => 255,
+            ],
+        ]
+    ],
+    'description' => [
+        'name' => 'description',
+        'rules' => [
+            [
+                'required',
+                'message' => 'Field "{attribute}" must not be empty.'
+            ],
+            [
+                'string',
+                'max' => 1024,
+            ]
+        ]
+    ]
+];
+
+$dynamicFieldsPositions = [
+    'name' => [
+        'name' => 'name',
+        'rules' => [
+            [
+                'required',
+                'message' => 'Field "{attribute}" must not be empty.'
+            ],
+            [
+                'string',
+                'max' => 255,
+            ],
+            [
+                'unique',
+            ]
+        ]
+    ],
+];
+
 return [
     /**
      * Component class.
@@ -210,6 +258,16 @@ return [
         /* Home */
         Home::tableName() => [
             'dynamicFields' => ArrayHelper::merge($dynamicFieldsHome, $dynamicFieldsSeo),
+        ],
+
+        /* Quality */
+        Quality::tableName() => [
+            'dynamicFields' => $dynamicFieldsQuality,
+        ],
+
+        /* Position */
+        Position::tableName() => [
+            'dynamicFields' => $dynamicFieldsPositions,
         ],
     ]
 ];

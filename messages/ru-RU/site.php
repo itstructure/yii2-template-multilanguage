@@ -17,6 +17,10 @@ return [
     'Dashboard' => 'Админ панель',
     'Development' => 'Разработка',
     'Languages' => 'Языки',
-    'Packages development for the frameworks' => 'Разработка пакетов для фреймворков',
+    'company' => 'компания',
+    'Our Process' => 'Наш процесс',
+    'Our field of activity' => 'Наша сфера деятельности',
+    'Business automation' => 'Автоматизация бизнеса',
+    'Mobile, web and brand development' => 'Разработка мобильных приложений, веб-сайтов и брендов',
     'Registration is blocked by the site administrator' => 'Регистрация заблокирована администратором сайта',
 ];

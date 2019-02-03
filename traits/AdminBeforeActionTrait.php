@@ -40,6 +40,8 @@ trait AdminBeforeActionTrait
 
         $this->view->signOutLink = '/' . $this->shortLanguage . '/logout';
 
+        $this->view->profileLink = '/' . $this->shortLanguage . '/admin/users/view?id='.Yii::$app->getUser()->id;
+
         Yii::$app->getUser()->loginUrl = '/' . $this->shortLanguage . '/login';
 
         $this->urlPrefix = '/' . $this->shortLanguage . '/' . $this->module->id . '/' . $action->controller->id . '/';

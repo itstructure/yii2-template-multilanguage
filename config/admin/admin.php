@@ -7,6 +7,7 @@ use app\components\{
 use app\controllers\admin\{
     PageController,
     ProductController,
+    QualityController,
     SettingController,
     FeedbackController,
     AboutController,
@@ -19,6 +20,7 @@ use app\controllers\admin\{
     RoleController,
     ProfileController,
     UserController,
+    PositionController,
     SitemapController
 };
 use Itstructure\AdminModule\Module as AdminModule;
@@ -38,8 +40,10 @@ return [
                 'languages' => LanguageController::class,
                 'settings' => SettingController::class,
                 'users' => UserController::class,
+                'positions' => PositionController::class,
                 'pages' => PageController::class,
                 'products' => ProductController::class,
+                'qualities' => QualityController::class,
                 'feedback' => FeedbackController::class,
                 'about' => AboutController::class,
                 'technologies' => TechnologyController::class,
@@ -48,7 +52,7 @@ return [
                 'home' => HomeController::class,
                 'sitemap' => SitemapController::class
             ],
-            'accessRoles' => ['admin'],
+            'accessRoles' => ['admin', 'manager'],
             'components' => [
                 'view' => require __DIR__ . '/view-component.php',
                 'multilanguage-validate-component' => require __DIR__ .'/multilanguage-validate-component.php',
@@ -63,7 +67,7 @@ return [
                 'permissions' => PermissionController::class,
                 'profiles' => ProfileController::class
             ],
-            'accessRoles' => ['admin'],
+            'accessRoles' => ['admin', 'manager'],
             'components' => [
                 'view' => require __DIR__ . '/view-component.php',
             ],
@@ -75,7 +79,7 @@ return [
                 'upload/local-upload' => LocalUploadController::class,
                 'managers' => ManagerController::class,
             ],
-            'accessRoles' => ['admin'],
+            'accessRoles' => ['admin', 'manager'],
             'components' => [
                 'local-upload-component' => [
                     'class' => LocalUploadComponent::class,

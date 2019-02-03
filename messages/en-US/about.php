@@ -2,10 +2,11 @@
 
 return [
     'About' => 'About',
-    'About me' => 'About me',
+    'About us' => 'About us',
     'Create about' => 'Create about',
     'Update about' => 'Update about',
     'Text' => 'Text',
     'Technologies' => 'Technologies',
     'Information' => 'Information',
+    'Qualities' => 'Qualities',
 ];

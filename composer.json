@@ -1,7 +1,7 @@
 {
-    "name": "Bizness develop project",
-    "description": "Project on Yii 2 Basic template",
-    "keywords": ["yii2", "framework", "basic", "project template"],
+    "name": "itstructure/yii2-template-multilanguage",
+    "description": "Project on Yii 2 Basic template with application classes in multilanguage mode",
+    "keywords": ["yii2", "framework", "multilanguage", "language", "template"],
     "homepage": "http://www.yiiframework.com/",
     "type": "project",
     "license": "BSD-3-Clause",
@@ -19,11 +19,12 @@
         "yiisoft/yii2": "~2.0.14",
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0",
-        "itstructure/yii2-admin-module": "^1.6.1",
-        "itstructure/yii2-multi-level-menu": "^3.2.3",
+        "itstructure/yii2-admin-module": "1.6.4",
+        "itstructure/yii2-multi-level-menu": "3.2.4",
         "itstructure/yii2-multi-format-uploader": "^2.0.1",
         "itstructure/yii2-rbac-module": "^3.0.0",
-        "dreamjobs/sitemap-generator": "~1.0"
+        "dreamjobs/sitemap-generator": "~1.0",
+        "google/recaptcha": "^1.2"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

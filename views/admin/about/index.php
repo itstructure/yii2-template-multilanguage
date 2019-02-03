@@ -69,7 +69,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     }
 
                     return Html::a(Yii::t('app', 'Set as default'), Url::to([
-                        'set-default',
+                        $this->params['urlPrefix'].'set-default',
                         'aboutId' => $searchModel->id,
                     ]), [
                         'title' => Yii::t('app', 'Set as default'),

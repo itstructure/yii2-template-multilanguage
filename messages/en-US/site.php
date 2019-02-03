@@ -17,6 +17,10 @@ return [
     'Dashboard' => 'Dashboard',
     'Development' => 'Development',
     'Languages' => 'Languages',
-    'Packages development for the frameworks' => 'Packages development for the frameworks',
+    'company' => 'company',
+    'Our Process' => 'Our Process',
+    'Our field of activity' => 'Our field of activity',
+    'Business automation' => 'Business automation',
+    'Mobile, web and brand development' => 'Mobile, web and brand development',
     'Registration is blocked by the site administrator' => 'Registration is blocked by the site administrator',
 ];

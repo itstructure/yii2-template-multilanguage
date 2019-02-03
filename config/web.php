@@ -4,10 +4,10 @@ $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
 $config = [
-    'id' => 'biznessdevelop',
-    'version' => '',
+    'id' => 'yii2_template_multilanguage',
+    'version' => '1.0.0',
     'basePath' => dirname(__DIR__),
-    'homeUrl' => YII_DEBUG ? 'http://bizness-develop' : 'http://bizness-develop.org',
+    'homeUrl' => YII_DEBUG ? 'http://yii2-template-multilanguage' : 'http://yii2-template-multilanguage',
     'bootstrap' => ['log'],
     'language' => 'en-US',
     'aliases' => [
@@ -17,7 +17,7 @@ $config = [
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => 'KD4pOn7VbD8eXpPzFA7bdOJmJQDp94hw',
+            'cookieValidationKey' => md5('ardGWC2D'),
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -78,6 +78,8 @@ $config = [
                 '<shortLanguage:\w+>/<controller:(contact|site)>/captcha' => '<controller>/captcha',
                 '<shortLanguage:\w+>/<controller:(home|about|contact|site)>' => '<controller>/index',
                 '<shortLanguage:\w+>/<controller:(page|product)>/<id:\d+>' => '<controller>/view',
+                '<controller:(ajax/feedback-ajax)>/<action:(send)>' => '<controller>/<action>',
+                '<controller:(ajax/recaptcha-ajax)>/<action:(validate)>' => '<controller>/<action>',
 
                 /* MFU Module */
                 '<module:(mfuploader)>/<controller:(managers)>/<action:(filemanager|uploadmanager)>' => '<module>/<controller>/<action>',
@@ -98,6 +100,12 @@ $config = [
                     'class' => 'yii\i18n\PhpMessageSource',
                     'fileMap' => [
                         'settings' => 'settings.php',
+                    ],
+                ],
+                'qualities*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'fileMap' => [
+                        'qualities' => 'qualities.php',
                     ],
                 ],
                 'pages*' => [
@@ -170,6 +178,24 @@ $config = [
                     'class' => 'yii\i18n\PhpMessageSource',
                     'fileMap' => [
                         'users' => 'users.php',
+                    ],
+                ],
+                'positions*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'fileMap' => [
+                        'positions' => 'positions.php',
+                    ],
+                ],
+                'team*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'fileMap' => [
+                        'team' => 'team.php',
+                    ],
+                ],
+                'portfolio*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'fileMap' => [
+                        'portfolio' => 'portfolio.php',
                     ],
                 ],
             ]

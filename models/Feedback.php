@@ -20,6 +20,9 @@ use Itstructure\AdminModule\interfaces\ModelInterface;
  */
 class Feedback extends ActiveRecord implements ModelInterface
 {
+    const SCENARIO_CONTACT = 'contact';
+    const SCENARIO_FEEDBACK = 'feedback';
+
     /**
      * @var string
      */
@@ -89,8 +92,32 @@ class Feedback extends ActiveRecord implements ModelInterface
             [
                 'verifyCode',
                 'captcha',
+                'on' => [
+                    self::SCENARIO_CONTACT
+                ],
                 'captchaAction' => 'contact/captcha'
             ],
+            [
+                'verifyCode',
+                'captcha',
+                'on' => [
+                    self::SCENARIO_FEEDBACK
+                ],
+                'captchaAction' => 'feedback/captcha'
+            ]
+        ];
+    }
+
+    /**
+     * Scenarios.
+     *
+     * @return array
+     */
+    public function scenarios()
+    {
+        return [
+            self::SCENARIO_CONTACT => $this->attributes(),
+            self::SCENARIO_FEEDBACK => $this->attributes(),
         ];
     }
 
@@ -148,7 +175,7 @@ class Feedback extends ActiveRecord implements ModelInterface
             Yii::$app->mailer->compose()
                 ->setTo($email)
                 ->setFrom([$this->email => $this->name])
-                ->setSubject('New message from pack-develop feedback. ' . $this->subject)
+                ->setSubject('New message from bizness-develop feedback. ' . $this->subject)
                 ->setTextBody($this->message)
                 ->send();
 

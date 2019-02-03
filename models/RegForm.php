@@ -24,7 +24,7 @@ class RegForm extends Model
      *
      * @var string
      */
-    public $name;
+    public $first_name;
 
     /**
      * Login to go in to system.
@@ -71,7 +71,7 @@ class RegForm extends Model
         return [
             [
                 [
-                    'name',
+                    'first_name',
                     'login',
                     'email',
                     'password',
@@ -82,7 +82,7 @@ class RegForm extends Model
             ],
             [
                 [
-                    'name',
+                    'first_name',
                     'login',
                     'email',
                     'password',
@@ -92,7 +92,7 @@ class RegForm extends Model
             ],
             [
                 [
-                    'name',
+                    'first_name',
                     'login'
                 ],
                 'string',
@@ -107,12 +107,6 @@ class RegForm extends Model
                 'string',
                 'min' => 5,
                 'max' => 255,
-            ],
-            [
-                'name',
-                'unique',
-                'targetClass' => User::class,
-                'message' => 'This name already exists.',
             ],
             [
                 'login',
@@ -156,7 +150,7 @@ class RegForm extends Model
     public function attributeLabels(){
 
         return[
-            'name' => 'Name',
+            'first_name' => 'First name',
             'login' => 'Login',
             'email' => 'Email',
             'password' => 'Password',
@@ -178,7 +172,7 @@ class RegForm extends Model
 
         $this->_user = new User();
 
-        $this->_user->name = $this->name;
+        $this->_user->first_name = $this->first_name;
         $this->_user->login = $this->login;
         $this->_user->email = $this->email;
 

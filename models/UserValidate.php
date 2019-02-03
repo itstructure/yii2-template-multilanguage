@@ -12,13 +12,20 @@ use Itstructure\MFUploader\interfaces\UploadModelInterface;
 /**
  * Class for validation user fields.
  *
+ * @property bool $changeRoles
  * @property string[] $roles
  * @property IdentityInterface|ActiveRecordInterface  $userModel
  * @property ManagerInterface  $authManager
- * @property string  $name
+ * @property string  $first_name
+ * @property string  $last_name
+ * @property string  $patronymic
  * @property string  $login
  * @property string  $email
+ * @property string  $phone
  * @property integer  $status
+ * @property integer  $public
+ * @property integer  $position_id
+ * @property string  $about
  * @property string  $password
  * @property string  $passwordRepeat
  *
@@ -26,6 +33,13 @@ use Itstructure\MFUploader\interfaces\UploadModelInterface;
  */
 class UserValidate extends Model implements ModelInterface
 {
+    /**
+     * Allow to change roles.
+     *
+     * @var bool
+     */
+    public $changeRoles = true;
+
     /**
      * Current profile (user) model.
      *
@@ -64,10 +78,9 @@ class UserValidate extends Model implements ModelInterface
         return [
             [
                 [
-                    'name',
+                    'first_name',
                     'login',
                     'email',
-                    'status'
                 ],
                 'required',
             ],
@@ -81,9 +94,12 @@ class UserValidate extends Model implements ModelInterface
             ],
             [
                 [
-                    'name',
+                    'first_name',
+                    'last_name',
+                    'patronymic',
                     'login',
                     'email',
+                    'phone',
                     'password',
                     'passwordRepeat',
                 ],
@@ -92,17 +108,17 @@ class UserValidate extends Model implements ModelInterface
             ],
             [
                 [
-                    'status',
+                    'about',
                 ],
-                'integer',
+                'string',
             ],
             [
-                'name',
-                'unique',
-                'skipOnError'     => true,
-                'targetClass'     => \Yii::$app->user->identityClass,
-                'targetAttribute' => ['name' => 'name'],
-                'filter' => $this->getScenario() == self::SCENARIO_UPDATE ? 'id != '.$this->id : ''
+                [
+                    'status',
+                    'public',
+                    'position_id',
+                ],
+                'integer',
             ],
             [
                 'login',
@@ -143,6 +159,15 @@ class UserValidate extends Model implements ModelInterface
                 'integer',
                 'skipOnError' => false,
             ],
+            [
+                [
+                    'position_id'
+                ],
+                'exist',
+                'skipOnError' => true,
+                'targetClass' => Position::class,
+                'targetAttribute' => ['position_id' => 'id']
+            ],
         ];
     }
 
@@ -168,10 +193,16 @@ class UserValidate extends Model implements ModelInterface
     public function attributes()
     {
         return [
-            'name',
+            'first_name',
+            'last_name',
+            'patronymic',
+            'position_id',
             'login',
             'email',
+            'phone',
             'status',
+            'public',
+            'about',
             'password',
             'passwordRepeat',
             'roles',
@@ -187,10 +218,16 @@ class UserValidate extends Model implements ModelInterface
     public function attributeLabels()
     {
         return [
-            'name' => 'Name',
+            'first_name' => 'First Name',
+            'last_name' => 'Last Name',
+            'patronymic' => 'Patronymic',
+            'position_id' => 'Position ID',
             'login' => 'Login',
             'email' => 'Email',
+            'phone' => 'Phone',
             'status' => 'Status',
+            'public' => 'Public',
+            'about' => 'About',
             'password' => 'Password',
             'passwordRepeat' => 'Password confirm',
             'roles' => 'Roles',
@@ -366,11 +403,13 @@ class UserValidate extends Model implements ModelInterface
 
     /**
      * Assign roles.
-     *
-     * @return void
      */
-    private function assignRoles(): void
+    private function assignRoles()
     {
+        if (!$this->changeRoles) {
+            return;
+        }
+
         if (!$this->userModel->getIsNewRecord()) {
             $this->authManager->revokeAll(
                 $this->userModel->getId()

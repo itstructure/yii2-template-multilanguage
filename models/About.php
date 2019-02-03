@@ -16,6 +16,8 @@ use Itstructure\AdminModule\models\{MultilanguageTrait, Language};
  * @property Language[] $languages
  * @property AboutTechnology[] $aboutTechnologies
  * @property Technology[] $technologies
+ * @property AboutQuality[] $aboutQualities
+ * @property Quality[] $qualities
  *
  * @package app\models
  */
@@ -156,6 +158,28 @@ class About extends ActiveRecord
         return $this->hasMany(Technology::class, [
             'id' => 'technologies_id'
         ])->viaTable('about_technologies', [
+            'about_id' => 'id'
+        ]);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getAboutQualities()
+    {
+        return $this->hasMany(AboutQuality::class, [
+            'about_id' => 'id'
+        ]);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getQualities()
+    {
+        return $this->hasMany(Quality::class, [
+            'id' => 'qualities_id'
+        ])->viaTable('about_qualities', [
             'about_id' => 'id'
         ]);
     }

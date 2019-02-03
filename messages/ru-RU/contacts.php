@@ -13,5 +13,7 @@ return [
     'Get in Touch' => 'Связаться',
     'Communication' => 'Коммуникация',
     'Map place' => 'Координация на карте',
-    'Map zoom' => 'Увеличение карты'
+    'Map zoom' => 'Увеличение карты',
+    'We are pleased to consider your appeal' => 'Мы рады рассмотреть ваше обращение',
+    'Send us your technical specifications' => 'Присылайте нам своё техническое задание'
 ];

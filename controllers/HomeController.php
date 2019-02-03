@@ -2,7 +2,7 @@
 
 namespace app\controllers;
 
-use app\models\{Home, About};
+use app\models\{Home, About, User};
 use yii\filters\{AccessControl, VerbFilter};
 use yii\helpers\ArrayHelper;
 
@@ -51,7 +51,8 @@ class HomeController extends BaseController
 
         return $this->render('index', [
             'model' => $model,
-            'about' => About::getDefaultAbout()
+            'about' => About::getDefaultAbout(),
+            'team' => User::getPublicUsers()
         ]);
     }
 }

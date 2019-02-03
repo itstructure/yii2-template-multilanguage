@@ -14,12 +14,20 @@ use app\interfaces\UserValidateComponentInterface;
  * Class UserValidateComponent
  * Component class for validation user fields.
  *
+ * @property bool $changeRoles
  * @property ManagerInterface $authManager
  *
  * @package app\components
  */
 class UserValidateComponent extends Component implements UserValidateComponentInterface
 {
+    /**
+     * Allow to change roles.
+     *
+     * @var bool
+     */
+    public $changeRoles = true;
+
     /**
      * Auth manager.
      *
@@ -77,6 +85,7 @@ class UserValidateComponent extends Component implements UserValidateComponentIn
             'class' => UserValidate::class,
             'userModel' => $model,
             'authManager' => $this->authManager,
+            'changeRoles' => $this->changeRoles,
         ]);
 
         return $object;

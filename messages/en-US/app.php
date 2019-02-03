@@ -15,6 +15,8 @@ return [
     'Active' => 'Active',
     'Inactive' => 'Inactive',
     'Blocked' => 'Blocked',
+    'Public' => 'Public',
+    'Private' => 'Private',
     'Default' => 'Default',
     'Default status' => 'Default status',
     'Set as default' => 'Set as default',
@@ -35,6 +37,8 @@ return [
     'Translate' => 'Translate',
     'Parent object' => 'Parent object',
 
-    'Pack Develop' => 'Pack Develop',
     'Sitemap' => 'Sitemap',
+
+    'Yii2 multilanguage project template' => 'Yii2 multilanguage project template',
+    'You do not have any permissions to perform this action.' => 'You do not have any permissions to perform this action.'
 ];

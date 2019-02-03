@@ -67,15 +67,15 @@ $this->params['breadcrumbs'][] = $model->{'title_'.$this->params['shortLanguage'
             <div class="col-lg-5 col-sm-5 padbot20" data-animated="fadeIn">
                 <h2><?php echo Yii::t('contacts', 'Communication') ?></h2>
 
-                <ul class="list4 contacts_info">
+                <ul>
                     <?php if (!empty($model->{'address_'.$this->params['shortLanguage']})): ?>
-                        <li><b class="fe icon_pin"></b><span><?php echo $model->{'address_'.$this->params['shortLanguage']} ?></span></li>
+                        <li><b class="fa fa-home"></b> <span> <?php echo $model->{'address_'.$this->params['shortLanguage']} ?></span></li>
                     <?php endif; ?>
                     <?php if (!empty($model->{'phone_'.$this->params['shortLanguage']})): ?>
-                        <li><b class="fe icon_phone"></b><span><?php echo $model->{'phone_'.$this->params['shortLanguage']} ?></span></li>
+                        <li><b class="fa fa-phone"></b> <span> <?php echo $model->{'phone_'.$this->params['shortLanguage']} ?></span></li>
                     <?php endif; ?>
                     <?php if (!empty($model->{'email_'.$this->params['shortLanguage']})): ?>
-                        <li><b class="fe icon_mail"></b><span><a href="mailto:<?php echo $model->{'email_'.$this->params['shortLanguage']} ?>"><?php echo $model->{'email_'.$this->params['shortLanguage']} ?></a></span></li>
+                        <li><b class="fa fa-envelope-o"></b> <span><a href="mailto:<?php echo $model->{'email_'.$this->params['shortLanguage']} ?>"> <?php echo $model->{'email_'.$this->params['shortLanguage']} ?></a></span></li>
                     <?php endif; ?>
 
                     <?php if (is_array($model->social)): ?>

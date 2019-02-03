@@ -3,6 +3,8 @@
 /* @var $this yii\web\View */
 /* @var $model app\models\UserValidate */
 /* @var $roles yii\rbac\Role[] */
+/* @var $positions array|\yii\db\ActiveRecord[] */
+/* @var $changeRoles bool */
 
 $this->title = Yii::t('users', 'Create user');
 $this->params['breadcrumbs'][] = [
@@ -18,6 +20,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php echo $this->render('_form', [
         'model' => $model,
         'roles' => $roles,
+        'positions' => $positions,
+        'changeRoles' => $changeRoles,
     ]) ?>
 
 </div>

@@ -4,7 +4,7 @@ namespace app\controllers\admin;
 
 use yii\web\NotFoundHttpException;
 use app\models\{Home, HomeSearch};
-use app\traits\{LanguageTrait, AdminBeforeActionTrait};
+use app\traits\{LanguageTrait, AdminBeforeActionTrait, AccessTrait};
 use Itstructure\AdminModule\controllers\CommonAdminController;
 
 /**
@@ -15,7 +15,7 @@ use Itstructure\AdminModule\controllers\CommonAdminController;
  */
 class HomeController extends CommonAdminController
 {
-    use LanguageTrait, AdminBeforeActionTrait;
+    use LanguageTrait, AdminBeforeActionTrait, AccessTrait;
 
     /**
      * @var bool
@@ -33,6 +33,10 @@ class HomeController extends CommonAdminController
      */
     public function actionSetDefault($homeId)
     {
+        if (!$this->checkAccessToUpdate()) {
+            return $this->accessError();
+        }
+
         $home = Home::findOne($homeId);
 
         if (null === $home) {
@@ -63,5 +67,71 @@ class HomeController extends CommonAdminController
     protected function getSearchModelName():string
     {
         return HomeSearch::class;
+    }
+
+    /**
+     * @return mixed|string
+     */
+    public function actionIndex()
+    {
+        if (!$this->checkAccessToIndex()) {
+            return $this->accessError();
+        }
+
+        return parent::actionIndex();
+    }
+
+    /**
+     * @param int|string $id
+     *
+     * @return mixed
+     */
+    public function actionView($id)
+    {
+        if (!$this->checkAccessToView()) {
+            return $this->accessError();
+        }
+
+        return parent::actionView($id);
+    }
+
+    /**
+     * @return mixed|string|\yii\web\Response
+     */
+    public function actionCreate()
+    {
+        if (!$this->checkAccessToCreate()) {
+            return $this->accessError();
+        }
+
+        return parent::actionCreate();
+    }
+
+    /**
+     * @param int|string $id
+     *
+     * @return string|\yii\web\Response
+     */
+    public function actionUpdate($id)
+    {
+        if (!$this->checkAccessToUpdate()) {
+            return $this->accessError();
+        }
+
+        return parent::actionUpdate($id);
+    }
+
+    /**
+     * @param int|string $id
+     *
+     * @return mixed|\yii\web\Response
+     */
+    public function actionDelete($id)
+    {
+        if (!$this->checkAccessToDelete()) {
+            return $this->accessError();
+        }
+
+        return parent::actionDelete($id);
     }
 }

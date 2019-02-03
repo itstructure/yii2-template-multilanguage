@@ -19,17 +19,30 @@ class UserSearch extends User
     {
         return [
             [
-                ['id'],
+                [
+                    'first_name',
+                    'last_name',
+                    'patronymic',
+                    'position',
+                    'login',
+                    'email',
+                    'phone',
+                ],
+                'string',
+            ],
+            [
+                [
+                    'id',
+                    'public',
+                    'order',
+                ],
                 'integer',
             ],
             [
                 [
-                    'name',
-                    'login',
-                    'email',
-                    'hashedPassword',
                     'created_at',
                     'updated_at',
+                    'order',
                 ],
                 'safe',
             ],
@@ -62,6 +75,17 @@ class UserSearch extends User
             'query' => $query,
         ]);
 
+        $dataProvider->setSort([
+            'attributes' => [
+                'order' => [
+                    'asc' => ['order' => SORT_ASC],
+                    'desc' => ['order' => SORT_DESC],
+                    'label' => 'Order',
+                    'default' => SORT_ASC
+                ],
+            ]
+        ]);
+
         $this->load($params);
 
         if (!$this->validate()) {
@@ -73,14 +97,21 @@ class UserSearch extends User
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'order' => $this->order,
+            'public' => $this->public,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name])
+        $query->andFilterWhere(['like', 'first_name', $this->first_name])
+            ->andFilterWhere(['like', 'last_name', $this->last_name])
+            ->andFilterWhere(['like', 'patronymic', $this->patronymic])
+            ->andFilterWhere(['like', 'position', $this->position])
             ->andFilterWhere(['like', 'login', $this->login])
             ->andFilterWhere(['like', 'email', $this->email])
-            ->andFilterWhere(['like', 'hashedPassword', $this->hashedPassword]);
+            ->andFilterWhere(['like', 'phone', $this->phone]);
+
+        $query->orderBy('order ASC');
 
         return $dataProvider;
     }

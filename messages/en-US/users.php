@@ -1,11 +1,16 @@
 <?php
 
 return [
+    'Avatar' => 'Avatar',
     'User' => 'User',
     'Users' => 'Users',
-    'Name' => 'Name',
+    'First Name' => 'First Name',
+    'Last Name' => 'Last Name',
+    'Patronymic' => 'Patronymic',
+    'Position' => 'Position',
     'Login' => 'Login',
     'Email' => 'Email',
+    'Phone' => 'Phone',
     'Roles' => 'Roles',
     'Status' => 'Status',
     'Password' => 'Password',
@@ -14,4 +19,7 @@ return [
     'Update user' => 'Update user',
     'No roles' => 'No roles',
     'No status' => 'No status',
+    'Publicity' => 'Publicity',
+    'About' => 'About',
+    'Order' => 'Order',
 ];

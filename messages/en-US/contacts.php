@@ -13,5 +13,7 @@ return [
     'Get in Touch' => 'Get in Touch',
     'Communication' => 'Communication',
     'Map place' => 'Map place',
-    'Map zoom' => 'Map zoom'
+    'Map zoom' => 'Map zoom',
+    'We are pleased to consider your appeal' => 'We are pleased to consider your appeal',
+    'Send us your technical specifications' => 'Send us your technical specifications'
 ];

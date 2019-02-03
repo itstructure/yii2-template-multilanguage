@@ -33,6 +33,7 @@ class BaseController extends Controller
     {
         $this->view->params['pages'] = Page::getActiveMenu();
         $this->view->params['contacts'] = Contact::getDefaultContacts();
+        $this->view->params['controllerId'] = Yii::$app->controller->id;
 
         return parent::beforeAction($action);
     }

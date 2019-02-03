@@ -33,6 +33,8 @@ tests/_support/_generated
 /.vagrant
 
 config/db.php
+config/captcha.php
+config/aws-credentials.php
 
 web/uploads/*
 

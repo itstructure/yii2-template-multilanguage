@@ -29,6 +29,17 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
 
             'id',
+            'icon' => [
+                'label' => Yii::t('app', 'Icon'),
+                'value' => function($searchModel) {
+                    /* @var $searchModel TechnologySearch */
+                    return Html::a(
+                        Html::tag('i', '', ['class' => empty($searchModel->icon) ? 'fa fa-file fa-2x' : $searchModel->icon]),
+                        Url::to([$this->params['urlPrefix'].'view', 'id' => $searchModel->id])
+                    );
+                },
+                'format' => 'raw',
+            ],
             'name' => [
                 'label' => Yii::t('technologies', 'Name'),
                 'value' => function($searchModel) {

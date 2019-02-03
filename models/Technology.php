@@ -10,6 +10,7 @@ use Itstructure\AdminModule\interfaces\ModelInterface;
  * @property int $id
  * @property string $name
  * @property int $share
+ * @property string $icon
  * @property string $created_at
  * @property string $updated_at
  *
@@ -57,7 +58,8 @@ class Technology extends ActiveRecord implements ModelInterface
             ],
             [
                 [
-                    'name'
+                    'name',
+                    'icon'
                 ],
                 'string',
                 'max' => 64
@@ -76,6 +78,7 @@ class Technology extends ActiveRecord implements ModelInterface
             'id',
             'name',
             'share',
+            'icon',
             'created_at',
             'updated_at',
         ];
@@ -90,6 +93,7 @@ class Technology extends ActiveRecord implements ModelInterface
             'id' => 'ID',
             'name' => 'Name',
             'share' => 'Share, %',
+            'icon' => 'Icon',
             'about' => 'About',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',

@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $model->{'title_'.$this->params['shortLanguage'
 
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 col-sm-12 padbot20">
+                <div class="col-lg-12 col-sm-12">
                     <?php /* @var Product $product */ ?>
                     <?php foreach ($products as $product): ?>
                         <div class="post">
