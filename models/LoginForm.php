@@ -4,20 +4,43 @@ namespace app\models;
 
 use Yii;
 use yii\base\Model;
+use yii\helpers\ArrayHelper;
+use app\behaviors\LoginAttemptBehavior;
 
 /**
- * LoginForm is the model behind the login form.
+ * Class LoginForm
  *
- * @property User|null $user This property is read-only.
- *
+ * @package app\models
  */
 class LoginForm extends Model
 {
-    public $username;
+    /**
+     * Login to go in to system.
+     *
+     * @var string
+     */
+    public $login;
+
+    /**
+     * Password to go in to system.
+     *
+     * @var string
+     */
     public $password;
+
+    /**
+     * Use cookie to remember user in browser.
+     *
+     * @var bool
+     */
     public $rememberMe = true;
 
-    private $_user = false;
+    /**
+     * User model.
+     *
+     * @var null
+     */
+    private $_user = null;
 
 
     /**
@@ -26,13 +49,37 @@ class LoginForm extends Model
     public function rules()
     {
         return [
-            // username and password are both required
-            [['username', 'password'], 'required'],
-            // rememberMe must be a boolean value
-            ['rememberMe', 'boolean'],
-            // password is validated by validatePassword()
-            ['password', 'validatePassword'],
+            [
+                [
+                    'login',
+                    'password',
+                ],
+                'required',
+            ],
+            [
+                'rememberMe',
+                'boolean',
+            ],
+            [
+                'password',
+                'validatePassword',
+            ],
         ];
+    }
+
+    public function behaviors()
+    {
+        return ArrayHelper::merge(parent::behaviors(), [
+
+                'attempts' => [
+
+                    'class' => LoginAttemptBehavior::class,
+
+                    // Amount of attempts in the given time period
+                    'attempts' => 3,
+                ]
+            ]
+        );
     }
 
     /**
@@ -47,7 +94,7 @@ class LoginForm extends Model
         if (!$this->hasErrors()) {
             $user = $this->getUser();
 
-            if (!$user || !$user->validatePassword($this->password)) {
+            if (null === $user || !$user->validatePassword($this->password)) {
                 $this->addError($attribute, 'Incorrect username or password.');
             }
         }
@@ -55,14 +102,16 @@ class LoginForm extends Model
 
     /**
      * Logs in a user using the provided username and password.
+     *
      * @return bool whether the user is logged in successfully
      */
     public function login()
     {
-        if ($this->validate()) {
-            return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600*24*30 : 0);
+        if (!$this->validate()) {
+            return false;
         }
-        return false;
+
+        return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600*24*30 : 0);
     }
 
     /**
@@ -72,8 +121,8 @@ class LoginForm extends Model
      */
     public function getUser()
     {
-        if ($this->_user === false) {
-            $this->_user = User::findByUsername($this->username);
+        if ($this->_user === null) {
+            $this->_user = User::findByLogin($this->login);
         }
 
         return $this->_user;

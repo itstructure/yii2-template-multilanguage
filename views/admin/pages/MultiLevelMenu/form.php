@@ -1,0 +1,19 @@
+<?php
+use yii\helpers\Html;
+use Itstructure\MultiLevelMenu\MenuWidget;
+
+/* @var Itstructure\AdminModule\models\MultilanguageValidateModel $model */
+/* @var app\models\Page $data */
+/* @var app\models\Page $mainModel */
+
+$mainModel = $model->mainModel;
+?>
+<?php echo Html::activeRadio($model, 'parentId', [
+    'value' => $data->id,
+    'name' => Html::getInputName($model, 'newParentId'),
+    'label' => Html::encode($data->getDefaultTranslate('title')),
+    'disabled' => !MenuWidget::checkNewParentId($mainModel, $data->id),
+    'uncheck' => false,
+    'onMouseDown' => 'this.isChecked=this.checked;',
+    'onClick' => 'this.checked=!this.isChecked;',
+]);  ?>

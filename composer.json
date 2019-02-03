@@ -1,6 +1,6 @@
 {
-    "name": "yiisoft/yii2-app-basic",
-    "description": "Yii 2 Basic Project Template",
+    "name": "Bizness develop project",
+    "description": "Project on Yii 2 Basic template",
     "keywords": ["yii2", "framework", "basic", "project template"],
     "homepage": "http://www.yiiframework.com/",
     "type": "project",
@@ -13,11 +13,17 @@
         "source": "https://github.com/yiisoft/yii2"
     },
     "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
         "php": ">=5.4.0",
         "yiisoft/yii2": "~2.0.14",
         "yiisoft/yii2-bootstrap": "~2.0.0",
-        "yiisoft/yii2-swiftmailer": "~2.0.0"
+        "yiisoft/yii2-swiftmailer": "~2.0.0",
+        "itstructure/yii2-admin-module": "^1.6.1",
+        "itstructure/yii2-multi-level-menu": "^3.2.3",
+        "itstructure/yii2-multi-format-uploader": "^2.0.1",
+        "itstructure/yii2-rbac-module": "^3.0.0",
+        "dreamjobs/sitemap-generator": "~1.0"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
