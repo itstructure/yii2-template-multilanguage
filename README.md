@@ -1,6 +1,13 @@
 Yii2 template multilanguage install ducumentation
 ==============
 
+[![Latest Stable Version](https://poser.pugx.org/itstructure/yii2-template-multilanguage/v/stable)](https://packagist.org/packages/itstructure/yii2-template-multilanguage)
+[![Latest Unstable Version](https://poser.pugx.org/itstructure/yii2-template-multilanguage/v/unstable)](https://packagist.org/packages/itstructure/yii2-template-multilanguage)
+[![License](https://poser.pugx.org/itstructure/yii2-template-multilanguage/license)](https://packagist.org/packages/itstructure/yii2-template-multilanguage)
+[![Total Downloads](https://poser.pugx.org/itstructure/yii2-template-multilanguage/downloads)](https://packagist.org/packages/itstructure/yii2-template-multilanguage)
+[![Build Status](https://scrutinizer-ci.com/g/itstructure/yii2-template-multilanguage/badges/build.png?b=master)](https://scrutinizer-ci.com/g/itstructure/yii2-template-multilanguage/build-status/master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/itstructure/yii2-template-multilanguage/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/itstructure/yii2-template-multilanguage/?branch=master)
+
 1 Introduction
 ----------------------------
 

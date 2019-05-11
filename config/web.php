@@ -5,7 +5,7 @@ $db = require __DIR__ . '/db.php';
 
 $config = [
     'id' => 'yii2_template_multilanguage',
-    'version' => '1.0.0',
+    'version' => '1.0.1',
     'basePath' => dirname(__DIR__),
     'homeUrl' => YII_DEBUG ? 'http://yii2-template-multilanguage' : 'http://yii2-template-multilanguage',
     'bootstrap' => ['log'],
