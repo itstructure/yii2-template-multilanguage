@@ -11,7 +11,7 @@ Yii2 template multilanguage install ducumentation
 1 Introduction
 ----------------------------
 
-Yii2 project template with multilanguage mode, based on [Yii2 framework](https://github.com/yiisoft/yii2).
+Yii2 project template with multilanguage mode, based on [Yii2 basic framework](https://github.com/yiisoft/yii2-app-basic).
 Project is available to install at [Git Hub repository](https://github.com/itstructure/yii2-template-multilanguage).
 
 This template includes:
