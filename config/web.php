@@ -86,6 +86,8 @@ $config = [
                 '<module:(mfuploader)>/<controller:(fileinfo)>' => '<module>/<controller>/index',
                 '<module:(mfuploader)>/<controller:(fileinfo)>/<action:(index)>' => '<module>/<controller>/<action>',
                 '<module:(mfuploader)>/<controller:(upload/local-upload|upload/s3-upload)>/<action:(send|update|delete)>' => '<module>/<controller>/<action>',
+                '<shortLanguage:\w+>/<module:(mfuploader)>/<controller:(image-album|audio-album|video-album|application-album|text-album|other-album)>' => '<module>/<controller>/index',
+                '<shortLanguage:\w+>/<module:(mfuploader)>/<controller:(image-album|audio-album|video-album|application-album|text-album|other-album)>/<action:(index|view|create|update|delete)>' => '<module>/<controller>/<action>',
             ],
         ],
         'i18n' => [

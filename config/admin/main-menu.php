@@ -128,6 +128,50 @@ return [
             'url' => '/'.$shortLanguage.'/admin/home',
             'active' => $controllerId == 'home' ? true : false
         ],
+        'albums' => [
+            'title' => 'Albums',
+            'icon' => 'fa fa-book',
+            'url' => '#',
+            'subItems' => [
+                'imageAlbums' => [
+                    'title' => 'Image albums',
+                    'icon' => 'fa fa-picture-o',
+                    'url' => '/'.$shortLanguage.'/mfuploader/image-album',
+                    'active' => $controllerId == 'image-album' ? true : false
+                ],
+                'audioAlbums' => [
+                    'title' => 'Audio albums',
+                    'icon' => 'fa fa-headphones',
+                    'url' => '/'.$shortLanguage.'/mfuploader/audio-album',
+                    'active' => $controllerId == 'audio-album' ? true : false
+                ],
+                'videoAlbums' => [
+                    'title' => 'Video albums',
+                    'icon' => 'fa fa-video-camera',
+                    'url' => '/'.$shortLanguage.'/mfuploader/video-album',
+                    'active' => $controllerId == 'video-album' ? true : false
+                ],
+                'appAlbums' => [
+                    'title' => 'Application albums',
+                    'icon' => 'fa fa-microchip',
+                    'url' => '/'.$shortLanguage.'/mfuploader/application-album',
+                    'active' => $controllerId == 'application-album' ? true : false
+                ],
+                'textAlbums' => [
+                    'title' => 'Text albums',
+                    'icon' => 'fa fa-file-text',
+                    'url' => '/'.$shortLanguage.'/mfuploader/text-album',
+                    'active' => $controllerId == 'text-album' ? true : false
+                ],
+                'otherAlbums' => [
+                    'title' => 'Other albums',
+                    'icon' => 'fa fa-file',
+                    'url' => '/'.$shortLanguage.'/mfuploader/other-album',
+                    'active' => $controllerId == 'other-album' ? true : false
+                ],
+            ],
+            'active' => in_array($controllerId, ['image-album', 'audio-album', 'video-album', 'application-album', 'text-album', 'other-album']) ? true : false
+        ],
         'sitemap' => [
             'title' => Yii::t('app', 'Sitemap'),
             'icon' => 'fa fa-sitemap',
