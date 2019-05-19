@@ -3,6 +3,7 @@
 /* @var $this Itstructure\AdminModule\components\AdminView */
 /* @var $model Itstructure\AdminModule\models\MultilanguageValidateModel */
 /* @var $pages array|\yii\db\ActiveRecord[] */
+/* @var $albums Itstructure\MFUploader\models\album\Album[] */
 
 $this->title = Yii::t('products', 'Create product');
 $this->params['breadcrumbs'][] = [
@@ -18,6 +19,7 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'Create');
     <?php echo $this->render('_form', [
         'model' => $model,
         'pages' => $pages,
+        'albums' => $albums,
     ]) ?>
 
 </div>

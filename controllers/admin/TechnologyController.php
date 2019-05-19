@@ -17,42 +17,6 @@ class TechnologyController extends CommonAdminController
     use LanguageTrait, AdminBeforeActionTrait, AccessTrait;
 
     /**
-     * Get addition fields for the view template.
-     *
-     * @return array
-     */
-    protected function getAdditionFields(): array
-    {
-        if ($this->action->id == 'create' || $this->action->id == 'update') {
-            return [
-                'aboutList' => About::find()->all(),
-            ];
-        }
-
-        return $this->additionFields;
-    }
-
-    /**
-     * Returns Technology model name.
-     *
-     * @return string
-     */
-    protected function getModelName():string
-    {
-        return Technology::class;
-    }
-
-    /**
-     * Returns TechnologySearch model name.
-     *
-     * @return string
-     */
-    protected function getSearchModelName():string
-    {
-        return TechnologySearch::class;
-    }
-
-    /**
      * @return mixed|string
      */
     public function actionIndex()
@@ -116,5 +80,41 @@ class TechnologyController extends CommonAdminController
         }
 
         return parent::actionDelete($id);
+    }
+
+    /**
+     * Get addition fields for the view template.
+     *
+     * @return array
+     */
+    protected function getAdditionFields(): array
+    {
+        if ($this->action->id == 'create' || $this->action->id == 'update') {
+            return [
+                'aboutList' => About::find()->all(),
+            ];
+        }
+
+        return $this->additionFields;
+    }
+
+    /**
+     * Returns Technology model name.
+     *
+     * @return string
+     */
+    protected function getModelName():string
+    {
+        return Technology::class;
+    }
+
+    /**
+     * Returns TechnologySearch model name.
+     *
+     * @return string
+     */
+    protected function getSearchModelName():string
+    {
+        return TechnologySearch::class;
     }
 }

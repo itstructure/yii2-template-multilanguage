@@ -22,26 +22,6 @@ class PositionController extends CommonAdminController
     protected $isMultilanguage = true;
 
     /**
-     * Returns Contact model name.
-     *
-     * @return string
-     */
-    protected function getModelName():string
-    {
-        return Position::class;
-    }
-
-    /**
-     * Returns ContactSearch model name.
-     *
-     * @return string
-     */
-    protected function getSearchModelName():string
-    {
-        return PositionSearch::class;
-    }
-
-    /**
      * @return mixed|string
      */
     public function actionIndex()
@@ -105,5 +85,25 @@ class PositionController extends CommonAdminController
         }
 
         return parent::actionDelete($id);
+    }
+
+    /**
+     * Returns Contact model name.
+     *
+     * @return string
+     */
+    protected function getModelName():string
+    {
+        return Position::class;
+    }
+
+    /**
+     * Returns ContactSearch model name.
+     *
+     * @return string
+     */
+    protected function getSearchModelName():string
+    {
+        return PositionSearch::class;
     }
 }

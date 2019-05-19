@@ -3,6 +3,7 @@
 use yii\grid\GridView;
 use yii\widgets\LinkPager;
 use yii\helpers\{Url, Html};
+use Itstructure\MFUploader\Module as MFUModule;
 use app\models\ProductSearch;
 
 /* @var $searchModel ProductSearch */
@@ -40,6 +41,18 @@ $this->params['breadcrumbs'][] = $this->title;
                         Html::tag('i', '', ['class' => empty($searchModel->icon) ? 'fa fa-file fa-2x' : $searchModel->icon]),
                         Url::to([$this->params['urlPrefix'].'view', 'id' => $searchModel->id])
                     );
+                },
+                'format' => 'raw',
+            ],
+            [
+                'label' => MFUModule::t('main', 'Thumbnail'),
+                'value' => function($data) {
+                    /* @var $data ProductSearch */
+                    $defaultThumbImage = $data->getDefaultThumbImage();
+                    return !empty($defaultThumbImage) ? Html::a($defaultThumbImage, Url::to([
+                        $this->params['urlPrefix'].'view',
+                        'id' => $data->id
+                    ])) : '';
                 },
                 'format' => 'raw',
             ],

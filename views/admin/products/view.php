@@ -4,9 +4,11 @@ use yii\helpers\{Html, Url};
 use yii\widgets\DetailView;
 use Itstructure\FieldWidgets\TableMultilanguage;
 use Itstructure\AdminModule\models\Language;
+use Itstructure\MFUploader\Module as MFUModule;
+use app\models\Product;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Product */
+/* @var $model Product */
 
 $this->title = $model->getDefaultTranslate('title');
 $this->params['breadcrumbs'][] = [
@@ -82,15 +84,26 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'label' => Yii::t('app', 'Icon'),
                 'value' => function($model) {
-                    /* @var $model app\models\Product */
+                    /* @var $model Product */
                     return Html::tag('i', '', ['class' => empty($model->icon) ? 'fa fa-file fa-2x' : $model->icon]);
+                },
+                'format' => 'raw',
+            ],
+            'thumbnail' => [
+                'label' => MFUModule::t('main', 'Thumbnail'),
+                'value' => function ($model) {
+                    /* @var $model Product */
+                    $thumbnailModel = $model->getThumbnailModel();
+                    return $thumbnailModel == null ? '' : Html::a($model->getDefaultThumbImage(), Url::to($thumbnailModel->getThumbUrl(MFUModule::THUMB_ALIAS_LARGE)), [
+                        'target' => '_blank'
+                    ]);
                 },
                 'format' => 'raw',
             ],
             [
                 'label' => Yii::t('app', 'Active status'),
                 'value' => function($model) {
-                    /* @var $model app\models\Product */
+                    /* @var $model Product */
                     if ($model->active == 1){
                         return '<i class="fa fa-check-circle text-success"> ' . Yii::t('app', 'Active') . '</i>';
                     } else {
@@ -102,7 +115,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'label' => Yii::t('products', 'Parent page'),
                 'value' => function ($model) {
-                    /* @var $model app\models\Product */
+                    /* @var $model Product */
                     return null === $model->page ? '' : Html::a(
                         $model->page->getDefaultTranslate('title'),
                         Url::to(['/'.$this->params['shortLanguage'].'/admin/pages/view', 'id' => $model->page->id]),

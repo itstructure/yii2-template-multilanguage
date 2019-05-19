@@ -50,26 +50,6 @@ class ContactController extends CommonAdminController
     }
 
     /**
-     * Returns Contact model name.
-     *
-     * @return string
-     */
-    protected function getModelName():string
-    {
-        return Contact::class;
-    }
-
-    /**
-     * Returns ContactSearch model name.
-     *
-     * @return string
-     */
-    protected function getSearchModelName():string
-    {
-        return ContactSearch::class;
-    }
-
-    /**
      * @return mixed|string
      */
     public function actionIndex()
@@ -133,5 +113,25 @@ class ContactController extends CommonAdminController
         }
 
         return parent::actionDelete($id);
+    }
+
+    /**
+     * Returns Contact model name.
+     *
+     * @return string
+     */
+    protected function getModelName():string
+    {
+        return Contact::class;
+    }
+
+    /**
+     * Returns ContactSearch model name.
+     *
+     * @return string
+     */
+    protected function getSearchModelName():string
+    {
+        return ContactSearch::class;
     }
 }

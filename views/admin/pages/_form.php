@@ -1,15 +1,19 @@
 <?php
 
-use yii\helpers\{Html, Url};
+use yii\helpers\{Html, Url, ArrayHelper};
 use yii\widgets\ActiveForm;
 use Itstructure\FieldWidgets\{Fields, FieldType};
 use Itstructure\AdminModule\models\Language;
 use Itstructure\MultiLevelMenu\MenuWidget;
+use Itstructure\MFUploader\Module as MFUModule;
+use Itstructure\MFUploader\models\album\Album;
 
 /* @var $this Itstructure\AdminModule\components\AdminView */
 /* @var $model app\models\Page|Itstructure\AdminModule\models\MultilanguageValidateModel */
 /* @var $form yii\widgets\ActiveForm */
 /* @var $pages array|\yii\db\ActiveRecord[] */
+/* @var $albums Album[] */
+/* @var $ownerParams array */
 ?>
 
 <div class="catalog-form">
@@ -84,6 +88,17 @@ use Itstructure\MultiLevelMenu\MenuWidget;
                 </div>
             </div>
 
+            <!-- Thumbnail begin -->
+            <div class="row" style="margin-bottom: 15px;">
+                <div class="col-md-6">
+                    <?php echo $this->render('_thumbnail', [
+                        'model' => $model,
+                        'ownerParams' => isset($ownerParams) && is_array($ownerParams) ? $ownerParams : null,
+                    ]) ?>
+                </div>
+            </div>
+            <!-- Thumbnail end -->
+
             <?php echo $form->field($model, 'active')
                 ->radioList([1 => Yii::t('app', 'Active'), 0 => Yii::t('app', 'Inactive')])
                 ->label(Yii::t('app', 'Active status')); ?>
@@ -109,6 +124,18 @@ use Itstructure\MultiLevelMenu\MenuWidget;
                 ],
             ]) ?>
 
+            <!-- Albums begin -->
+            <div class="row" style="margin-bottom: 15px;">
+                <div class="col-md-6">
+                    <?php echo $form->field($model, 'albums')->checkboxList(
+                        ArrayHelper::map($albums, 'id', 'title'),
+                        [
+                            'separator' => '<br />',
+                        ]
+                    )->label(MFUModule::t('album', 'Albums')); ?>
+                </div>
+            </div>
+            <!-- Albums end -->
         </div>
     </div>
 

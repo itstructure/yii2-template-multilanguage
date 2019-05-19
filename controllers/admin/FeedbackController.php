@@ -35,26 +35,6 @@ class FeedbackController extends CommonAdminController
     }
 
     /**
-     * Returns Product model name.
-     *
-     * @return string
-     */
-    protected function getModelName():string
-    {
-        return Feedback::class;
-    }
-
-    /**
-     * Returns ProductSearch model name.
-     *
-     * @return string
-     */
-    protected function getSearchModelName():string
-    {
-        return FeedbackSearch::class;
-    }
-
-    /**
      * @return mixed|string
      */
     public function actionIndex()
@@ -92,5 +72,25 @@ class FeedbackController extends CommonAdminController
         }
 
         return parent::actionDelete($id);
+    }
+
+    /**
+     * Returns Product model name.
+     *
+     * @return string
+     */
+    protected function getModelName():string
+    {
+        return Feedback::class;
+    }
+
+    /**
+     * Returns ProductSearch model name.
+     *
+     * @return string
+     */
+    protected function getSearchModelName():string
+    {
+        return FeedbackSearch::class;
     }
 }

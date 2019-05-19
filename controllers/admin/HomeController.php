@@ -50,26 +50,6 @@ class HomeController extends CommonAdminController
     }
 
     /**
-     * Returns Home model name.
-     *
-     * @return string
-     */
-    protected function getModelName():string
-    {
-        return Home::class;
-    }
-
-    /**
-     * Returns HomeSearch model name.
-     *
-     * @return string
-     */
-    protected function getSearchModelName():string
-    {
-        return HomeSearch::class;
-    }
-
-    /**
      * @return mixed|string
      */
     public function actionIndex()
@@ -133,5 +113,25 @@ class HomeController extends CommonAdminController
         }
 
         return parent::actionDelete($id);
+    }
+
+    /**
+     * Returns Home model name.
+     *
+     * @return string
+     */
+    protected function getModelName():string
+    {
+        return Home::class;
+    }
+
+    /**
+     * Returns HomeSearch model name.
+     *
+     * @return string
+     */
+    protected function getSearchModelName():string
+    {
+        return HomeSearch::class;
     }
 }

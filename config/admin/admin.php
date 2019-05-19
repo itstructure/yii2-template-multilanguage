@@ -23,12 +23,7 @@ use app\controllers\admin\{
     PositionController,
     SitemapController
 };
-use Itstructure\AdminModule\Module as AdminModule;
-use Itstructure\RbacModule\Module as RbacModule;
-use Itstructure\MFUploader\Module as MFUModule;
-use Itstructure\MFUploader\controllers\ManagerController;
-use Itstructure\MFUploader\controllers\upload\{LocalUploadController, S3UploadController};
-use Itstructure\MFUploader\controllers\album\{
+use app\controllers\admin\album\{
     ImageAlbumController,
     AudioAlbumController,
     VideoAlbumController,
@@ -36,6 +31,11 @@ use Itstructure\MFUploader\controllers\album\{
     TextAlbumController,
     OtherAlbumController
 };
+use Itstructure\AdminModule\Module as AdminModule;
+use Itstructure\RbacModule\Module as RbacModule;
+use Itstructure\MFUploader\Module as MFUModule;
+use Itstructure\MFUploader\controllers\ManagerController;
+use Itstructure\MFUploader\controllers\upload\{LocalUploadController, S3UploadController};
 use Itstructure\MFUploader\components\{LocalUploadComponent, S3UploadComponent};
 
 return [

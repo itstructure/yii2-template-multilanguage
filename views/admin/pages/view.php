@@ -1,13 +1,17 @@
 <?php
 
-use yii\helpers\Html;
+use yii\helpers\{Html, Url};
+use yii\grid\GridView;
 use yii\widgets\DetailView;
 use yii\data\ArrayDataProvider;
 use Itstructure\FieldWidgets\TableMultilanguage;
 use Itstructure\AdminModule\models\Language;
+use Itstructure\MFUploader\Module as MFUModule;
+use Itstructure\MFUploader\models\album\Album;
+use app\models\Page;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Page */
+/* @var $model Page */
 /* @var $albumsDataProvider yii\data\ArrayDataProvider */
 
 $this->title = $model->getDefaultTranslate('title');
@@ -84,15 +88,26 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'label' => Yii::t('app', 'Icon'),
                 'value' => function($model) {
-                    /* @var $model app\models\Page */
+                    /* @var $model Page */
                     return Html::tag('i', '', ['class' => empty($model->icon) ? 'fa fa-file fa-2x' : $model->icon]);
+                },
+                'format' => 'raw',
+            ],
+            'thumbnail' => [
+                'label' => MFUModule::t('main', 'Thumbnail'),
+                'value' => function ($model) {
+                    /* @var $model Page */
+                    $thumbnailModel = $model->getThumbnailModel();
+                    return $thumbnailModel == null ? '' : Html::a($model->getDefaultThumbImage(), Url::to($thumbnailModel->getThumbUrl(MFUModule::THUMB_ALIAS_LARGE)), [
+                        'target' => '_blank'
+                    ]);
                 },
                 'format' => 'raw',
             ],
             [
                 'label' => Yii::t('app', 'Active status'),
                 'value' => function($model) {
-                    /* @var $model app\models\Page */
+                    /* @var $model Page */
                     if ($model->active == 1){
                         return '<i class="fa fa-check-circle text-success"> ' . Yii::t('app', 'Active') . '</i>';
                     } else {
@@ -113,6 +128,41 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ],
     ]) ?>
+
+    <h3>Albums</h3>
+    <?php echo GridView::widget([
+        'dataProvider' => new ArrayDataProvider([
+            'allModels' => $model->getAlbums()
+        ]),
+        'columns' => [
+            'thumbnail' => [
+                'label' => MFUModule::t('main', 'Thumbnail'),
+                'value' => function($item) {
+                    /** @var Album $item */
+                    return Html::a(
+                        $item->getDefaultThumbImage(),
+                        Url::to([
+                            '/files/'.$item->getFileType($item->type).'-album/view', 'id' => $item->id
+                        ])
+                    );
+                },
+                'format' => 'raw',
+            ],
+            'name' => [
+                'label' => MFUModule::t('album', 'Albums'),
+                'value' => function($item) {
+                    /** @var Album $item */
+                    return Html::a(
+                        Html::encode($item->title),
+                        Url::to([
+                            '/files/'.$item->getFileType($item->type).'-album/view', 'id' => $item->id
+                        ])
+                    );
+                },
+                'format' => 'raw',
+            ],
+        ],
+    ]); ?>
 
     <?php echo Html::a(Yii::t('pages', 'View products'), [
         '/'.$this->params['shortLanguage'].'/admin/products/index', 'ProductSearch[pageId]' => $model->id

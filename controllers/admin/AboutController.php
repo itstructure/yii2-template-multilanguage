@@ -50,26 +50,6 @@ class AboutController extends CommonAdminController
     }
 
     /**
-     * Returns About model name.
-     *
-     * @return string
-     */
-    protected function getModelName():string
-    {
-        return About::class;
-    }
-
-    /**
-     * Returns AboutSearch model name.
-     *
-     * @return string
-     */
-    protected function getSearchModelName():string
-    {
-        return AboutSearch::class;
-    }
-
-    /**
      * @return mixed|string
      */
     public function actionIndex()
@@ -133,5 +113,25 @@ class AboutController extends CommonAdminController
         }
 
         return parent::actionDelete($id);
+    }
+
+    /**
+     * Returns About model name.
+     *
+     * @return string
+     */
+    protected function getModelName():string
+    {
+        return About::class;
+    }
+
+    /**
+     * Returns AboutSearch model name.
+     *
+     * @return string
+     */
+    protected function getSearchModelName():string
+    {
+        return AboutSearch::class;
     }
 }

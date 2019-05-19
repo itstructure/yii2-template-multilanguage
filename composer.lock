@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "555f7302205536796e6bc938d3ca9d65",
+    "content-hash": "2af5835c00b464a84320f79cc80249c4",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -972,16 +972,16 @@
         },
         {
             "name": "itstructure/yii2-multi-format-uploader",
-            "version": "2.0.1",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itstructure/yii2-multi-format-uploader.git",
-                "reference": "31dd99f78f308c23384b8fe5b01f9a39663830d9"
+                "reference": "d9f5c1d95e5f74e46d9e49d7949967bc669fe228"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itstructure/yii2-multi-format-uploader/zipball/31dd99f78f308c23384b8fe5b01f9a39663830d9",
-                "reference": "31dd99f78f308c23384b8fe5b01f9a39663830d9",
+                "url": "https://api.github.com/repos/itstructure/yii2-multi-format-uploader/zipball/d9f5c1d95e5f74e46d9e49d7949967bc669fe228",
+                "reference": "d9f5c1d95e5f74e46d9e49d7949967bc669fe228",
                 "shasum": ""
             },
             "require": {
@@ -1018,7 +1018,7 @@
                 "yii 2",
                 "yii2"
             ],
-            "time": "2018-08-09T11:26:40+00:00"
+            "time": "2019-05-18T14:26:41+00:00"
         },
         {
             "name": "itstructure/yii2-multi-level-menu",

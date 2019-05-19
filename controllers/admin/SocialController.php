@@ -17,42 +17,6 @@ class SocialController extends CommonAdminController
     use LanguageTrait, AdminBeforeActionTrait, AccessTrait;
 
     /**
-     * Get addition fields for the view template.
-     *
-     * @return array
-     */
-    protected function getAdditionFields(): array
-    {
-        if ($this->action->id == 'create' || $this->action->id == 'update') {
-            return [
-                'contactList' => Contact::find()->all(),
-            ];
-        }
-
-        return $this->additionFields;
-    }
-
-    /**
-     * Returns Social model name.
-     *
-     * @return string
-     */
-    protected function getModelName():string
-    {
-        return Social::class;
-    }
-
-    /**
-     * Returns SocialSearch model name.
-     *
-     * @return string
-     */
-    protected function getSearchModelName():string
-    {
-        return SocialSearch::class;
-    }
-
-    /**
      * @return mixed|string
      */
     public function actionIndex()
@@ -116,5 +80,41 @@ class SocialController extends CommonAdminController
         }
 
         return parent::actionDelete($id);
+    }
+
+    /**
+     * Get addition fields for the view template.
+     *
+     * @return array
+     */
+    protected function getAdditionFields(): array
+    {
+        if ($this->action->id == 'create' || $this->action->id == 'update') {
+            return [
+                'contactList' => Contact::find()->all(),
+            ];
+        }
+
+        return $this->additionFields;
+    }
+
+    /**
+     * Returns Social model name.
+     *
+     * @return string
+     */
+    protected function getModelName():string
+    {
+        return Social::class;
+    }
+
+    /**
+     * Returns SocialSearch model name.
+     *
+     * @return string
+     */
+    protected function getSearchModelName():string
+    {
+        return SocialSearch::class;
     }
 }
