@@ -1,10 +1,13 @@
 <?php
 
 use yii\helpers\{Html, Url};
+use yii\grid\GridView;
 use yii\widgets\DetailView;
+use yii\data\ArrayDataProvider;
 use Itstructure\FieldWidgets\TableMultilanguage;
 use Itstructure\AdminModule\models\Language;
 use Itstructure\MFUploader\Module as MFUModule;
+use Itstructure\MFUploader\models\album\Album;
 use app\models\Product;
 
 /* @var $this yii\web\View */
@@ -138,5 +141,40 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ],
     ]) ?>
+
+    <h3><?php echo MFUModule::t('album', 'Albums') ?></h3>
+    <?php echo GridView::widget([
+        'dataProvider' => new ArrayDataProvider([
+            'allModels' => $model->getAlbums()
+        ]),
+        'columns' => [
+            'thumbnail' => [
+                'label' => MFUModule::t('main', 'Thumbnail'),
+                'value' => function($item) {
+                    /** @var Album $item */
+                    return Html::a(
+                        $item->getDefaultThumbImage(),
+                        Url::to([
+                            '/'.$this->params['shortLanguage'].'/mfuploader/'.$item->getFileType($item->type).'-album/view', 'id' => $item->id
+                        ])
+                    );
+                },
+                'format' => 'raw',
+            ],
+            'name' => [
+                'label' => MFUModule::t('album', 'Title'),
+                'value' => function($item) {
+                    /** @var Album $item */
+                    return Html::a(
+                        Html::encode($item->title),
+                        Url::to([
+                            '/'.$this->params['shortLanguage'].'/mfuploader/'.$item->getFileType($item->type).'-album/view', 'id' => $item->id
+                        ])
+                    );
+                },
+                'format' => 'raw',
+            ],
+        ],
+    ]); ?>
 
 </div>

@@ -129,7 +129,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
-    <h3>Albums</h3>
+    <h3><?php echo MFUModule::t('album', 'Albums') ?></h3>
     <?php echo GridView::widget([
         'dataProvider' => new ArrayDataProvider([
             'allModels' => $model->getAlbums()
@@ -142,20 +142,20 @@ $this->params['breadcrumbs'][] = $this->title;
                     return Html::a(
                         $item->getDefaultThumbImage(),
                         Url::to([
-                            '/files/'.$item->getFileType($item->type).'-album/view', 'id' => $item->id
+                            '/'.$this->params['shortLanguage'].'/mfuploader/'.$item->getFileType($item->type).'-album/view', 'id' => $item->id
                         ])
                     );
                 },
                 'format' => 'raw',
             ],
             'name' => [
-                'label' => MFUModule::t('album', 'Albums'),
+                'label' => MFUModule::t('album', 'Title'),
                 'value' => function($item) {
                     /** @var Album $item */
                     return Html::a(
                         Html::encode($item->title),
                         Url::to([
-                            '/files/'.$item->getFileType($item->type).'-album/view', 'id' => $item->id
+                            '/'.$this->params['shortLanguage'].'/mfuploader/'.$item->getFileType($item->type).'-album/view', 'id' => $item->id
                         ])
                     );
                 },
