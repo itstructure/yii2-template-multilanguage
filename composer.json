@@ -21,7 +21,7 @@
         "yiisoft/yii2-swiftmailer": "~2.0.0",
         "itstructure/yii2-admin-module": "^1.6.4",
         "itstructure/yii2-multi-level-menu": "^3.2.4",
-        "itstructure/yii2-multi-format-uploader": "2.1.0",
+        "itstructure/yii2-multi-format-uploader": "2.1.1",
         "itstructure/yii2-rbac-module": "^3.0.0",
         "dreamjobs/sitemap-generator": "~1.0",
         "google/recaptcha": "^1.2"

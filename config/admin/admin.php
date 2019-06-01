@@ -96,6 +96,7 @@ return [
             ],
             'accessRoles' => ['admin', 'manager'],
             'defaultStorageType' => MFUModule::STORAGE_TYPE_LOCAL,
+            'previewOptions' => require __DIR__ . '/../preview-options.php',
             'components' => [
                 'local-upload-component' => [
                     'class' => LocalUploadComponent::class,
