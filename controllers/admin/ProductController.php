@@ -2,9 +2,12 @@
 
 namespace app\controllers\admin;
 
+use yii\data\Pagination;
 use app\models\{Page, Product, ProductSearch};
 use app\traits\{LanguageTrait, AdminBeforeActionTrait, AccessTrait};
+use Itstructure\MFUploader\models\OwnerMediafile;
 use Itstructure\MFUploader\models\album\Album;
+use Itstructure\MFUploader\interfaces\UploadModelInterface;
 use Itstructure\AdminModule\controllers\CommonAdminController;
 
 /**
@@ -96,12 +99,30 @@ class ProductController extends CommonAdminController
     protected function getAdditionFields(): array
     {
         if ($this->action->id == 'create' || $this->action->id == 'update') {
-            return [
-                'pages' => Page::getMenu(),
-                'albums' => Album::find()->select([
-                    'id', 'title'
-                ])->all()
-            ];
+            $fields = [];
+
+            $fields['pages'] = Page::getMenu();
+            $fields['albums'] = Album::find()->select([
+                'id', 'title'
+            ])->all();
+
+            if ($this->action->id == 'update') {
+                $mediafilesQuery = OwnerMediafile::getMediaFilesQuery([
+                    'owner' => Product::tableName(),
+                    'ownerId' => $this->model->getId(),
+                    'ownerAttribute' => UploadModelInterface::FILE_TYPE_IMAGE,
+                ]);
+                $media_pages = new Pagination([
+                    'defaultPageSize' => 6,
+                    'totalCount' => $mediafilesQuery->count()
+                ]);
+                $fields['images'] = $mediafilesQuery->offset($media_pages->offset)
+                    ->limit($media_pages->limit)
+                    ->all();
+                $fields['media_pages'] = $media_pages;
+            }
+
+            return $fields;
         }
 
         return $this->additionFields;

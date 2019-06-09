@@ -1,14 +1,14 @@
 <?php
 
 use yii\helpers\ArrayHelper;
+use yii\db\ActiveRecord;
 use Itstructure\MFUploader\Module;
 use Itstructure\MFUploader\widgets\FileSetter;
 use Itstructure\MFUploader\interfaces\UploadModelInterface;
 use Itstructure\AdminModule\models\MultilanguageValidateModel;
-use app\models\Page;
 
 /* @var $this Itstructure\AdminModule\components\AdminView */
-/* @var $model Page|MultilanguageValidateModel */
+/* @var $model ActiveRecord|MultilanguageValidateModel */
 /* @var $ownerParams array */
 ?>
 

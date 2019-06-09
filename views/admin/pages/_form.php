@@ -91,7 +91,7 @@ use Itstructure\MFUploader\models\album\Album;
             <!-- Thumbnail begin -->
             <div class="row" style="margin-bottom: 15px;">
                 <div class="col-md-6">
-                    <?php echo $this->render('_thumbnail', [
+                    <?php echo $this->render('../mediafiles/_thumbnail', [
                         'model' => $model,
                         'ownerParams' => isset($ownerParams) && is_array($ownerParams) ? $ownerParams : null,
                     ]) ?>

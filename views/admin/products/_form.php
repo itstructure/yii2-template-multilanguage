@@ -1,5 +1,6 @@
 <?php
 
+use yii\data\Pagination;
 use yii\helpers\{Html, Url, ArrayHelper};
 use yii\widgets\ActiveForm;
 use Itstructure\FieldWidgets\{Fields, FieldType};
@@ -7,6 +8,8 @@ use Itstructure\AdminModule\models\Language;
 use Itstructure\MultiLevelMenu\MenuWidget;
 use Itstructure\MFUploader\Module as MFUModule;
 use Itstructure\MFUploader\models\album\Album;
+use Itstructure\MFUploader\interfaces\UploadModelInterface;
+use Itstructure\MFUploader\models\Mediafile;
 use yii\bootstrap\Modal;
 
 /* @var $this Itstructure\AdminModule\components\AdminView */
@@ -15,6 +18,8 @@ use yii\bootstrap\Modal;
 /* @var $pages array|\yii\db\ActiveRecord[] */
 /* @var $albums Album[] */
 /* @var $ownerParams array */
+/* @var $images Mediafile[] */
+/* @var $media_pages Pagination */
 ?>
 
 <div class="product-form">
@@ -100,7 +105,7 @@ use yii\bootstrap\Modal;
             <!-- Thumbnail begin -->
             <div class="row" style="margin-bottom: 15px;">
                 <div class="col-md-6">
-                    <?php echo $this->render('_thumbnail', [
+                    <?php echo $this->render('../mediafiles/_thumbnail', [
                         'model' => $model,
                         'ownerParams' => isset($ownerParams) && is_array($ownerParams) ? $ownerParams : null,
                     ]) ?>
@@ -152,6 +157,39 @@ use yii\bootstrap\Modal;
                 </div>
             </div>
             <!-- Albums end -->
+
+            <!-- New files begin -->
+            <div class="row">
+                <div class="col-md-12">
+                    <h5><?php echo MFUModule::t('main', 'New files'); ?></h5>
+                    <?php for ($i=1; $i < 5; $i++): ?>
+                        <?php echo $this->render('../mediafiles/_new-mediafiles', [
+                            'model' => $model,
+                            'fileType' => UploadModelInterface::FILE_TYPE_IMAGE,
+                            'ownerParams' => isset($ownerParams) && is_array($ownerParams) ? $ownerParams : null,
+                            'number' => $i,
+                        ]) ?>
+                    <?php endfor; ?>
+                </div>
+            </div>
+            <!-- New files end -->
+
+            <!-- Existing files begin -->
+            <?php if (!$model->isNewRecord): ?>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h5><?php echo MFUModule::t('main', 'Existing files'); ?></h5>
+                        <?php echo $this->render('../mediafiles/_existing-mediafiles', [
+                            'model' => $model,
+                            'mediafiles' => $images,
+                            'pages' => $media_pages,
+                            'fileType' => UploadModelInterface::FILE_TYPE_IMAGE,
+                            'ownerParams' => isset($ownerParams) && is_array($ownerParams) ? $ownerParams : null,
+                        ]) ?>
+                    </div>
+                </div>
+            <?php endif; ?>
+            <!-- Existing files end -->
         </div>
     </div>
 

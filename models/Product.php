@@ -14,6 +14,7 @@ use Itstructure\MFUploader\interfaces\UploadModelInterface;
  * This is the model class for table "products".
  *
  * @property int|string $thumbnail thumbnail(mediafile id or url).
+ * @property array $image image(array of 'mediafile id' or 'mediafile url').
  * @property array $albums Existing album ids.
  * @property int $id
  * @property string $created_at
@@ -36,6 +37,11 @@ class Product extends ActiveRecord
      * @var int|string thumbnail(mediafile id or url).
      */
     public $thumbnail;
+
+    /**
+     * @var array image(array of 'mediafile id' or 'mediafile url').
+     */
+    public $image;
 
     /**
      * @var array
@@ -119,6 +125,15 @@ class Product extends ActiveRecord
                 'skipOnError' => false,
             ],
             [
+                UploadModelInterface::FILE_TYPE_IMAGE,
+                function($attribute) {
+                    if (!is_array($this->{$attribute})) {
+                        $this->addError($attribute, 'Image field content must be an array.');
+                    }
+                },
+                'skipOnError' => false,
+            ],
+            [
                 'albums',
                 'each',
                 'rule' => ['integer'],
@@ -137,6 +152,7 @@ class Product extends ActiveRecord
                 'name' => static::tableName(),
                 'attributes' => [
                     UploadModelInterface::FILE_TYPE_THUMB,
+                    UploadModelInterface::FILE_TYPE_IMAGE,
                 ],
             ],
             'albums' => [
@@ -156,6 +172,7 @@ class Product extends ActiveRecord
     {
         return [
             UploadModelInterface::FILE_TYPE_THUMB,
+            UploadModelInterface::FILE_TYPE_IMAGE,
             'albums',
             'id',
             'pageId',
