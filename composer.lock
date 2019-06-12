@@ -4,19 +4,19 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c762a18fc9da4ac5a8b36a886c82480a",
+    "content-hash": "5e383e7924abea533d6bf3328d7462cf",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
             "version": "v2.4.8",
             "source": {
                 "type": "git",
-                "url": "https://github.com/almasaeed2010/AdminLTE.git",
+                "url": "https://github.com/ColorlibHQ/AdminLTE.git",
                 "reference": "d9e68301848a95dff2e2dbef6569e617a9b3fa30"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/almasaeed2010/AdminLTE/zipball/d9e68301848a95dff2e2dbef6569e617a9b3fa30",
+                "url": "https://api.github.com/repos/ColorlibHQ/AdminLTE/zipball/d9e68301848a95dff2e2dbef6569e617a9b3fa30",
                 "reference": "d9e68301848a95dff2e2dbef6569e617a9b3fa30",
                 "shasum": ""
             },
@@ -972,16 +972,16 @@
         },
         {
             "name": "itstructure/yii2-multi-format-uploader",
-            "version": "2.1.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itstructure/yii2-multi-format-uploader.git",
-                "reference": "251f77dd4513eb3f77d3713ad7119a9503205ca4"
+                "reference": "bdc0b67ace2da537440cf874d285f88b236ce8a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itstructure/yii2-multi-format-uploader/zipball/251f77dd4513eb3f77d3713ad7119a9503205ca4",
-                "reference": "251f77dd4513eb3f77d3713ad7119a9503205ca4",
+                "url": "https://api.github.com/repos/itstructure/yii2-multi-format-uploader/zipball/bdc0b67ace2da537440cf874d285f88b236ce8a6",
+                "reference": "bdc0b67ace2da537440cf874d285f88b236ce8a6",
                 "shasum": ""
             },
             "require": {
@@ -1018,7 +1018,7 @@
                 "yii 2",
                 "yii2"
             ],
-            "time": "2019-06-01T11:11:10+00:00"
+            "time": "2019-06-12T11:28:29+00:00"
         },
         {
             "name": "itstructure/yii2-multi-level-menu",
