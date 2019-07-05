@@ -6,7 +6,7 @@ use Itstructure\FieldWidgets\{Fields, FieldType};
 use Itstructure\AdminModule\models\Language;
 
 /* @var $this Itstructure\AdminModule\components\AdminView */
-/* @var $model app\models\Contact|Itstructure\AdminModule\models\MultilanguageValidateModel */
+/* @var $model app\models\Position|Itstructure\AdminModule\models\MultilanguageValidateModel */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 

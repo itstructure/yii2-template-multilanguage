@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5e383e7924abea533d6bf3328d7462cf",
+    "content-hash": "1cc270e3c5a02cfe06e3e686ff0c623a",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -177,7 +177,7 @@
             "version": "3.3.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/jquery/jquery-dist.git",
+                "url": "git@github.com:jquery/jquery-dist.git",
                 "reference": "9e8ec3d10fad04748176144f108d7355662ae75e"
             },
             "dist": {
@@ -836,16 +836,16 @@
         },
         {
             "name": "itstructure/yii2-admin-module",
-            "version": "1.6.4",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itstructure/yii2-admin-module.git",
-                "reference": "928362fbfa47e91adf0093ebb128ae8d7f7b7f05"
+                "reference": "12f1478b81425b2916f4a237336d738595fabfd2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itstructure/yii2-admin-module/zipball/928362fbfa47e91adf0093ebb128ae8d7f7b7f05",
-                "reference": "928362fbfa47e91adf0093ebb128ae8d7f7b7f05",
+                "url": "https://api.github.com/repos/itstructure/yii2-admin-module/zipball/12f1478b81425b2916f4a237336d738595fabfd2",
+                "reference": "12f1478b81425b2916f4a237336d738595fabfd2",
                 "shasum": ""
             },
             "require": {
@@ -879,7 +879,7 @@
                 "yii 2",
                 "yii2"
             ],
-            "time": "2019-05-02T03:30:34+00:00"
+            "time": "2019-07-14T17:33:06+00:00"
         },
         {
             "name": "itstructure/yii2-ckeditor",

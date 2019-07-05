@@ -2,13 +2,13 @@
 
 namespace app\models;
 
-use yii\helpers\{ArrayHelper, Html};
+use yii\helpers\ArrayHelper;
 use Itstructure\AdminModule\models\{MultilanguageTrait, Language};
-use Itstructure\MFUploader\Module as MFUModule;
 use Itstructure\MFUploader\behaviors\{BehaviorMediafile, BehaviorAlbum};
-use Itstructure\MFUploader\models\{Mediafile, OwnerAlbum, OwnerMediafile};
+use Itstructure\MFUploader\models\OwnerAlbum;
 use Itstructure\MFUploader\models\album\Album;
 use Itstructure\MFUploader\interfaces\UploadModelInterface;
+use app\traits\ThumbnailTrait;
 
 /**
  * This is the model class for table "products".
@@ -31,7 +31,7 @@ use Itstructure\MFUploader\interfaces\UploadModelInterface;
  */
 class Product extends ActiveRecord
 {
-    use MultilanguageTrait;
+    use MultilanguageTrait, ThumbnailTrait;
 
     /**
      * @var int|string thumbnail(mediafile id or url).
@@ -47,11 +47,6 @@ class Product extends ActiveRecord
      * @var array
      */
     public $albums = [];
-
-    /**
-     * @var array|null|\yii\db\ActiveRecord|Mediafile
-     */
-    protected $thumbnailModel;
 
     /**
      * Initialize.
@@ -242,51 +237,5 @@ class Product extends ActiveRecord
             'ownerId' => $this->id,
             'ownerAttribute' => 'albums',
         ])->all();
-    }
-
-    /**
-     * Get album thumb image.
-     *
-     * @param array  $options
-     *
-     * @return mixed
-     */
-    public function getDefaultThumbImage(array $options = [])
-    {
-        $thumbnailModel = $this->getThumbnailModel();
-
-        if (null === $thumbnailModel){
-            return null;
-        }
-
-        $url = $thumbnailModel->getThumbUrl(MFUModule::THUMB_ALIAS_DEFAULT);
-
-        if (empty($url)) {
-            return null;
-        }
-
-        if (empty($options['alt'])) {
-            $options['alt'] = $thumbnailModel->alt;
-        }
-
-        return Html::img($url, $options);
-    }
-
-    /**
-     * Get product's thumbnail.
-     *
-     * @return array|null|\yii\db\ActiveRecord|Mediafile
-     */
-    public function getThumbnailModel()
-    {
-        if (null === $this->id) {
-            return null;
-        }
-
-        if ($this->thumbnailModel === null) {
-            $this->thumbnailModel = OwnerMediafile::getOwnerThumbnail($this->tableName(), $this->id);
-        }
-
-        return $this->thumbnailModel;
     }
 }

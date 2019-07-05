@@ -9,9 +9,9 @@ use yii\rbac\Role as BaseRole;
 use Itstructure\AdminModule\interfaces\AdminMenuInterface;
 use Itstructure\RbacModule\interfaces\RbacIdentityInterface;
 use Itstructure\MFUploader\behaviors\BehaviorMediafile;
-use Itstructure\MFUploader\Module as MFUModule;
-use Itstructure\MFUploader\models\{Mediafile, OwnerMediafile};
+use Itstructure\MFUploader\models\Mediafile;
 use Itstructure\MFUploader\interfaces\UploadModelInterface;
+use app\traits\ThumbnailTrait;
 
 /**
  * Class User model.
@@ -36,6 +36,8 @@ use Itstructure\MFUploader\interfaces\UploadModelInterface;
  */
 class User extends ActiveRecord implements RbacIdentityInterface, AdminMenuInterface
 {
+    use ThumbnailTrait;
+
     /**
      * Password confirmed.
      *
@@ -49,11 +51,6 @@ class User extends ActiveRecord implements RbacIdentityInterface, AdminMenuInter
      * @var int|string
      */
     public $thumbnail;
-
-    /**
-     * @var array|null|\yii\db\ActiveRecord|Mediafile
-     */
-    protected $thumbnailModel;
 
     /**
      * @inheritdoc
@@ -370,37 +367,9 @@ class User extends ActiveRecord implements RbacIdentityInterface, AdminMenuInter
      */
     public function getAvatar(): string
     {
-        $thumbnailModel = $this->getThumbnailModel();
+        $defaultThumbImage = $this->getDefaultThumbImage();
 
-        if (null === $thumbnailModel){
-            return '';
-        }
-
-        $url = $thumbnailModel->getThumbUrl(MFUModule::THUMB_ALIAS_DEFAULT);
-
-        if (empty($url)) {
-            return '';
-        }
-
-        return $url;
-    }
-
-    /**
-     * Get catalog's thumbnail.
-     *
-     * @return array|null|\yii\db\ActiveRecord|Mediafile
-     */
-    public function getThumbnailModel()
-    {
-        if (null === $this->id) {
-            return null;
-        }
-
-        if ($this->thumbnailModel === null) {
-            $this->thumbnailModel = OwnerMediafile::getOwnerThumbnail($this->tableName(), $this->id);
-        }
-
-        return $this->thumbnailModel;
+        return empty($defaultThumbImage) ? '' : $defaultThumbImage;
     }
 
     /**
