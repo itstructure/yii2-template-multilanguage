@@ -101,6 +101,19 @@ class Technology extends ActiveRecord implements ModelInterface
     }
 
     /**
+     * @return array
+     */
+    public function scenarios()
+    {
+        $scenarios = parent::scenarios();
+
+        $scenarios[self::SCENARIO_CREATE][] = 'about';
+        $scenarios[self::SCENARIO_UPDATE][] = 'about';
+
+        return $scenarios;
+    }
+
+    /**
      * @return \yii\db\ActiveQuery
      */
     public function getAboutTechnologies()

@@ -98,6 +98,19 @@ class Social extends ActiveRecord implements ModelInterface
     }
 
     /**
+     * @return array
+     */
+    public function scenarios()
+    {
+        $scenarios = parent::scenarios();
+
+        $scenarios[self::SCENARIO_CREATE][] = 'contacts';
+        $scenarios[self::SCENARIO_UPDATE][] = 'contacts';
+
+        return $scenarios;
+    }
+
+    /**
      * @return \yii\db\ActiveQuery
      */
     public function getContactSocial()

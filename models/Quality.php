@@ -2,7 +2,6 @@
 
 namespace app\models;
 
-use Itstructure\AdminModule\interfaces\ModelInterface;
 use Itstructure\AdminModule\models\Language;
 
 /**
@@ -18,7 +17,7 @@ use Itstructure\AdminModule\models\Language;
  * @property QualityLanguage[] $qualitiesLanguages
  * @property Language[] $languages
  */
-class Quality extends QualityBase implements ModelInterface
+class Quality extends QualityBase
 {
     /**
      * Link with about entity after save.

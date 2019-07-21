@@ -4,6 +4,7 @@ namespace app\models;
 
 use yii\behaviors\TimestampBehavior;
 use yii\db\Expression;
+use Itstructure\AdminModule\interfaces\ModelInterface;
 
 /**
  * Class ActiveRecord
@@ -27,5 +28,19 @@ class ActiveRecord extends \yii\db\ActiveRecord
             'value'              => new Expression('NOW()'),
         ];
         return $behaviors;
+    }
+
+    /**
+     * Scenarios.
+     *
+     * @return array
+     */
+    public function scenarios()
+    {
+        return [
+            ModelInterface::SCENARIO_CREATE => $this->attributes(),
+            ModelInterface::SCENARIO_UPDATE => $this->attributes(),
+            self::SCENARIO_DEFAULT => $this->attributes(),
+        ];
     }
 }

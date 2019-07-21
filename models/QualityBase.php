@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Itstructure\AdminModule\models\{MultilanguageTrait, Language};
+use Itstructure\AdminModule\interfaces\ModelInterface;
 
 /**
  * This is the model class for table "qualities".
@@ -89,6 +90,19 @@ class QualityBase extends ActiveRecord
     }
 
     /**
+     * @return array
+     */
+    public function scenarios()
+    {
+        $scenarios = parent::scenarios();
+
+        $scenarios[ModelInterface::SCENARIO_CREATE][] = 'about';
+        $scenarios[ModelInterface::SCENARIO_UPDATE][] = 'about';
+
+        return $scenarios;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function attributeLabels()
@@ -131,16 +145,6 @@ class QualityBase extends ActiveRecord
     public function setAbout($about): void
     {
         $this->about = $about;
-    }
-
-    /**
-     * Returns id of the model.
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**

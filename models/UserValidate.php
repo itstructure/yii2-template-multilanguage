@@ -55,12 +55,6 @@ class UserValidate extends Model implements ModelInterface
     private $authManager;
 
     /**
-     * Scenarios constants.
-     */
-    const SCENARIO_CREATE = 'create';
-    const SCENARIO_UPDATE = 'update';
-
-    /**
      * Initialize.
      */
     public function init()
