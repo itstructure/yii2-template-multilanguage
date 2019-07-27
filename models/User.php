@@ -367,9 +367,9 @@ class User extends ActiveRecord implements RbacIdentityInterface, AdminMenuInter
      */
     public function getAvatar(): string
     {
-        $defaultThumbImage = $this->getDefaultThumbImage();
+        $defaultThumbUrl = $this->getDefaultThumbUrl();
 
-        return empty($defaultThumbImage) ? '' : $defaultThumbImage;
+        return empty($defaultThumbUrl) ? '' : $defaultThumbUrl;
     }
 
     /**

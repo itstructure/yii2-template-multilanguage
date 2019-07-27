@@ -28,23 +28,31 @@ trait ThumbnailTrait
      */
     public function getDefaultThumbImage(array $options = [])
     {
-        $thumbnailModel = $this->getThumbnailModel();
-
-        if (null === $thumbnailModel){
-            return null;
-        }
-
-        $url = $thumbnailModel->getThumbUrl(MFUModule::THUMB_ALIAS_DEFAULT);
+        $url = $this->getDefaultThumbUrl();
 
         if (empty($url)) {
             return null;
         }
 
         if (empty($options['alt'])) {
-            $options['alt'] = $thumbnailModel->alt;
+            $options['alt'] = $this->thumbnailModel->alt;
         }
 
         return Html::img($url, $options);
+    }
+
+    /**
+     * Get default url to thumbnail file.
+     *
+     * @return null|string
+     */
+    public function getDefaultThumbUrl()
+    {
+        if (null == $this->getThumbnailModel()){
+            return null;
+        }
+
+        return $this->thumbnailModel->getThumbUrl(MFUModule::THUMB_ALIAS_DEFAULT);
     }
 
     /**
@@ -58,7 +66,7 @@ trait ThumbnailTrait
             return null;
         }
 
-        if ($this->thumbnailModel === null) {
+        if ($this->thumbnailModel == null) {
             $this->thumbnailModel = OwnerMediafile::getOwnerThumbnail($this->tableName(), $this->id);
         }
 
