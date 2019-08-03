@@ -57,6 +57,10 @@ class SitemapContact extends Contact implements Basic, GoogleAlternateLang
     {
         $this->model = Contact::getDefaultContacts();
 
+        if (empty($this->model)) {
+            return null;
+        }
+
         return [
             [
                 'loc' => Url::to('/' . $lang . '/contact', true),

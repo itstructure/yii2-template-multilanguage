@@ -57,6 +57,10 @@ class SitemapHome extends Home implements Basic, GoogleAlternateLang
     {
         $this->model = Home::getDefaultHome();
 
+        if (empty($this->model)) {
+            return null;
+        }
+
         return [
             [
                 'loc' => Url::to('/' . $lang, true),

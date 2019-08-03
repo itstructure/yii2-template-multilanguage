@@ -57,6 +57,10 @@ class SitemapAbout extends About implements Basic, GoogleAlternateLang
     {
         $this->model = About::getDefaultAbout();
 
+        if (empty($this->model)) {
+            return null;
+        }
+
         return [
             [
                 'loc' => Url::to('/' . $lang . '/about', true),
