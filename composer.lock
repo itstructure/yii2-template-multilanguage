@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1cc270e3c5a02cfe06e3e686ff0c623a",
+    "content-hash": "606c535d5a1295c390c9a4c15e7f988b",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -177,7 +177,7 @@
             "version": "3.3.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:jquery/jquery-dist.git",
+                "url": "https://github.com/jquery/jquery-dist.git",
                 "reference": "9e8ec3d10fad04748176144f108d7355662ae75e"
             },
             "dist": {
@@ -195,7 +195,7 @@
             "version": "v1.3.2",
             "source": {
                 "type": "git",
-                "url": "git@github.com:bestiejs/punycode.js.git",
+                "url": "https://github.com/bestiejs/punycode.js.git",
                 "reference": "38c8d3131a82567bfef18da09f7f4db68c84f8a3"
             },
             "dist": {
@@ -836,16 +836,16 @@
         },
         {
             "name": "itstructure/yii2-admin-module",
-            "version": "1.7.0",
+            "version": "1.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itstructure/yii2-admin-module.git",
-                "reference": "12f1478b81425b2916f4a237336d738595fabfd2"
+                "reference": "ed13a43305345a18d4f861752553537253290124"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itstructure/yii2-admin-module/zipball/12f1478b81425b2916f4a237336d738595fabfd2",
-                "reference": "12f1478b81425b2916f4a237336d738595fabfd2",
+                "url": "https://api.github.com/repos/itstructure/yii2-admin-module/zipball/ed13a43305345a18d4f861752553537253290124",
+                "reference": "ed13a43305345a18d4f861752553537253290124",
                 "shasum": ""
             },
             "require": {
@@ -879,7 +879,7 @@
                 "yii 2",
                 "yii2"
             ],
-            "time": "2019-07-14T17:33:06+00:00"
+            "time": "2019-08-19T15:52:55+00:00"
         },
         {
             "name": "itstructure/yii2-ckeditor",
@@ -972,16 +972,16 @@
         },
         {
             "name": "itstructure/yii2-multi-format-uploader",
-            "version": "2.1.2",
+            "version": "2.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itstructure/yii2-multi-format-uploader.git",
-                "reference": "bdc0b67ace2da537440cf874d285f88b236ce8a6"
+                "reference": "22419bb39c1ac3f5ad1f1533758a50bb6750edf6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itstructure/yii2-multi-format-uploader/zipball/bdc0b67ace2da537440cf874d285f88b236ce8a6",
-                "reference": "bdc0b67ace2da537440cf874d285f88b236ce8a6",
+                "url": "https://api.github.com/repos/itstructure/yii2-multi-format-uploader/zipball/22419bb39c1ac3f5ad1f1533758a50bb6750edf6",
+                "reference": "22419bb39c1ac3f5ad1f1533758a50bb6750edf6",
                 "shasum": ""
             },
             "require": {
@@ -1018,7 +1018,7 @@
                 "yii 2",
                 "yii2"
             ],
-            "time": "2019-06-12T11:28:29+00:00"
+            "time": "2019-08-19T15:46:26+00:00"
         },
         {
             "name": "itstructure/yii2-multi-level-menu",
