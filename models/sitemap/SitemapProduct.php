@@ -82,7 +82,7 @@ class SitemapProduct extends Product implements Basic, GoogleAlternateLang
      */
     public function getSitemapLoc($lang = null)
     {
-        return Url::to('/' . $lang . '/product/' . $this->id, true);
+        return Url::to('/' . $lang . '/product/' . $this->alias, true);
     }
 
     /**

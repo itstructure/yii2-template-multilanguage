@@ -42,20 +42,21 @@ class ProductController extends BaseController
     /**
      * Displays product page.
      *
+     * @param $alias
      * @return string
      *
      * @throws NotFoundHttpException
      */
-    public function actionView($id)
+    public function actionView($alias)
     {
         $model = Product::find()->where([
-            'id' => $id
+            'alias' => $alias
         ])->andWhere([
             'active' => 1
         ])->one();
 
         if (null === $model) {
-            throw new NotFoundHttpException('Product not fount with id = '.$id.'.');
+            throw new NotFoundHttpException('Product not fount with alias = '.$alias.'.');
         }
 
         $this->setMetaParams($model);

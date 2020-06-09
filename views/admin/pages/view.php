@@ -105,6 +105,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'raw',
             ],
             [
+                'attribute' => 'alias',
+                'label' => Yii::t('app', 'URL Alias'),
+            ],
+            [
                 'label' => Yii::t('app', 'Active status'),
                 'value' => function($model) {
                     /* @var $model Page */

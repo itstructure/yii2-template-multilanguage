@@ -3,6 +3,7 @@
 namespace app\models;
 
 use yii\base\Model;
+use yii\helpers\ArrayHelper;
 use yii\data\{ActiveDataProvider, Pagination};
 
 /**
@@ -12,6 +13,13 @@ use yii\data\{ActiveDataProvider, Pagination};
  */
 class FeedbackSearch extends Feedback
 {
+    /**
+     * @var array
+     */
+    public $delete_items = [];
+
+    const SCENARIO_DELETE_SELECTED = 'delete_selected';
+
     /**
      * @inheritdoc
      */
@@ -42,8 +50,13 @@ class FeedbackSearch extends Feedback
      */
     public function scenarios()
     {
-        // bypass scenarios() implementation in the parent class
-        return Model::scenarios();
+        return ArrayHelper::merge(
+            Model::scenarios(),
+            parent::scenarios(),
+            [
+                self::SCENARIO_DELETE_SELECTED => ['delete_items']
+            ]
+        );
     }
 
     /**
@@ -98,5 +111,13 @@ class FeedbackSearch extends Feedback
         $dataProvider->setPagination($pagination);
 
         return $dataProvider;
+    }
+
+    /**
+     * @return int
+     */
+    public function deleteSelected()
+    {
+        return static::deleteAll(['id' => $this->delete_items]);
     }
 }

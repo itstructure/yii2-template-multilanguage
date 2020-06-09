@@ -78,7 +78,7 @@ $config = [
                 '<shortLanguage:\w+>/<action:(reg|login)>' => 'site/<action>',
                 '<shortLanguage:\w+>/<controller:(contact|site)>/captcha' => '<controller>/captcha',
                 '<shortLanguage:\w+>/<controller:(home|about|contact|site)>' => '<controller>/index',
-                '<shortLanguage:\w+>/<controller:(page|product)>/<id:\d+>' => '<controller>/view',
+                '<shortLanguage:\w+>/<controller:(page|product)>/<alias>' => '<controller>/view',
                 '<controller:(ajax/feedback-ajax)>/<action:(send)>' => '<controller>/<action>',
                 '<controller:(ajax/recaptcha-ajax)>/<action:(validate)>' => '<controller>/<action>',
 

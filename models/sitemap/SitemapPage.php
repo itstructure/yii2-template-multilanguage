@@ -82,7 +82,7 @@ class SitemapPage extends Page implements Basic, GoogleAlternateLang
      */
     public function getSitemapLoc($lang = null)
     {
-        return Url::to('/' . $lang . '/page/' . $this->id, true);
+        return Url::to('/' . $lang . '/page/' . $this->alias, true);
     }
 
     /**

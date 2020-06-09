@@ -22,6 +22,7 @@ use app\traits\ThumbnailTrait;
  * @property int $parentId
  * @property int $newParentId
  * @property string $icon
+ * @property string $alias
  * @property int $active
  *
  * @property PageLanguage[] $pagesLanguages
@@ -82,7 +83,8 @@ class Page extends ActiveRecord
             ],
             [
                 [
-                    'active'
+                    'active',
+                    'alias',
                 ],
                 'required',
             ],
@@ -98,6 +100,26 @@ class Page extends ActiveRecord
                 'icon',
                 'string',
                 'max' => 64,
+            ],
+            [
+                'alias',
+                'string',
+                'max' => 255,
+            ],
+            [
+                'alias',
+                'filter',
+                'filter' => function ($value) {
+                    return preg_replace( '/[^a-z0-9_]+/', '-', strtolower(trim($value)));
+                }
+            ],
+            [
+                'alias',
+                'unique',
+                'skipOnError'     => true,
+                'targetClass'     => static::class,
+                'targetAttribute' => ['alias' => 'alias'],
+                'filter' => 'id != '.$this->id
             ],
             [
                 UploadModelInterface::FILE_TYPE_THUMB,
@@ -150,6 +172,7 @@ class Page extends ActiveRecord
             'id',
             'parentId',
             'icon',
+            'alias',
             'active',
             'newParentId',
             'created_at',
@@ -166,6 +189,7 @@ class Page extends ActiveRecord
             'id' => 'ID',
             'parentId' => 'Parent Id',
             'icon' => 'Icon',
+            'alias' => 'URL Alias',
             'active' => 'Active',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
@@ -217,7 +241,7 @@ class Page extends ActiveRecord
     public static function getActiveMenu()
     {
         return static::find()->select([
-            'id', 'parentId'
+            'id', 'parentId', 'alias'
         ])->where([
             'active' => 1
         ])->all();

@@ -2,6 +2,7 @@
 
 namespace app\controllers\admin;
 
+use Yii;
 use app\traits\{LanguageTrait, AdminBeforeActionTrait, AccessTrait};
 use app\models\{Feedback, FeedbackSearch};
 use Itstructure\AdminModule\controllers\CommonAdminController;
@@ -72,6 +73,28 @@ class FeedbackController extends CommonAdminController
         }
 
         return parent::actionDelete($id);
+    }
+
+    /**
+     * @return mixed|\yii\web\Response
+     */
+    public function actionDeleteSelected()
+    {
+        if (!$this->checkAccessToDelete()) {
+            return $this->accessError();
+        }
+
+        if (Yii::$app->request->isPost) {
+            /** @var FeedbackSearch $searchModel */
+            $searchModel = $this->getNewSearchModel();
+            $searchModel->setScenario($searchModel::SCENARIO_DELETE_SELECTED);
+            $searchModel->load(Yii::$app->request->post());
+            $searchModel->deleteSelected();
+        }
+
+        return $this->redirect([
+            $this->urlPrefix.'index',
+        ]);
     }
 
     /**

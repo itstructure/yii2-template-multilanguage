@@ -7,6 +7,7 @@ return [
     'Create' => 'Create',
     'Update' => 'Update',
     'Delete' => 'Delete',
+    'Delete selected' => 'Delete selected',
     'Send' => 'Send',
     'Save' => 'Save',
     'Search' => 'Search',
@@ -40,5 +41,6 @@ return [
     'Sitemap' => 'Sitemap',
 
     'Yii2 multilanguage project template' => 'Yii2 multilanguage project template',
-    'You do not have any permissions to perform this action.' => 'You do not have any permissions to perform this action.'
+    'You do not have any permissions to perform this action.' => 'You do not have any permissions to perform this action.',
+    'URL Alias' => 'URL Alias',
 ];

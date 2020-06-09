@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = $model->{'title_'.$this->params['shortLanguage'
                         <div class="post">
                             <h2>
                                 <span class="<?php echo $product->icon ?>"></span>
-                                <a href="<?php echo '/'.$this->params['shortLanguage'].'/product/'.$product->id ?>" alt="<?php echo $product->{'title_'.$this->params['shortLanguage']} ?>">
+                                <a href="<?php echo '/'.$this->params['shortLanguage'].'/product/'.$product->alias ?>" alt="<?php echo $product->{'title_'.$this->params['shortLanguage']} ?>">
                                     <?php echo $product->{'title_'.$this->params['shortLanguage']} ?>
                                 </a>
                             </h2>

@@ -9,7 +9,7 @@ if (!isset($linkOptions)) {
 }
 
 echo Html::a($data->{'title_'.$shortLanguage},
-    Url::to('/'.$shortLanguage.'/page/'.$data->id),
+    Url::to('/'.$shortLanguage.'/page/'.$data->alias),
     ArrayHelper::merge([
         'target' => '_self'
     ], $linkOptions)

@@ -21,6 +21,7 @@ use app\traits\ThumbnailTrait;
  * @property string $updated_at
  * @property int $pageId
  * @property string $icon
+ * @property string $alias
  * @property int $active
  *
  * @property Page $page
@@ -76,14 +77,15 @@ class Product extends ActiveRecord
             [
                 [
                     'pageId',
-                    'active'
+                    'active',
+                    'alias',
                 ],
                 'required'
             ],
             [
                 [
                     'pageId',
-                    'active'
+                    'active',
                 ],
                 'integer'
             ],
@@ -95,11 +97,29 @@ class Product extends ActiveRecord
                 'safe'
             ],
             [
-                [
-                    'icon'
-                ],
+                'icon',
                 'string',
                 'max' => 64
+            ],
+            [
+                'alias',
+                'string',
+                'max' => 255,
+            ],
+            [
+                'alias',
+                'filter',
+                'filter' => function ($value) {
+                    return preg_replace( '/[^a-z0-9_]+/', '-', strtolower(trim($value)));
+                }
+            ],
+            [
+                'alias',
+                'unique',
+                'skipOnError'     => true,
+                'targetClass'     => static::class,
+                'targetAttribute' => ['alias' => 'alias'],
+                'filter' => 'id != '.$this->id
             ],
             [
                 [
@@ -172,6 +192,7 @@ class Product extends ActiveRecord
             'id',
             'pageId',
             'icon',
+            'alias',
             'active',
             'created_at',
             'updated_at'
@@ -187,6 +208,7 @@ class Product extends ActiveRecord
             'id' => 'ID',
             'pageId' => 'Page ID',
             'icon' => 'Icon',
+            'alias' => 'URL Alias',
             'active' => 'Active',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',

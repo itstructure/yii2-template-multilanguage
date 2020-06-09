@@ -79,6 +79,11 @@ use yii\bootstrap\Modal;
                 'languageModel' => new Language()
             ]) ?>
 
+            <?php echo $form->field($model, 'alias')->textInput([
+                'maxlength' => true,
+                'style' => 'width: 25%;'
+            ])->label(Yii::t('app', 'URL Alias')); ?>
+
             <?php echo $form->field($model, 'icon')->textInput([
                 'maxlength' => true,
                 'style' => 'width: 25%;'
