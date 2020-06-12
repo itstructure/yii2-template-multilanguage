@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-use Itstructure\AdminModule\models\{MultilanguageTrait, Language};
+use Itstructure\AdminModule\models\{MultilanguageTrait, Language, ActiveRecord};
 use Itstructure\AdminModule\interfaces\ModelInterface;
 
 /**

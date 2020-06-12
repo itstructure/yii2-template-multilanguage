@@ -3,7 +3,7 @@
 namespace app\models;
 
 use yii\helpers\ArrayHelper;
-use Itstructure\AdminModule\models\{MultilanguageTrait, Language};
+use Itstructure\AdminModule\models\{MultilanguageTrait, Language, ActiveRecord};
 use Itstructure\MFUploader\behaviors\{BehaviorMediafile, BehaviorAlbum};
 use Itstructure\MFUploader\models\OwnerAlbum;
 use Itstructure\MFUploader\models\album\Album;

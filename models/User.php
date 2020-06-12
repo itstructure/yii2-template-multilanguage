@@ -7,6 +7,7 @@ use yii\helpers\ArrayHelper;
 use yii\web\IdentityInterface;
 use yii\rbac\Role as BaseRole;
 use Itstructure\AdminModule\interfaces\AdminMenuInterface;
+use Itstructure\AdminModule\models\ActiveRecord;
 use Itstructure\RbacModule\interfaces\RbacIdentityInterface;
 use Itstructure\MFUploader\behaviors\BehaviorMediafile;
 use Itstructure\MFUploader\models\Mediafile;

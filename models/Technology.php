@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Itstructure\AdminModule\interfaces\ModelInterface;
+use Itstructure\AdminModule\models\ActiveRecord;
 
 /**
  * This is the model class for table "technologies".

@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-use Itstructure\AdminModule\models\Language;
+use Itstructure\AdminModule\models\{Language, ActiveRecord};
 
 /**
  * This is the model class for table "positions_language".

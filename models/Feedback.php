@@ -4,6 +4,7 @@ namespace app\models;
 
 use Yii;
 use Itstructure\AdminModule\interfaces\ModelInterface;
+use Itstructure\AdminModule\models\ActiveRecord;
 
 /**
  * This is the model class for table "feedback".

@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-use Itstructure\AdminModule\models\{MultilanguageTrait, Language};
+use Itstructure\AdminModule\models\{MultilanguageTrait, Language, ActiveRecord};
 
 /**
  * This is the model class for table "contacts".
