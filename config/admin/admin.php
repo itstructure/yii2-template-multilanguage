@@ -100,7 +100,8 @@ return [
             'components' => [
                 'local-upload-component' => [
                     'class' => LocalUploadComponent::class,
-                    'checkExtensionByMimeType' => false
+                    'checkExtensionByMimeType' => false,
+                    'uploadRoot' => dirname($_SERVER['SCRIPT_FILENAME'])
                 ],
                 's3-upload-component' => [
                     'class' => S3UploadComponent::class,
@@ -111,6 +112,7 @@ return [
                 ],
                 'view' => require __DIR__ . '/view-component.php',
             ],
+            'publicBaseUrl' => $webConfig['homeUrl']
         ]
     ],
     'components' => [

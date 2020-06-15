@@ -23,6 +23,11 @@ class PageController extends CommonAdminController
     protected $isMultilanguage = true;
 
     /**
+     * @var bool
+     */
+    protected $setEditingScenarios = true;
+
+    /**
      * @return mixed|string
      */
     public function actionIndex()

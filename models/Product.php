@@ -4,6 +4,7 @@ namespace app\models;
 
 use yii\helpers\ArrayHelper;
 use Itstructure\AdminModule\models\{MultilanguageTrait, Language, ActiveRecord};
+use Itstructure\AdminModule\interfaces\ModelInterface;
 use Itstructure\MFUploader\behaviors\{BehaviorMediafile, BehaviorAlbum};
 use Itstructure\MFUploader\models\OwnerAlbum;
 use Itstructure\MFUploader\models\album\Album;
@@ -118,8 +119,7 @@ class Product extends ActiveRecord
                 'unique',
                 'skipOnError'     => true,
                 'targetClass'     => static::class,
-                'targetAttribute' => ['alias' => 'alias'],
-                'filter' => 'id != '.$this->id
+                'filter' => $this->getScenario() == ModelInterface::SCENARIO_UPDATE ? 'id != '.$this->id : ''
             ],
             [
                 [

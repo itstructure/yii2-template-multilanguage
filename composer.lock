@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e578c55a5fc7aed4f4df49a7c637f3b3",
+    "content-hash": "b77bc3ce14a8cf57fd535dd98cb2fc26",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -836,16 +836,16 @@
         },
         {
             "name": "itstructure/yii2-admin-module",
-            "version": "1.7.4",
+            "version": "1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itstructure/yii2-admin-module.git",
-                "reference": "b5de4561b9d27ef3a586892a89ae78c75529a941"
+                "reference": "2160feac8b4b1005c1d27c1b1ceed8dbfbe149fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itstructure/yii2-admin-module/zipball/b5de4561b9d27ef3a586892a89ae78c75529a941",
-                "reference": "b5de4561b9d27ef3a586892a89ae78c75529a941",
+                "url": "https://api.github.com/repos/itstructure/yii2-admin-module/zipball/2160feac8b4b1005c1d27c1b1ceed8dbfbe149fd",
+                "reference": "2160feac8b4b1005c1d27c1b1ceed8dbfbe149fd",
                 "shasum": ""
             },
             "require": {
@@ -879,7 +879,7 @@
                 "yii 2",
                 "yii2"
             ],
-            "time": "2020-06-12T04:46:40+00:00"
+            "time": "2020-06-15T14:18:56+00:00"
         },
         {
             "name": "itstructure/yii2-ckeditor",
@@ -972,21 +972,21 @@
         },
         {
             "name": "itstructure/yii2-multi-format-uploader",
-            "version": "2.1.5",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itstructure/yii2-multi-format-uploader.git",
-                "reference": "f91eb5cd16b78133e4bf0072d44354d51798e017"
+                "reference": "0bd921282079fc01452ee2e398f8506f541f45c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itstructure/yii2-multi-format-uploader/zipball/f91eb5cd16b78133e4bf0072d44354d51798e017",
-                "reference": "f91eb5cd16b78133e4bf0072d44354d51798e017",
+                "url": "https://api.github.com/repos/itstructure/yii2-multi-format-uploader/zipball/0bd921282079fc01452ee2e398f8506f541f45c6",
+                "reference": "0bd921282079fc01452ee2e398f8506f541f45c6",
                 "shasum": ""
             },
             "require": {
                 "aws/aws-sdk-php": "~3.55.7",
-                "itstructure/yii2-field-widgets": "^1.2.0",
+                "itstructure/yii2-field-widgets": "^1.2.2",
                 "php": ">=7.1.0",
                 "yiisoft/yii2": "2.*",
                 "yiisoft/yii2-bootstrap": "^2.0",
@@ -1018,7 +1018,7 @@
                 "yii 2",
                 "yii2"
             ],
-            "time": "2020-06-08T18:02:13+00:00"
+            "time": "2020-06-14T18:51:11+00:00"
         },
         {
             "name": "itstructure/yii2-multi-level-menu",
