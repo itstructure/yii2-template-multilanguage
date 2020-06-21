@@ -17,6 +17,11 @@ class TechnologyController extends CommonAdminController
     use LanguageTrait, AdminBeforeActionTrait, AccessTrait;
 
     /**
+     * @var bool
+     */
+    protected $setEditingScenarios = true;
+
+    /**
      * @return mixed|string
      */
     public function actionIndex()
