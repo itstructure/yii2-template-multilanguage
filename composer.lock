@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "845058e0cb3c1775a6f63c87b272965c",
+    "content-hash": "102d4c5dba095b9b985c2704aac2c518",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -134,7 +134,7 @@
             "version": "v3.4.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/twbs/bootstrap.git",
+                "url": "git@github.com:twbs/bootstrap.git",
                 "reference": "68b0d231a13201eb14acd3dc84e51543d16e5f7e"
             },
             "dist": {
@@ -155,7 +155,7 @@
             "version": "3.3.11",
             "source": {
                 "type": "git",
-                "url": "git@github.com:RobinHerbots/Inputmask.git",
+                "url": "https://github.com/RobinHerbots/Inputmask.git",
                 "reference": "5e670ad62f50c738388d4dcec78d2888505ad77b"
             },
             "dist": {
@@ -176,7 +176,7 @@
             "version": "3.4.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/jquery/jquery-dist.git",
+                "url": "git@github.com:jquery/jquery-dist.git",
                 "reference": "15bc73803f76bc53b654b9fdbbbc096f56d7c03d"
             },
             "dist": {
@@ -325,58 +325,6 @@
                 "wysiwyg"
             ],
             "time": "2017-09-13T13:09:47+00:00"
-        },
-        {
-            "name": "dreamjobs/sitemap-generator",
-            "version": "1.1.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dreamjobs/yii2-sitemap-generator.git",
-                "reference": "e0fdc667e637156cead3ea1caac975b063b7be59"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dreamjobs/yii2-sitemap-generator/zipball/e0fdc667e637156cead3ea1caac975b063b7be59",
-                "reference": "e0fdc667e637156cead3ea1caac975b063b7be59",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "yiisoft/yii2": "*"
-            },
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "dreamjobs\\sitemap\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GNU"
-            ],
-            "authors": [
-                {
-                    "name": "Ivan Orlov",
-                    "email": "orlov_mail@mail.ru",
-                    "homepage": "https://orlov.io/",
-                    "role": "Creator"
-                },
-                {
-                    "name": "Sebastian Perez",
-                    "email": "s@dreamjobs.com.co",
-                    "homepage": "https://dreamjobs.com.co/",
-                    "role": "Contributor"
-                }
-            ],
-            "description": "Yii2 component for generate sitemap.xml files.",
-            "homepage": "https://github.com/dreamjobs/yii2-sitemap-generator#readme",
-            "keywords": [
-                "Sitemap",
-                "cron",
-                "xml",
-                "yii2"
-            ],
-            "time": "2017-07-21T22:52:13+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -721,16 +669,16 @@
         },
         {
             "name": "itstructure/yii2-admin-module",
-            "version": "1.8.0",
+            "version": "1.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itstructure/yii2-admin-module.git",
-                "reference": "2160feac8b4b1005c1d27c1b1ceed8dbfbe149fd"
+                "reference": "eeea2a5c7a5f29f2284e9889ad80100bb42203f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itstructure/yii2-admin-module/zipball/2160feac8b4b1005c1d27c1b1ceed8dbfbe149fd",
-                "reference": "2160feac8b4b1005c1d27c1b1ceed8dbfbe149fd",
+                "url": "https://api.github.com/repos/itstructure/yii2-admin-module/zipball/eeea2a5c7a5f29f2284e9889ad80100bb42203f3",
+                "reference": "eeea2a5c7a5f29f2284e9889ad80100bb42203f3",
                 "shasum": ""
             },
             "require": {
@@ -764,7 +712,7 @@
                 "yii 2",
                 "yii2"
             ],
-            "time": "2020-06-15T14:18:56+00:00"
+            "time": "2020-06-21T19:03:16+00:00"
         },
         {
             "name": "itstructure/yii2-ckeditor",
@@ -991,6 +939,48 @@
                 "yii2"
             ],
             "time": "2018-08-05T12:23:58+00:00"
+        },
+        {
+            "name": "itstructure/yii2-sitemap-generator",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/itstructure/yii2-sitemap-generator.git",
+                "reference": "310c1b9c65b176e1c5ef0d4934cc2c398453874b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/itstructure/yii2-sitemap-generator/zipball/310c1b9c65b176e1c5ef0d4934cc2c398453874b",
+                "reference": "310c1b9c65b176e1c5ef0d4934cc2c398453874b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0",
+                "yiisoft/yii2": "2.*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "Itstructure\\Sitemap\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrey Girnik",
+                    "email": "girnikandrey@gmail.com"
+                }
+            ],
+            "description": "Yii2 component for generate sitemap.xml files.",
+            "keywords": [
+                "Sitemap",
+                "xml",
+                "yii2"
+            ],
+            "time": "2020-07-06T08:05:45+00:00"
         },
         {
             "name": "mtdowling/jmespath.php",

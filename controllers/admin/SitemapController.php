@@ -3,7 +3,7 @@
 namespace app\controllers\admin;
 
 use Yii;
-use dreamjobs\sitemap\SitemapDataHandler;
+use Itstructure\Sitemap\SitemapDataHandler;
 use Itstructure\AdminModule\controllers\AdminController;
 use app\traits\{LanguageTrait, AdminBeforeActionTrait};
 

@@ -3,8 +3,8 @@
 namespace app\models\sitemap;
 
 use yii\helpers\Url;
-use dreamjobs\sitemap\interfaces\Basic;
-use dreamjobs\sitemap\interfaces\GoogleAlternateLang;
+use Itstructure\Sitemap\interfaces\Basic;
+use Itstructure\Sitemap\interfaces\GoogleAlternateLang;
 use Itstructure\AdminModule\models\Language;
 use app\models\Contact;
 
