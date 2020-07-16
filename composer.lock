@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "102d4c5dba095b9b985c2704aac2c518",
+    "content-hash": "1a77badcb74786022d055c393704b8e3",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -134,7 +134,7 @@
             "version": "v3.4.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:twbs/bootstrap.git",
+                "url": "https://github.com/twbs/bootstrap.git",
                 "reference": "68b0d231a13201eb14acd3dc84e51543d16e5f7e"
             },
             "dist": {
@@ -805,16 +805,16 @@
         },
         {
             "name": "itstructure/yii2-multi-format-uploader",
-            "version": "2.2.1",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itstructure/yii2-multi-format-uploader.git",
-                "reference": "cb4be9966a58d1eb0e0b80d6b1ab4db83fe66b7f"
+                "reference": "3bd98486dab4780a6274073db1e6c4138ce3b9ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itstructure/yii2-multi-format-uploader/zipball/cb4be9966a58d1eb0e0b80d6b1ab4db83fe66b7f",
-                "reference": "cb4be9966a58d1eb0e0b80d6b1ab4db83fe66b7f",
+                "url": "https://api.github.com/repos/itstructure/yii2-multi-format-uploader/zipball/3bd98486dab4780a6274073db1e6c4138ce3b9ba",
+                "reference": "3bd98486dab4780a6274073db1e6c4138ce3b9ba",
                 "shasum": ""
             },
             "require": {
@@ -851,7 +851,7 @@
                 "yii 2",
                 "yii2"
             ],
-            "time": "2020-06-20T08:40:45+00:00"
+            "time": "2020-07-15T07:52:08+00:00"
         },
         {
             "name": "itstructure/yii2-multi-level-menu",

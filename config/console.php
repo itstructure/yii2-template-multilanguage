@@ -5,6 +5,7 @@ use Itstructure\MFUploader\Module as MFUModule;
 
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
+$baseUrl = require __DIR__ . '/base-url.php';
 
 $config = [
     'id' => 'yii2-template-multilanguage-console',
@@ -21,8 +22,8 @@ $config = [
             'class' => 'yii\rbac\DbManager',
         ],
         'urlManager' => [
-            'hostInfo' => YII_DEBUG ? 'http://yii2-template-multilanguage' : 'http://yii2-template-multilanguage',
-            'scriptUrl' => YII_DEBUG ? 'http://yii2-template-multilanguage' : 'http://yii2-template-multilanguage',
+            'hostInfo' => $baseUrl,
+            'scriptUrl' => $baseUrl,
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -49,7 +50,7 @@ $config = [
     'controllerMap' => [
         'sitemap' => [
             'class' => 'Itstructure\Sitemap\SitemapController',
-            'baseUrl' => YII_DEBUG ? 'http://yii2-template-multilanguage' : 'http://yii2-template-multilanguage',
+            'baseUrl' => $baseUrl,
             'modelsPath' => '@app/models/sitemap', // Sitemap-data models directory
             'modelsNamespace' => 'app\models\sitemap', // Namespace in [[modelsPath]] files
             'savePathAlias' => '@app/web', // Where would be placed the generated sitemap-files

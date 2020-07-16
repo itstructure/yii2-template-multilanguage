@@ -1,3 +1,17 @@
+config/base-url.php
+config/db.php
+config/captcha.php
+config/aws-credentials.php
+
+/vendor
+
+web/uploads/*
+
+web/ckfinder/userfiles/*
+
+# sitemaps
+web/sitemap*.xml
+
 # phpstorm project files
 .idea
 
@@ -11,9 +25,6 @@ nbproject
 
 # windows thumbnail cache
 Thumbs.db
-
-# composer vendor dir
-/vendor
 
 # composer itself is not needed
 composer.phar
@@ -31,14 +42,3 @@ tests/_support/_generated
 
 #vagrant folder
 /.vagrant
-
-config/db.php
-config/captcha.php
-config/aws-credentials.php
-
-web/uploads/*
-
-web/ckfinder/userfiles/*
-
-# sitemaps
-web/sitemap*.xml

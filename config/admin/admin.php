@@ -103,13 +103,13 @@ return [
                     'checkExtensionByMimeType' => false,
                     'uploadRoot' => dirname($_SERVER['SCRIPT_FILENAME'])
                 ],
-                's3-upload-component' => [
+                /*'s3-upload-component' => [
                     'class' => S3UploadComponent::class,
                     'checkExtensionByMimeType' => false,
                     'credentials' => require __DIR__ . '/../aws-credentials.php',
                     'region' => 'us-west-2',
                     's3DefaultBucket' => 'filesmodule2',
-                ],
+                ],*/
                 'view' => require __DIR__ . '/view-component.php',
             ],
             'publicBaseUrl' => $webConfig['homeUrl']
