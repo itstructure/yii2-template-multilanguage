@@ -1,4 +1,4 @@
-Yii2 template multilanguage install ducumentation
+Yii2 template multilanguage install documentation
 ==============
 
 [![Build Status](https://scrutinizer-ci.com/g/itstructure/yii2-template-multilanguage/badges/build.png?b=master)](https://scrutinizer-ci.com/g/itstructure/yii2-template-multilanguage/build-status/master)

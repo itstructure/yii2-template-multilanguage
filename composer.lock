@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1a77badcb74786022d055c393704b8e3",
+    "content-hash": "668915199986656ab938544d8c2602d1",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -805,16 +805,16 @@
         },
         {
             "name": "itstructure/yii2-multi-format-uploader",
-            "version": "3.0.0",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itstructure/yii2-multi-format-uploader.git",
-                "reference": "3bd98486dab4780a6274073db1e6c4138ce3b9ba"
+                "reference": "20d190fcd1b8e32d1061a278a73021e12f88636c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itstructure/yii2-multi-format-uploader/zipball/3bd98486dab4780a6274073db1e6c4138ce3b9ba",
-                "reference": "3bd98486dab4780a6274073db1e6c4138ce3b9ba",
+                "url": "https://api.github.com/repos/itstructure/yii2-multi-format-uploader/zipball/20d190fcd1b8e32d1061a278a73021e12f88636c",
+                "reference": "20d190fcd1b8e32d1061a278a73021e12f88636c",
                 "shasum": ""
             },
             "require": {
@@ -851,20 +851,20 @@
                 "yii 2",
                 "yii2"
             ],
-            "time": "2020-07-15T07:52:08+00:00"
+            "time": "2020-07-17T15:57:36+00:00"
         },
         {
             "name": "itstructure/yii2-multi-level-menu",
-            "version": "3.2.4",
+            "version": "3.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itstructure/yii2-multi-level-menu.git",
-                "reference": "57561f3a3a9f773b0499bc66d9232569d81445a0"
+                "reference": "74f1f547dec69969b1b45ca293cba4852b8cf85b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itstructure/yii2-multi-level-menu/zipball/57561f3a3a9f773b0499bc66d9232569d81445a0",
-                "reference": "57561f3a3a9f773b0499bc66d9232569d81445a0",
+                "url": "https://api.github.com/repos/itstructure/yii2-multi-level-menu/zipball/74f1f547dec69969b1b45ca293cba4852b8cf85b",
+                "reference": "74f1f547dec69969b1b45ca293cba4852b8cf85b",
                 "shasum": ""
             },
             "require": {
@@ -894,20 +894,20 @@
                 "yii 2",
                 "yii2"
             ],
-            "time": "2019-05-10T11:29:55+00:00"
+            "time": "2020-07-17T16:21:46+00:00"
         },
         {
             "name": "itstructure/yii2-rbac-module",
-            "version": "3.0.0",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itstructure/yii2-rbac-module.git",
-                "reference": "f53c104c33eb717a73005304f41f01ae8e2e20d8"
+                "reference": "03f2698a68f85ad2bd76c603f45b988758112796"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itstructure/yii2-rbac-module/zipball/f53c104c33eb717a73005304f41f01ae8e2e20d8",
-                "reference": "f53c104c33eb717a73005304f41f01ae8e2e20d8",
+                "url": "https://api.github.com/repos/itstructure/yii2-rbac-module/zipball/03f2698a68f85ad2bd76c603f45b988758112796",
+                "reference": "03f2698a68f85ad2bd76c603f45b988758112796",
                 "shasum": ""
             },
             "require": {
@@ -938,7 +938,7 @@
                 "yii 2",
                 "yii2"
             ],
-            "time": "2018-08-05T12:23:58+00:00"
+            "time": "2020-07-17T15:48:25+00:00"
         },
         {
             "name": "itstructure/yii2-sitemap-generator",
@@ -1933,7 +1933,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.4.0"
+        "php": ">=7.1.0"
     },
     "platform-dev": []
 }
