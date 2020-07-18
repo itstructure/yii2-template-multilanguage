@@ -2,6 +2,7 @@ config/base-url.php
 config/db.php
 config/captcha.php
 config/aws-credentials.php
+config/environment.php
 
 /vendor
 

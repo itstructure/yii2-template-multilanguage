@@ -57,12 +57,28 @@ This template helps you to easy start your Yii2 project. And then you can change
 3. Copy file `config/base-url_example.php` to `config/base-url.php`. In file `config/base-url.php` set a project host:
 
     ```php
-    return YII_DEBUG ? 'http://dev-example-host' : 'http://prod-example-host';
+    return 'http://example-host.com';
     ```
 
-4. Create new data base.
+4. You can set the environment options. For that, copy file `config/environment_example.php` to `config/environment.php`. In file `config/environment.php` set the next:
 
-5. Copy file `config/db_example.php` to `config/db.php`. In file `config/db.php` set settings according with the access to MySql server.
+    ```php
+    define('YII_DEBUG', true);
+    define('YII_ENV', 'dev');
+    ```
+    
+    or
+    
+    ```php
+    define('YII_DEBUG', false);
+    define('YII_ENV', 'test');
+    ```
+
+    If to not set this options, then by default: `YII_DEBUG` is **false**, `YII_ENV` is **prod**.
+
+5. Create new data base.
+
+6. Copy file `config/db_example.php` to `config/db.php`. In file `config/db.php` set settings according with the access to MySql server.
 
     Example:
     
@@ -76,11 +92,11 @@ This template helps you to easy start your Yii2 project. And then you can change
     ];
     ```
 
-6. Run the RBAC migration:
+7. Run the RBAC migration:
 
     `yii migrate --migrationPath=@yii/rbac/migrations`
     
-7. Run the command to build initial rbac entities:
+8. Run the command to build initial rbac entities:
 
     `yii build-rbac`
     
@@ -99,19 +115,19 @@ This template helps you to easy start your Yii2 project. And then you can change
         | VIEW_FRONTSIDE     |    X    |    X    |    X    |
         |--------------------|---------|---------|---------|
     
-8. Run multilanguage migration:
+9. Run multilanguage migration:
 
     `yii migrate --migrationPath=@admin/migrations/multilanguage`
     
-9. Run MFU module migration:
+10. Run MFU module migration:
 
     `yii migrate --migrationPath=@mfuploader/migrations`
     
-10. Run the application migration:
+11. Run the application migration:
 
     `yii migrate`
     
-11. If you are going to use google captcha, copy file `config/captcha_example.php` to `config/captcha.php`. In file `config/captcha.php` it is necessary to set captcha params:
+12. If you are going to use google captcha, copy file `config/captcha_example.php` to `config/captcha.php`. In file `config/captcha.php` it is necessary to set captcha params:
 
     ```php
     return [
@@ -122,7 +138,7 @@ This template helps you to easy start your Yii2 project. And then you can change
     
     And uncomment `captcha` option in `config/params.php` config file.
     
-12. If you are going to load some files to Amazon S3 remote storage by [MFUploader module](https://github.com/itstructure/yii2-multi-format-uploader), it is necessary to set AWS access params in new `config/aws-credentials.php` config file.
+13. If you are going to load some files to Amazon S3 remote storage by [MFUploader module](https://github.com/itstructure/yii2-multi-format-uploader), it is necessary to set AWS access params in new `config/aws-credentials.php` config file.
     
     Copy file `config/aws-credentials_example.php` to `config/aws-credentials.php` and set:
         
