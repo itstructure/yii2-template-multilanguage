@@ -179,7 +179,7 @@ $contacts = $this->params['contacts'];
                     </div>
                     <div class="col-md-12 col-sm-12 fl-block j-cn a-c">
                         <div class="g-recaptcha" id="google-recaptcha-feedback"
-                             data-sitekey="<?php echo Yii::$app->params['captcha']['site_key'];?>"
+                             data-sitekey="<?php echo !empty(Yii::$app->params['captcha']) ? Yii::$app->params['captcha']['site_key'] : 'test';?>"
                              data-callback="validateRecaptchaFeedback"
                              data-expired-callback="grecaptcha_reset"
                         ></div>

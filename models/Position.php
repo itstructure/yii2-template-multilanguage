@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use Yii;
 use Itstructure\AdminModule\models\{MultilanguageTrait, Language, ActiveRecord};
 
 /**
@@ -49,8 +50,8 @@ class Position extends ActiveRecord
     {
         return [
             'id' => 'ID',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'created_at' => Yii::t('app', 'Created date'),
+            'updated_at' => Yii::t('app', 'Updated date'),
         ];
     }
 

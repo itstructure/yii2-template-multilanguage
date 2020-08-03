@@ -71,8 +71,11 @@ class SitemapPage extends Page implements Basic, GoogleAlternateLang
             ])
             ->where([
                 'active' => 1
-            ])
-            ->orderBy([
+            ])->andWhere([
+                'NOT', ['alias' => null]
+            ])->andWhere([
+                'NOT', ['alias' => '']
+            ])->orderBy([
                 'id' => SORT_DESC
             ]);
     }

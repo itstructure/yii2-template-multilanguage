@@ -19,7 +19,7 @@ class m180530_133910_create_feedback_table extends Migration
             'phone' => $this->string(32),
             'subject' => $this->string()->notNull(),
             'message' => $this->text()->notNull(),
-            'read' => $this->tinyInteger(1)->notNull()->defaultValue(0),
+            'read' => $this->tinyInteger()->notNull()->defaultValue(0),
             'created_at' => $this->dateTime(),
             'updated_at' => $this->dateTime(),
         ]);

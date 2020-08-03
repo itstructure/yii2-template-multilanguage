@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use Yii;
 use Itstructure\AdminModule\models\{Language, ActiveRecord};
 
 /**
@@ -112,13 +113,13 @@ class AboutLanguage extends ActiveRecord
         return [
             'about_id' => 'About ID',
             'language_id' => 'Language ID',
-            'title' => 'Title',
-            'description' => 'Description',
-            'content' => 'Content',
-            'metaKeys' => 'Meta Keys',
-            'metaDescription' => 'Meta Description',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'title' => Yii::t('app', 'Title'),
+            'description' => Yii::t('app', 'Description'),
+            'content' => Yii::t('app', 'Content'),
+            'metaKeys' => Yii::t('app', 'Meta keys'),
+            'metaDescription' => Yii::t('app', 'Meta description'),
+            'created_at' => Yii::t('app', 'Created date'),
+            'updated_at' => Yii::t('app', 'Updated date'),
         ];
     }
 

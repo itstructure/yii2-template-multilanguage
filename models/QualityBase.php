@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use Yii;
 use Itstructure\AdminModule\models\{MultilanguageTrait, Language, ActiveRecord};
 use Itstructure\AdminModule\interfaces\ModelInterface;
 
@@ -55,7 +56,7 @@ class QualityBase extends ActiveRecord
                     'icon'
                 ],
                 'string',
-                'max' => 64
+                'max' => 128
             ]
         ];
     }
@@ -109,9 +110,9 @@ class QualityBase extends ActiveRecord
     {
         return [
             'id' => 'ID',
-            'icon' => 'Icon',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'icon' => Yii::t('app', 'Icon'),
+            'created_at' => Yii::t('app', 'Created date'),
+            'updated_at' => Yii::t('app', 'Updated date'),
         ];
     }
 

@@ -2,11 +2,8 @@
 
 namespace app\controllers\admin;
 
-use yii\data\Pagination;
-use app\models\{Page, Product, ProductSearch};
-use app\traits\{LanguageTrait, AdminBeforeActionTrait, AccessTrait};
-use Itstructure\MFUploader\models\OwnerMediafile;
-use Itstructure\MFUploader\models\album\Album;
+use app\models\{Category, Product, ProductSearch};
+use app\traits\{LanguageTrait, AdminBeforeActionTrait, AccessTrait, AdditionFieldsTrait};
 use Itstructure\MFUploader\interfaces\UploadModelInterface;
 use Itstructure\AdminModule\controllers\CommonAdminController;
 
@@ -18,7 +15,7 @@ use Itstructure\AdminModule\controllers\CommonAdminController;
  */
 class ProductController extends CommonAdminController
 {
-    use LanguageTrait, AdminBeforeActionTrait, AccessTrait;
+    use LanguageTrait, AdminBeforeActionTrait, AccessTrait, AdditionFieldsTrait;
 
     /**
      * @var bool
@@ -53,6 +50,8 @@ class ProductController extends CommonAdminController
             return $this->accessError();
         }
 
+        $this->additionFields['images'] = $this->getMediaFiles(Product::tableName(), (int)$id, UploadModelInterface::FILE_TYPE_IMAGE);
+
         return parent::actionView($id);
     }
 
@@ -64,6 +63,9 @@ class ProductController extends CommonAdminController
         if (!$this->checkAccessToCreate()) {
             return $this->accessError();
         }
+
+        $this->additionFields['categories'] = Category::getMenu();
+        $this->additionFields['albums'] = $this->getAlbums();
 
         return parent::actionCreate();
     }
@@ -78,6 +80,10 @@ class ProductController extends CommonAdminController
         if (!$this->checkAccessToUpdate()) {
             return $this->accessError();
         }
+
+        $this->additionFields['categories'] = Category::getMenu();
+        $this->additionFields['albums'] = $this->getAlbums();
+        $this->additionFields['images'] = $this->getMediaFiles(Product::tableName(), (int)$id, UploadModelInterface::FILE_TYPE_IMAGE);
 
         return parent::actionUpdate($id);
     }
@@ -94,43 +100,6 @@ class ProductController extends CommonAdminController
         }
 
         return parent::actionDelete($id);
-    }
-
-    /**
-     * Get addition fields for the view template.
-     *
-     * @return array
-     */
-    protected function getAdditionFields(): array
-    {
-        if ($this->action->id == 'create' || $this->action->id == 'update') {
-            $fields = [];
-
-            $fields['pages'] = Page::getMenu();
-            $fields['albums'] = Album::find()->select([
-                'id', 'title'
-            ])->all();
-
-            if ($this->action->id == 'update') {
-                $mediafilesQuery = OwnerMediafile::getMediaFilesQuery([
-                    'owner' => Product::tableName(),
-                    'ownerId' => $this->model->getId(),
-                    'ownerAttribute' => UploadModelInterface::FILE_TYPE_IMAGE,
-                ]);
-                $media_pages = new Pagination([
-                    'defaultPageSize' => 6,
-                    'totalCount' => $mediafilesQuery->count()
-                ]);
-                $fields['images'] = $mediafilesQuery->offset($media_pages->offset)
-                    ->limit($media_pages->limit)
-                    ->all();
-                $fields['media_pages'] = $media_pages;
-            }
-
-            return $fields;
-        }
-
-        return $this->additionFields;
     }
 
     /**

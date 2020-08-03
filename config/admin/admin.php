@@ -6,6 +6,8 @@ use app\components\{
 };
 use app\controllers\admin\{
     PageController,
+    CategoryController,
+    ArticleController,
     ProductController,
     QualityController,
     SettingController,
@@ -50,6 +52,8 @@ return [
                 'users' => UserController::class,
                 'positions' => PositionController::class,
                 'pages' => PageController::class,
+                'categories' => CategoryController::class,
+                'articles' => ArticleController::class,
                 'products' => ProductController::class,
                 'qualities' => QualityController::class,
                 'feedback' => FeedbackController::class,

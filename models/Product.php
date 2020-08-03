@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use Yii;
 use yii\helpers\ArrayHelper;
 use Itstructure\AdminModule\models\{MultilanguageTrait, Language, ActiveRecord};
 use Itstructure\AdminModule\interfaces\ModelInterface;
@@ -20,12 +21,13 @@ use app\traits\ThumbnailTrait;
  * @property int $id
  * @property string $created_at
  * @property string $updated_at
- * @property int $pageId
+ * @property int $categoryId
  * @property string $icon
  * @property string $alias
+ * @property float $price
  * @property int $active
  *
- * @property Page $page
+ * @property Category $category
  * @property ProductLanguage[] $productsLanguages
  * @property Language[] $languages
  *
@@ -51,14 +53,13 @@ class Product extends ActiveRecord
     public $albums = [];
 
     /**
-     * Initialize.
-     * Set albums, that product has.
+     * Init albums.
      */
-    public function init()
+    public function afterFind()
     {
         $this->albums = $this->getAlbums();
 
-        parent::init();
+        parent::afterFind();
     }
 
     /**
@@ -77,15 +78,16 @@ class Product extends ActiveRecord
         return [
             [
                 [
-                    'pageId',
+                    'categoryId',
                     'active',
                     'alias',
+                    'price',
                 ],
                 'required'
             ],
             [
                 [
-                    'pageId',
+                    'categoryId',
                     'active',
                 ],
                 'integer'
@@ -98,14 +100,18 @@ class Product extends ActiveRecord
                 'safe'
             ],
             [
-                'icon',
+                [
+                    'icon',
+                    'alias',
+                ],
                 'string',
-                'max' => 64
+                'max' => 128
             ],
             [
-                'alias',
-                'string',
-                'max' => 255,
+                [
+                    'price'
+                ],
+                'number'
             ],
             [
                 'alias',
@@ -123,12 +129,12 @@ class Product extends ActiveRecord
             ],
             [
                 [
-                    'pageId'
+                    'categoryId'
                 ],
                 'exist',
                 'skipOnError' => true,
-                'targetClass' => Page::class,
-                'targetAttribute' => ['pageId' => 'id']
+                'targetClass' => Category::class,
+                'targetAttribute' => ['categoryId' => 'id']
             ],
             [
                 UploadModelInterface::FILE_TYPE_THUMB,
@@ -190,8 +196,9 @@ class Product extends ActiveRecord
             UploadModelInterface::FILE_TYPE_IMAGE,
             'albums',
             'id',
-            'pageId',
+            'categoryId',
             'icon',
+            'price',
             'alias',
             'active',
             'created_at',
@@ -206,22 +213,23 @@ class Product extends ActiveRecord
     {
         return [
             'id' => 'ID',
-            'pageId' => 'Page ID',
-            'icon' => 'Icon',
-            'alias' => 'URL Alias',
-            'active' => 'Active',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'categoryId' => Yii::t('products', 'Parent category'),
+            'icon' => Yii::t('app', 'Icon'),
+            'price' => Yii::t('products', 'Price'),
+            'active' => Yii::t('app', 'Active status'),
+            'alias' => Yii::t('app', 'URL Alias'),
+            'created_at' => Yii::t('app', 'Created date'),
+            'updated_at' => Yii::t('app', 'Updated date'),
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getPage()
+    public function getCategory()
     {
-        return $this->hasOne(Page::class, [
-            'id' => 'pageId'
+        return $this->hasOne(Category::class, [
+            'id' => 'categoryId'
         ]);
     }
 
@@ -255,7 +263,7 @@ class Product extends ActiveRecord
     public function getAlbums()
     {
         return OwnerAlbum::getAlbumsQuery([
-            'owner' => $this->tableName(),
+            'owner' => static::tableName(),
             'ownerId' => $this->id,
             'ownerAttribute' => 'albums',
         ])->all();

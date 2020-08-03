@@ -23,14 +23,15 @@ $baseUrl = FileSetterAsset::register($this)->baseUrl;
 
 <style>
     .file-item {
-        margin-bottom: 15px;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
 </style>
 
 <div class="row">
     <?php $i=0; ?>
     <?php foreach ($mediafiles as $mediafile): ?>
-        <div class="col-md-6 file-item">
+        <div class="col-12 col-lg-6 file-item">
             <?php $i+=1; ?>
             <div class="media">
                 <div class="media-left" id="mediafile-container-<?php echo $i; ?>">
@@ -53,7 +54,8 @@ $baseUrl = FileSetterAsset::register($this)->baseUrl;
                     </div>
                 </div>
             </div>
-            <?php echo FileSetter::widget(ArrayHelper::merge([
+            <?php if (!isset($edition) || $edition === true): ?>
+                <?php echo FileSetter::widget(ArrayHelper::merge([
                     'model' => $model,
                     'attribute' => $fileType.'[]',
                     'neededFileType' => $fileType,
@@ -75,7 +77,8 @@ $baseUrl = FileSetterAsset::register($this)->baseUrl;
                 ], isset($ownerParams) && is_array($ownerParams) ? ArrayHelper::merge([
                     'ownerAttribute' => $fileType
                 ], $ownerParams) : [])
-            ); ?>
+                ); ?>
+            <?php endif; ?>
         </div>
     <?php endforeach; ?>
 </div>

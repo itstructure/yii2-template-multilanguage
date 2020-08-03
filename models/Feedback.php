@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 use Itstructure\AdminModule\interfaces\ModelInterface;
 use Itstructure\AdminModule\models\ActiveRecord;
 
@@ -117,7 +118,9 @@ class Feedback extends ActiveRecord implements ModelInterface
     public function scenarios()
     {
         return [
-            self::SCENARIO_CONTACT => $this->attributes(),
+            self::SCENARIO_CONTACT => ArrayHelper::merge($this->attributes(), [
+                'verifyCode'
+            ]),
             self::SCENARIO_FEEDBACK => $this->attributes(),
         ];
     }

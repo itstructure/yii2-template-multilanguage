@@ -7,6 +7,8 @@ use Itstructure\AdminModule\models\Language;
 use Itstructure\MultiLevelMenu\MenuWidget;
 use Itstructure\MFUploader\Module as MFUModule;
 use Itstructure\MFUploader\models\album\Album;
+use Itstructure\MFUploader\interfaces\UploadModelInterface;
+use yii\bootstrap\Modal;
 
 /* @var $this Itstructure\AdminModule\components\AdminView */
 /* @var $model app\models\Page|Itstructure\AdminModule\models\MultilanguageValidateModel */
@@ -14,6 +16,7 @@ use Itstructure\MFUploader\models\album\Album;
 /* @var $pages array|\yii\db\ActiveRecord[] */
 /* @var $albums Album[] */
 /* @var $ownerParams array */
+/* @var $images array */
 ?>
 
 <div class="catalog-form">
@@ -24,6 +27,40 @@ use Itstructure\MFUploader\models\album\Album;
         <div class="col-md-12">
 
             <?php $this->registerJs("CKEDITOR.plugins.addExternal('pbckcode', '/plugins/pbckcode/plugin.js', '');"); ?>
+
+            <!-- Thumbnail begin -->
+            <div class="row" style="margin-bottom: 15px;">
+                <div class="col-md-6">
+                    <?php echo $this->render('../mediafiles/_thumbnail', [
+                        'model' => $model,
+                        'ownerParams' => isset($ownerParams) && is_array($ownerParams) ? $ownerParams : null,
+                    ]) ?>
+                </div>
+            </div>
+            <!-- Thumbnail end -->
+
+            <?php echo $form->field($model, 'icon')->textInput([
+                'maxlength' => true,
+                'style' => 'width: 25%;'
+            ])->label(Yii::t('app', 'Icon html class')); ?>
+            <div class="row" style="margin-bottom: 15px;">
+                <div class="col-md-12">
+                    <?php if(!$model->mainModel->isNewRecord): ?>
+                        <?php echo Html::tag('i', '', ['class' => empty($model->mainModel->icon) ? 'fa fa-file fa-2x' : $model->mainModel->icon]) ?>
+                    <?php endif; ?>
+                    <?php echo Html::a('Fontawesome icons', Url::to('https://fontawesome.ru/all-icons/'), [
+                        'target' => '_blank'
+                    ]); ?>
+                    <?php
+                    Modal::begin([
+                        'header' => '<h2>Fe icons</h2>',
+                        'toggleButton' => ['label' => 'Fe icons']
+                    ]);
+                    require __DIR__.'/../icons/fe-icons.php';
+                    Modal::end();
+                    ?>
+                </div>
+            </div>
 
             <?php echo Fields::widget([
                 'fields' => [
@@ -78,32 +115,6 @@ use Itstructure\MFUploader\models\album\Album;
                 'style' => 'width: 25%;'
             ])->label(Yii::t('app', 'URL Alias')); ?>
 
-            <?php echo $form->field($model, 'icon')->textInput([
-                'maxlength' => true,
-                'style' => 'width: 25%;'
-            ])->label(Yii::t('app', 'Icon html class')); ?>
-            <div class="row" style="margin-bottom: 15px;">
-                <div class="col-md-4">
-                    <?php if(!$model->mainModel->isNewRecord): ?>
-                        <?php echo Html::tag('i', '', ['class' => empty($model->mainModel->icon) ? 'fa fa-file fa-2x' : $model->mainModel->icon]) ?>
-                    <?php endif; ?>
-                    <?php echo Html::a('Fontawesome icons', Url::to('https://fontawesome.ru/all-icons/'), [
-                        'target' => '_blank'
-                    ]); ?>
-                </div>
-            </div>
-
-            <!-- Thumbnail begin -->
-            <div class="row" style="margin-bottom: 15px;">
-                <div class="col-md-6">
-                    <?php echo $this->render('../mediafiles/_thumbnail', [
-                        'model' => $model,
-                        'ownerParams' => isset($ownerParams) && is_array($ownerParams) ? $ownerParams : null,
-                    ]) ?>
-                </div>
-            </div>
-            <!-- Thumbnail end -->
-
             <?php echo $form->field($model, 'active')
                 ->radioList([1 => Yii::t('app', 'Active'), 0 => Yii::t('app', 'Inactive')])
                 ->label(Yii::t('app', 'Active status')); ?>
@@ -128,6 +139,43 @@ use Itstructure\MFUploader\models\album\Album;
                     'style' => 'list-style-type: none;'
                 ],
             ]) ?>
+
+            <!-- New files begin -->
+            <div class="panel panel-default">
+                <div class="panel-heading"><?php echo MFUModule::t('main', 'New files'); ?></div>
+                <div class="panel-body">
+                    <div class="row">
+                        <?php for ($i=1; $i < 5; $i++): ?>
+                            <div class="col-12 col-lg-6" style="margin-top: 5px; margin-bottom: 10px;">
+                                <?php echo $this->render('../mediafiles/_new-mediafiles', [
+                                    'model' => $model,
+                                    'fileType' => UploadModelInterface::FILE_TYPE_IMAGE,
+                                    'ownerParams' => isset($ownerParams) && is_array($ownerParams) ? $ownerParams : null,
+                                    'number' => $i,
+                                ]) ?>
+                            </div>
+                        <?php endfor; ?>
+                    </div>
+                </div>
+            </div>
+            <!-- New files end -->
+
+            <!-- Existing files begin -->
+            <?php if (!$model->mainModel->isNewRecord && $images['pagination']->totalCount > 0): ?>
+                <div class="panel panel-default">
+                    <div class="panel-heading"><?php echo MFUModule::t('main', 'Existing files'); ?></div>
+                    <div class="panel-body">
+                        <?php echo $this->render('../mediafiles/_existing-mediafiles', [
+                            'model' => $model,
+                            'mediafiles' => $images['items'],
+                            'pages' => $images['pagination'],
+                            'fileType' => UploadModelInterface::FILE_TYPE_IMAGE,
+                            'ownerParams' => isset($ownerParams) && is_array($ownerParams) ? $ownerParams : null,
+                        ]) ?>
+                    </div>
+                </div>
+            <?php endif; ?>
+            <!-- Existing files end -->
 
             <!-- Albums begin -->
             <div class="row" style="margin-bottom: 15px;">

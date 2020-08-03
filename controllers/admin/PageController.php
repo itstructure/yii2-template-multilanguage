@@ -3,8 +3,8 @@
 namespace app\controllers\admin;
 
 use app\models\{Page, PageSearch};
-use app\traits\{LanguageTrait, AdminBeforeActionTrait, AccessTrait};
-use Itstructure\MFUploader\models\album\Album;
+use app\traits\{LanguageTrait, AdminBeforeActionTrait, AccessTrait, AdditionFieldsTrait};
+use Itstructure\MFUploader\interfaces\UploadModelInterface;
 use Itstructure\AdminModule\controllers\CommonAdminController;
 
 /**
@@ -15,7 +15,7 @@ use Itstructure\AdminModule\controllers\CommonAdminController;
  */
 class PageController extends CommonAdminController
 {
-    use LanguageTrait, AdminBeforeActionTrait, AccessTrait;
+    use LanguageTrait, AdminBeforeActionTrait, AccessTrait, AdditionFieldsTrait;
 
     /**
      * @var bool
@@ -50,6 +50,8 @@ class PageController extends CommonAdminController
             return $this->accessError();
         }
 
+        $this->additionFields['images'] = $this->getMediaFiles(Page::tableName(), (int)$id, UploadModelInterface::FILE_TYPE_IMAGE);
+
         return parent::actionView($id);
     }
 
@@ -61,6 +63,9 @@ class PageController extends CommonAdminController
         if (!$this->checkAccessToCreate()) {
             return $this->accessError();
         }
+
+        $this->additionFields['pages'] = Page::getMenu();
+        $this->additionFields['albums'] = $this->getAlbums();
 
         return parent::actionCreate();
     }
@@ -75,6 +80,10 @@ class PageController extends CommonAdminController
         if (!$this->checkAccessToUpdate()) {
             return $this->accessError();
         }
+
+        $this->additionFields['pages'] = Page::getMenu();
+        $this->additionFields['albums'] = $this->getAlbums();
+        $this->additionFields['images'] = $this->getMediaFiles(Page::tableName(), (int)$id, UploadModelInterface::FILE_TYPE_IMAGE);
 
         return parent::actionUpdate($id);
     }
@@ -91,24 +100,6 @@ class PageController extends CommonAdminController
         }
 
         return parent::actionDelete($id);
-    }
-
-    /**
-     * Get addition fields for the view template.
-     * @return array
-     */
-    protected function getAdditionFields(): array
-    {
-        if ($this->action->id == 'create' || $this->action->id == 'update') {
-            return [
-                'pages' => Page::getMenu(),
-                'albums' => Album::find()->select([
-                    'id', 'title'
-                ])->all()
-            ];
-        }
-
-        return $this->additionFields;
     }
 
     /**

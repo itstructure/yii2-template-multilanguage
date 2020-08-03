@@ -1,13 +1,10 @@
 <?php
-use yii\data\Pagination;
-use Itstructure\MFUploader\models\Mediafile;
 
 /* @var $this Itstructure\AdminModule\components\AdminView */
 /* @var $model Itstructure\AdminModule\models\MultilanguageValidateModel */
-/* @var $pages array|\yii\db\ActiveRecord[] */
+/* @var $categories array|\yii\db\ActiveRecord[] */
 /* @var $albums Itstructure\MFUploader\models\album\Album[] */
-/* @var $images Mediafile[] */
-/* @var $media_pages Pagination */
+/* @var $images array */
 
 $this->title = Yii::t('products', 'Update product').': ' . $model->mainModel->getDefaultTranslate('title');
 $this->params['breadcrumbs'][] = [
@@ -29,10 +26,9 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 
     <?php echo $this->render('_form', [
         'model' => $model,
-        'pages' => $pages,
+        'categories' => $categories,
         'albums' => $albums,
         'images' => $images,
-        'media_pages' => $media_pages,
         'ownerParams' => [
             'owner' => \app\models\Product::tableName(),
             'ownerId' => $model->getId(),

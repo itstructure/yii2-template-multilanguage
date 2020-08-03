@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use Yii;
 use Itstructure\AdminModule\models\{Language, ActiveRecord};
 
 /**
@@ -18,7 +19,7 @@ use Itstructure\AdminModule\models\{Language, ActiveRecord};
  * @property string $updated_at
  *
  * @property Language $language
- * @property Product $products
+ * @property Product $product
  *
  * @package app\models
  */
@@ -112,13 +113,13 @@ class ProductLanguage extends ActiveRecord
         return [
             'products_id' => 'Products ID',
             'language_id' => 'Language ID',
-            'title' => 'Title',
-            'description' => 'Description',
-            'content' => 'Content',
-            'metaKeys' => 'Meta Keys',
-            'metaDescription' => 'Meta Description',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'title' => Yii::t('app', 'Title'),
+            'description' => Yii::t('app', 'Description'),
+            'content' => Yii::t('app', 'Content'),
+            'metaKeys' => Yii::t('app', 'Meta keys'),
+            'metaDescription' => Yii::t('app', 'Meta description'),
+            'created_at' => Yii::t('app', 'Created date'),
+            'updated_at' => Yii::t('app', 'Updated date'),
         ];
     }
 
@@ -135,7 +136,7 @@ class ProductLanguage extends ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getProducts()
+    public function getProduct()
     {
         return $this->hasOne(Product::class, [
             'id' => 'products_id'

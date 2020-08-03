@@ -5,5 +5,8 @@ return [
     'Create product' => 'Create product',
     'Update product' => 'Update product',
     'Parent page' => 'Parent page',
-    'Posted' => 'Posted'
+    'Parent category' => 'Parent category',
+    'Posted' => 'Posted',
+    'Price' => 'Price',
+    'rub.' => 'rub.',
 ];

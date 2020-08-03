@@ -7,7 +7,7 @@ use yii\data\Pagination;
 use yii\web\NotFoundHttpException;
 use yii\filters\{AccessControl, VerbFilter};
 use yii\helpers\ArrayHelper;
-use app\models\{Page, Product};
+use app\models\{Page, Article};
 
 /**
  * Class PageController
@@ -63,21 +63,21 @@ class PageController extends BaseController
 
         $this->setMetaParams($model);
 
-        $productsQuery = Product::find()->where([
+        $articlesQuery = Article::find()->where([
             'pageId' => $model->id
         ])->andWhere([
             'active' => 1
         ]);
 
         $pagination = new Pagination([
-            'totalCount' => $productsQuery->count(),
+            'totalCount' => $articlesQuery->count(),
             'defaultPageSize' => Yii::$app->params['defaultPageSize']
         ]);
 
         return $this->render('view', [
             'model' => $model,
             'pagination' => $pagination,
-            'products' => $productsQuery->offset($pagination->offset)
+            'articles' => $articlesQuery->offset($pagination->offset)
                 ->limit($pagination->limit)
                 ->all()
         ]);

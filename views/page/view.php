@@ -1,11 +1,11 @@
 <?php
 use yii\widgets\LinkPager;
 use yii\data\Pagination;
-use app\models\{Page, Product};
+use app\models\{Page, Article};
 use app\helpers\BaseHelper;
 
 /* @var Page $model */
-/* @var Product[] $products */
+/* @var Article[] $articles */
 /* @var Pagination $pagination */
 
 $this->params['breadcrumbs'][] = $model->{'title_'.$this->params['shortLanguage']};
@@ -25,23 +25,23 @@ $this->params['breadcrumbs'][] = $model->{'title_'.$this->params['shortLanguage'
     </section>
 <?php endif; ?>
 
-<?php if (count($products) > 0): ?>
+<?php if (count($articles) > 0): ?>
     <section class="inform_block">
 
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-sm-12">
-                    <?php /* @var Product $product */ ?>
-                    <?php foreach ($products as $product): ?>
+                    <?php /* @var Article $article */ ?>
+                    <?php foreach ($articles as $article): ?>
                         <div class="post">
                             <h2>
-                                <span class="<?php echo $product->icon ?>"></span>
-                                <a href="<?php echo '/'.$this->params['shortLanguage'].'/product/'.$product->alias ?>" alt="<?php echo $product->{'title_'.$this->params['shortLanguage']} ?>">
-                                    <?php echo $product->{'title_'.$this->params['shortLanguage']} ?>
+                                <span class="<?php echo $article->icon ?>"></span>
+                                <a href="<?php echo '/'.$this->params['shortLanguage'].'/article/'.$article->alias ?>" alt="<?php echo $article->{'title_'.$this->params['shortLanguage']} ?>">
+                                    <?php echo $article->{'title_'.$this->params['shortLanguage']} ?>
                                 </a>
                             </h2>
-                            <div class="post_meta"><?php echo Yii::t('products', 'Posted').' '.BaseHelper::getDateAt($product->updated_at) ?></div>
-                            <?php echo $product->{'description_'.$this->params['shortLanguage']} ?>
+                            <div class="post_meta"><?php echo Yii::t('articles', 'Posted').' '.BaseHelper::getDateAt($article->updated_at) ?></div>
+                            <?php echo $article->{'description_'.$this->params['shortLanguage']} ?>
                         </div>
                     <?php endforeach;?>
                     <?php echo LinkPager::widget(['pagination' => $pagination]); ?>

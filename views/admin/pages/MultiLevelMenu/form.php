@@ -10,7 +10,7 @@ $mainModel = $model->mainModel;
 ?>
 <?php echo Html::activeRadio($model, 'parentId', [
     'value' => $data->id,
-    'name' => Html::getInputName($model, 'newParentId'),
+    'name' => Html::getInputName($model, 'parentId'),
     'label' => Html::encode($data->getDefaultTranslate('title')),
     'disabled' => !MenuWidget::checkNewParentId($mainModel, $data->id),
     'uncheck' => false,

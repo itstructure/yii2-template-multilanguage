@@ -14,7 +14,7 @@ class m190502_163142_create_positions_table extends MultilanguageMigration
     {
         $this->createMultiLanguageTable('positions',
             [
-                'name' => $this->string(),
+                'name' => $this->string(64),
             ]
         );
     }

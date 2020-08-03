@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use app\models\Page;
+use app\models\Category;
 use Itstructure\MultiLevelMenu\MenuWidget;
 
 /* @var $this Itstructure\AdminModule\components\AdminView */
@@ -40,12 +40,12 @@ use Itstructure\MultiLevelMenu\MenuWidget;
                 ->radioList([1 => Yii::t('app', 'Active'), 0 => Yii::t('app', 'Inactive')])
                 ->label(Yii::t('app', 'Active status')); ?>
 
-            <?php echo Html::label(Yii::t('products', 'Parent page'), 'search-by-page', [
+            <?php echo Html::label(Yii::t('products', 'Parent category'), 'search-by-category', [
                 'class' => 'control-label'
             ]) ?>
             <?php echo MenuWidget::widget([
-                'menuId' => 'search-by-page',
-                'data' => Page::getMenu(),
+                'menuId' => 'search-by-category',
+                'data' => Category::getMenu(),
                 'itemTemplate' => '@app/views/admin/products/MultiLevelMenu/search.php',
                 'itemTemplateParams' => [
                     'model' => $model

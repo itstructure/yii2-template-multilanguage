@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "668915199986656ab938544d8c2602d1",
+    "content-hash": "a816bdefa8618e91d2dc654b9c5926fe",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -176,7 +176,7 @@
             "version": "3.4.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:jquery/jquery-dist.git",
+                "url": "https://github.com/jquery/jquery-dist.git",
                 "reference": "15bc73803f76bc53b654b9fdbbbc096f56d7c03d"
             },
             "dist": {
@@ -194,7 +194,7 @@
             "version": "v1.3.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/bestiejs/punycode.js.git",
+                "url": "git@github.com:bestiejs/punycode.js.git",
                 "reference": "38c8d3131a82567bfef18da09f7f4db68c84f8a3"
             },
             "dist": {
@@ -669,16 +669,16 @@
         },
         {
             "name": "itstructure/yii2-admin-module",
-            "version": "1.8.1",
+            "version": "1.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itstructure/yii2-admin-module.git",
-                "reference": "eeea2a5c7a5f29f2284e9889ad80100bb42203f3"
+                "reference": "7f45a148d83f792ed1d637ea1aef4dcb9e51db56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itstructure/yii2-admin-module/zipball/eeea2a5c7a5f29f2284e9889ad80100bb42203f3",
-                "reference": "eeea2a5c7a5f29f2284e9889ad80100bb42203f3",
+                "url": "https://api.github.com/repos/itstructure/yii2-admin-module/zipball/7f45a148d83f792ed1d637ea1aef4dcb9e51db56",
+                "reference": "7f45a148d83f792ed1d637ea1aef4dcb9e51db56",
                 "shasum": ""
             },
             "require": {
@@ -712,7 +712,7 @@
                 "yii 2",
                 "yii2"
             ],
-            "time": "2020-06-21T19:03:16+00:00"
+            "time": "2020-08-01T05:45:24+00:00"
         },
         {
             "name": "itstructure/yii2-ckeditor",
@@ -805,16 +805,16 @@
         },
         {
             "name": "itstructure/yii2-multi-format-uploader",
-            "version": "3.0.1",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itstructure/yii2-multi-format-uploader.git",
-                "reference": "20d190fcd1b8e32d1061a278a73021e12f88636c"
+                "reference": "73cca6a304cd3508a8f5ef729bd2af5c8a2f2b23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itstructure/yii2-multi-format-uploader/zipball/20d190fcd1b8e32d1061a278a73021e12f88636c",
-                "reference": "20d190fcd1b8e32d1061a278a73021e12f88636c",
+                "url": "https://api.github.com/repos/itstructure/yii2-multi-format-uploader/zipball/73cca6a304cd3508a8f5ef729bd2af5c8a2f2b23",
+                "reference": "73cca6a304cd3508a8f5ef729bd2af5c8a2f2b23",
                 "shasum": ""
             },
             "require": {
@@ -851,7 +851,7 @@
                 "yii 2",
                 "yii2"
             ],
-            "time": "2020-07-17T15:57:36+00:00"
+            "time": "2020-07-22T16:50:40+00:00"
         },
         {
             "name": "itstructure/yii2-multi-level-menu",
@@ -898,16 +898,16 @@
         },
         {
             "name": "itstructure/yii2-rbac-module",
-            "version": "3.0.1",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itstructure/yii2-rbac-module.git",
-                "reference": "03f2698a68f85ad2bd76c603f45b988758112796"
+                "reference": "3f24f875dfb2e05589427060702fd03474ea23c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itstructure/yii2-rbac-module/zipball/03f2698a68f85ad2bd76c603f45b988758112796",
-                "reference": "03f2698a68f85ad2bd76c603f45b988758112796",
+                "url": "https://api.github.com/repos/itstructure/yii2-rbac-module/zipball/3f24f875dfb2e05589427060702fd03474ea23c9",
+                "reference": "3f24f875dfb2e05589427060702fd03474ea23c9",
                 "shasum": ""
             },
             "require": {
@@ -938,7 +938,7 @@
                 "yii 2",
                 "yii2"
             ],
-            "time": "2020-07-17T15:48:25+00:00"
+            "time": "2020-07-26T07:54:17+00:00"
         },
         {
             "name": "itstructure/yii2-sitemap-generator",

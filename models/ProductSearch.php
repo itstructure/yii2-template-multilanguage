@@ -26,7 +26,7 @@ class ProductSearch extends Product
         return [
             [
                 [
-                    'pageId',
+                    'categoryId',
                     'active',
                 ],
                 'integer',
@@ -74,7 +74,7 @@ class ProductSearch extends Product
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'pageId' => $this->pageId,
+            'categoryId' => $this->categoryId,
             'active' => $this->active,
         ]);
 

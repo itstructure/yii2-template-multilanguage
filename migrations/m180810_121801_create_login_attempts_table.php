@@ -14,8 +14,8 @@ class m180810_121801_create_login_attempts_table extends Migration
     {
         $this->createTable('login_attempts', [
             'id' => $this->primaryKey(),
-            'key'=> $this->string(255)->notNull(),
-            'amount'=> $this->integer(2)->null()->defaultValue(1),
+            'key'=> $this->string()->notNull(),
+            'amount'=> $this->tinyInteger()->null()->defaultValue(1),
             'reset_at'=> $this->integer()->null()->defaultValue(null),
             'updated_at'=> $this->integer()->null()->defaultValue(null),
             'created_at'=> $this->integer()->null()->defaultValue(null),

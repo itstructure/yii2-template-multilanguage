@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use Yii;
 use Itstructure\AdminModule\models\{Language, ActiveRecord};
 
 /**
@@ -58,7 +59,7 @@ class PositionLanguage extends ActiveRecord
                     'name'
                 ],
                 'string',
-                'max' => 255
+                'max' => 64
             ],
             [
                 [
@@ -104,9 +105,9 @@ class PositionLanguage extends ActiveRecord
         return [
             'positions_id' => 'Positions ID',
             'language_id' => 'Language ID',
-            'name' => 'Name',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'name' => Yii::t('positions', 'Name'),
+            'created_at' => Yii::t('app', 'Created date'),
+            'updated_at' => Yii::t('app', 'Updated date'),
         ];
     }
 

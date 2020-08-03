@@ -3,16 +3,22 @@
 use yii\helpers\{Html, Url};
 use yii\grid\GridView;
 use yii\widgets\DetailView;
-use yii\data\ArrayDataProvider;
+use yii\data\{ArrayDataProvider, Pagination};
 use Itstructure\FieldWidgets\TableMultilanguage;
 use Itstructure\AdminModule\models\Language;
 use Itstructure\MFUploader\Module as MFUModule;
+use Itstructure\MFUploader\interfaces\UploadModelInterface;
 use Itstructure\MFUploader\models\album\Album;
 use app\models\Page;
 
 /* @var $this yii\web\View */
 /* @var $model Page */
-/* @var $albumsDataProvider yii\data\ArrayDataProvider */
+/* @var $albumsDataProvider ArrayDataProvider */
+/* @var $images array */
+/* @var $images_pagination Pagination */
+
+$images_items = $images['items'];
+$images_pagination = $images['pagination'];
 
 $this->title = $model->getDefaultTranslate('title');
 $this->params['breadcrumbs'][] = [
@@ -85,14 +91,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            [
-                'label' => Yii::t('app', 'Icon'),
-                'value' => function($model) {
-                    /* @var $model Page */
-                    return Html::tag('i', '', ['class' => empty($model->icon) ? 'fa fa-file fa-2x' : $model->icon]);
-                },
-                'format' => 'raw',
-            ],
             'thumbnail' => [
                 'label' => MFUModule::t('main', 'Thumbnail'),
                 'value' => function ($model) {
@@ -101,6 +99,14 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $thumbnailModel == null ? '' : Html::a($model->getDefaultThumbImage(), Url::to($thumbnailModel->getThumbUrl(MFUModule::THUMB_ALIAS_LARGE)), [
                         'target' => '_blank'
                     ]);
+                },
+                'format' => 'raw',
+            ],
+            [
+                'label' => Yii::t('app', 'Icon'),
+                'value' => function($model) {
+                    /* @var $model Page */
+                    return Html::tag('i', '', ['class' => empty($model->icon) ? 'fa fa-file fa-2x' : $model->icon]);
                 },
                 'format' => 'raw',
             ],
@@ -133,43 +139,68 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
-    <h3><?php echo MFUModule::t('album', 'Albums') ?></h3>
-    <?php echo GridView::widget([
-        'dataProvider' => new ArrayDataProvider([
-            'allModels' => $model->getAlbums()
-        ]),
-        'columns' => [
-            'thumbnail' => [
-                'label' => MFUModule::t('main', 'Thumbnail'),
-                'value' => function($item) {
-                    /** @var Album $item */
-                    return Html::a(
-                        $item->getDefaultThumbImage(),
-                        Url::to([
-                            '/'.$this->params['shortLanguage'].'/mfuploader/'.$item->getFileType($item->type).'-album/view', 'id' => $item->id
-                        ])
-                    );
-                },
-                'format' => 'raw',
-            ],
-            'name' => [
-                'label' => MFUModule::t('album', 'Title'),
-                'value' => function($item) {
-                    /** @var Album $item */
-                    return Html::a(
-                        Html::encode($item->title),
-                        Url::to([
-                            '/'.$this->params['shortLanguage'].'/mfuploader/'.$item->getFileType($item->type).'-album/view', 'id' => $item->id
-                        ])
-                    );
-                },
-                'format' => 'raw',
-            ],
-        ],
-    ]); ?>
+    <!-- Existing files begin -->
+    <?php if ($images_pagination->totalCount > 0): ?>
+        <div class="panel panel-default">
+            <div class="panel-heading"><?php echo MFUModule::t('main', 'Existing files'); ?></div>
+            <div class="panel-body">
+                <?php echo $this->render('../mediafiles/_existing-mediafiles', [
+                    'edition' => false,
+                    'mediafiles' => $images_items,
+                    'pages' => $images_pagination,
+                    'fileType' => UploadModelInterface::FILE_TYPE_IMAGE,
+                ]) ?>
+            </div>
+        </div>
+    <?php endif; ?>
+    <!-- Existing files end -->
 
-    <?php echo Html::a(Yii::t('pages', 'View products'), [
-        '/'.$this->params['shortLanguage'].'/admin/products/index', 'ProductSearch[pageId]' => $model->id
+    <?php if (count($albums = $model->getAlbums()) > 0): ?>
+        <h3><?php echo MFUModule::t('album', 'Albums') ?></h3>
+        <?php echo GridView::widget([
+            'dataProvider' => new ArrayDataProvider([
+                'allModels' => $albums
+            ]),
+            'columns' => [
+                'thumbnail' => [
+                    'label' => MFUModule::t('main', 'Thumbnail'),
+                    'value' => function($item) {
+                        /** @var Album $item */
+                        return Html::a(
+                            $item->getDefaultThumbImage(),
+                            Url::to([
+                                '/'.$this->params['shortLanguage'].'/mfuploader/'.$item->getFileType($item->type).'-album/view', 'id' => $item->id
+                            ])
+                        );
+                    },
+                    'format' => 'raw',
+                ],
+                'name' => [
+                    'label' => MFUModule::t('album', 'Title'),
+                    'value' => function($item) {
+                        /** @var Album $item */
+                        return Html::a(
+                            Html::encode($item->title),
+                            Url::to([
+                                '/'.$this->params['shortLanguage'].'/mfuploader/'.$item->getFileType($item->type).'-album/view', 'id' => $item->id
+                            ])
+                        );
+                    },
+                    'format' => 'raw',
+                ],
+                'description' => [
+                    'label' => MFUModule::t('album', 'Description'),
+                    'value' => function($item) {
+                        /** @var Album $item */
+                        return $item->description;
+                    },
+                ],
+            ],
+        ]); ?>
+    <?php endif; ?>
+
+    <?php echo Html::a(Yii::t('pages', 'View articles'), [
+        '/'.$this->params['shortLanguage'].'/admin/articles/index', 'ArticleSearch[pageId]' => $model->id
     ], [
         'class' => 'btn btn-primary'
     ]) ?>

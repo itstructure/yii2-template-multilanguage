@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use Yii;
 use Itstructure\AdminModule\models\{Language, ActiveRecord};
 
 /**
@@ -81,14 +82,14 @@ class ContactLanguage extends ActiveRecord
                     'email'
                 ],
                 'string',
-                'max' => 64
+                'max' => 128
             ],
             [
                 [
                     'phone'
                 ],
                 'string',
-                'max' => 32
+                'max' => 128
             ],
             [
                 [
@@ -127,14 +128,14 @@ class ContactLanguage extends ActiveRecord
         return [
             'contacts_id' => 'Contacts ID',
             'language_id' => 'Language ID',
-            'title' => 'Title',
-            'address' => 'Address',
-            'email' => 'Email',
-            'phone' => 'Phone',
-            'metaKeys' => 'Meta Keys',
-            'metaDescription' => 'Meta Description',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'title' => Yii::t('contacts', 'Title'),
+            'address' => Yii::t('contacts', 'Address'),
+            'email' => Yii::t('contacts', 'Email'),
+            'phone' => Yii::t('contacts', 'Phone'),
+            'metaKeys' => Yii::t('app', 'Meta keys'),
+            'metaDescription' => Yii::t('app', 'Meta description'),
+            'created_at' => Yii::t('app', 'Created date'),
+            'updated_at' => Yii::t('app', 'Updated date'),
         ];
     }
 

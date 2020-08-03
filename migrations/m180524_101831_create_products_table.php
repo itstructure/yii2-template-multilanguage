@@ -14,30 +14,32 @@ class m180524_101831_create_products_table extends MultilanguageMigration
     {
         $this->createMultiLanguageTable('products',
             [
-                'title' => $this->string(),
+                'title' => $this->string(128)->notNull(),
                 'description' => $this->text(),
                 'content' => $this->text(),
-                'metaKeys' => $this->string(),
+                'metaKeys' => $this->string(128),
                 'metaDescription' => $this->string(),
             ],
             [
-                'pageId' => $this->integer(),
-                'active' => $this->tinyInteger(1)->notNull()->defaultValue(0),
-                'icon' => $this->string(64),
+                'categoryId' => $this->integer(),
+                'active' => $this->tinyInteger()->notNull()->defaultValue(0),
+                'icon' => $this->string(128),
+                'alias' => $this->string(128),
+                'price' => $this->float(2),
             ]
         );
 
         $this->createIndex(
-            'idx-products-pageId',
+            'idx-products-categoryId',
             'products',
-            'pageId'
+            'categoryId'
         );
 
         $this->addForeignKey(
-            'fk-products-pageId',
+            'fk-products-categoryId',
             'products',
-            'pageId',
-            'pages',
+            'categoryId',
+            'categories',
             'id',
             'SET NULL'
         );
@@ -47,6 +49,18 @@ class m180524_101831_create_products_table extends MultilanguageMigration
             'products',
             'active'
         );
+
+        $this->createIndex(
+            'idx-products-alias',
+            'products',
+            'alias'
+        );
+
+        $this->createIndex(
+            'idx-products-price',
+            'products',
+            'price'
+        );
     }
 
     /**
@@ -55,17 +69,27 @@ class m180524_101831_create_products_table extends MultilanguageMigration
     public function safeDown()
     {
         $this->dropIndex(
+            'idx-products-price',
+            'products'
+        );
+
+        $this->dropIndex(
+            'idx-products-alias',
+            'products'
+        );
+
+        $this->dropIndex(
             'idx-products-active',
             'products'
         );
 
         $this->dropForeignKey(
-            'fk-products-pageId',
+            'fk-products-categoryId',
             'products'
         );
 
         $this->dropIndex(
-            'idx-products-pageId',
+            'idx-products-categoryId',
             'products'
         );
 

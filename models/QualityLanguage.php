@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use Yii;
 use Itstructure\AdminModule\models\{Language, ActiveRecord};
 
 /**
@@ -59,7 +60,7 @@ class QualityLanguage extends ActiveRecord
                     'title'
                 ],
                 'string',
-                'max' => 255
+                'max' => 128
             ],
             [
                 [
@@ -112,10 +113,10 @@ class QualityLanguage extends ActiveRecord
         return [
             'qualities_id' => 'Qualities ID',
             'language_id' => 'Language ID',
-            'title' => 'Title',
-            'description' => 'Description',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'title' => Yii::t('app', 'Title'),
+            'description' => Yii::t('app', 'Description'),
+            'created_at' => Yii::t('app', 'Created date'),
+            'updated_at' => Yii::t('app', 'Updated date'),
         ];
     }
 

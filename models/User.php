@@ -176,14 +176,14 @@ class User extends ActiveRecord implements RbacIdentityInterface, AdminMenuInter
     {
         return [
             'id' => 'ID',
-            'first_name' => 'First name',
-            'login' => 'Login',
-            'email' => 'Email',
-            'password' => 'Password',
-            'passwordRepeat' => 'Password confirm',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
-            UploadModelInterface::FILE_TYPE_THUMB => 'Thumbnail',
+            'first_name' => Yii::t('users', 'First Name'),
+            'login' => Yii::t('users', 'Login'),
+            'email' => Yii::t('users', 'Email'),
+            'password' => Yii::t('users', 'Password'),
+            'passwordRepeat' => Yii::t('users', 'Password confirm'),
+            'created_at' => Yii::t('app', 'Created date'),
+            'updated_at' => Yii::t('app', 'Updated date'),
+            UploadModelInterface::FILE_TYPE_THUMB => Yii::t('users', 'Avatar'),
         ];
     }
 

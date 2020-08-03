@@ -25,6 +25,18 @@ return [
             'pages' => 'pages.php',
         ],
     ],
+    'categories*' => [
+        'class' => 'yii\i18n\PhpMessageSource',
+        'fileMap' => [
+            'categories' => 'categories.php',
+        ],
+    ],
+    'articles*' => [
+        'class' => 'yii\i18n\PhpMessageSource',
+        'fileMap' => [
+            'articles' => 'articles.php',
+        ],
+    ],
     'products*' => [
         'class' => 'yii\i18n\PhpMessageSource',
         'fileMap' => [

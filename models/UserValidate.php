@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use Yii;
 use yii\db\ActiveRecordInterface;
 use yii\web\IdentityInterface;
 use yii\rbac\ManagerInterface;
@@ -212,20 +213,20 @@ class UserValidate extends Model implements ModelInterface
     public function attributeLabels()
     {
         return [
-            'first_name' => 'First Name',
-            'last_name' => 'Last Name',
-            'patronymic' => 'Patronymic',
-            'position_id' => 'Position ID',
-            'login' => 'Login',
-            'email' => 'Email',
-            'phone' => 'Phone',
-            'status' => 'Status',
-            'public' => 'Public',
-            'about' => 'About',
-            'password' => 'Password',
-            'passwordRepeat' => 'Password confirm',
-            'roles' => 'Roles',
-            UploadModelInterface::FILE_TYPE_THUMB => 'Thumbnail'
+            'first_name' => Yii::t('users', 'First Name'),
+            'last_name' => Yii::t('users', 'Last Name'),
+            'patronymic' => Yii::t('users', 'Patronymic'),
+            'position_id' => Yii::t('users', 'Position'),
+            'login' => Yii::t('users', 'Login'),
+            'email' => Yii::t('users', 'Email'),
+            'phone' => Yii::t('users', 'Phone'),
+            'status' => Yii::t('users', 'Status'),
+            'public' => Yii::t('users', 'Publicity'),
+            'about' => Yii::t('users', 'About'),
+            'password' => Yii::t('users', 'Password'),
+            'passwordRepeat' => Yii::t('users', 'Password confirm'),
+            'roles' => Yii::t('users', 'Roles'),
+            UploadModelInterface::FILE_TYPE_THUMB => Yii::t('users', 'Avatar')
         ];
     }
 

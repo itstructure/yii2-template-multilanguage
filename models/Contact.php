@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use Yii;
 use Itstructure\AdminModule\models\{MultilanguageTrait, Language, ActiveRecord};
 
 /**
@@ -49,7 +50,7 @@ class Contact extends ActiveRecord
             [
                 'mapQ',
                 'string',
-                'max' => 255
+                'max' => 128
             ],
             [
                 [
@@ -68,11 +69,11 @@ class Contact extends ActiveRecord
     {
         return [
             'id' => 'ID',
-            'default' => 'Default',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
-            'mapQ' => 'Map place',
-            'mapZoom' => 'Map zoom',
+            'default' => Yii::t('app', 'Default'),
+            'created_at' => Yii::t('app', 'Created date'),
+            'updated_at' => Yii::t('app', 'Updated date'),
+            'mapQ' => Yii::t('contacts', 'Map place'),
+            'mapZoom' => Yii::t('contacts', 'Map zoom'),
         ];
     }
 

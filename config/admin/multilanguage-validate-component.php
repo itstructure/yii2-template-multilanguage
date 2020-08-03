@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\ArrayHelper;
-use app\models\{Page, Product, About, Contact, Home, Quality, Position};
+use app\models\{Page, Category, Article, Product, About, Contact, Home, Quality, Position};
 use Itstructure\AdminModule\components\MultilanguageValidateComponent;
 
 $dynamicFieldsMain = [
@@ -10,11 +10,10 @@ $dynamicFieldsMain = [
         'rules' => [
             [
                 'required',
-                'message' => 'Field "{attribute}" must not be empty.'
             ],
             [
                 'string',
-                'max' => 255,
+                'max' => 128,
             ],
             [
                 'unique',
@@ -34,7 +33,6 @@ $dynamicFieldsMain = [
         'rules' => [
             [
                 'required',
-                'message' => 'Field "{attribute}" must not be empty.'
             ],
             [
                 'string',
@@ -49,7 +47,6 @@ $descriptionFullRule = [
         'rules' => [
             [
                 'required',
-                'message' => 'Field "{attribute}" must not be empty.'
             ],
             [
                 'string',
@@ -64,11 +61,10 @@ $dynamicFieldsSeo = [
         'rules' => [
             [
                 'required',
-                'message' => 'Field "{attribute}" must not be empty.'
             ],
             [
                 'string',
-                'max' => 255,
+                'max' => 128,
             ],
             [
                 'unique',
@@ -80,7 +76,6 @@ $dynamicFieldsSeo = [
         'rules' => [
             [
                 'required',
-                'message' => 'Field "{attribute}" must not be empty.'
             ],
             [
                 'string',
@@ -99,11 +94,10 @@ $dynamicFieldsContacts = [
         'rules' => [
             [
                 'required',
-                'message' => 'Field "{attribute}" must not be empty.'
             ],
             [
                 'string',
-                'max' => 255,
+                'max' => 128,
             ],
             [
                 'unique',
@@ -124,7 +118,7 @@ $dynamicFieldsContacts = [
         'rules' => [
             [
                 'string',
-                'max' => 64,
+                'max' => 128,
             ]
         ]
     ],
@@ -133,7 +127,7 @@ $dynamicFieldsContacts = [
         'rules' => [
             [
                 'string',
-                'max' => 32,
+                'max' => 128,
             ]
         ]
     ],
@@ -145,11 +139,10 @@ $dynamicFieldsHome = [
         'rules' => [
             [
                 'required',
-                'message' => 'Field "{attribute}" must not be empty.'
             ],
             [
                 'string',
-                'max' => 255,
+                'max' => 128,
             ],
         ]
     ],
@@ -177,11 +170,10 @@ $dynamicFieldsQuality = [
         'rules' => [
             [
                 'required',
-                'message' => 'Field "{attribute}" must not be empty.'
             ],
             [
                 'string',
-                'max' => 255,
+                'max' => 128,
             ],
         ]
     ],
@@ -190,7 +182,6 @@ $dynamicFieldsQuality = [
         'rules' => [
             [
                 'required',
-                'message' => 'Field "{attribute}" must not be empty.'
             ],
             [
                 'string',
@@ -206,11 +197,10 @@ $dynamicFieldsPositions = [
         'rules' => [
             [
                 'required',
-                'message' => 'Field "{attribute}" must not be empty.'
             ],
             [
                 'string',
-                'max' => 255,
+                'max' => 64,
             ],
             [
                 'unique',
@@ -238,6 +228,16 @@ return [
         /* Page */
         Page::tableName() => [
             'dynamicFields' => ArrayHelper::merge($dynamicFieldsMain, $dynamicFieldsSeo),
+        ],
+
+        /* Category */
+        Category::tableName() => [
+            'dynamicFields' => ArrayHelper::merge($dynamicFieldsMain, $dynamicFieldsSeo),
+        ],
+
+        /* Article */
+        Article::tableName() => [
+            'dynamicFields' => ArrayHelper::merge($dynamicFieldsMain, $dynamicFieldsSeo, $descriptionFullRule),
         ],
 
         /* Product */

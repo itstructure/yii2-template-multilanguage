@@ -14,11 +14,11 @@ class m190220_013101_create_qualities_table extends MultilanguageMigration
     {
         $this->createMultiLanguageTable('qualities',
             [
-                'title' => $this->string()->notNull(),
-                'description' => $this->string(1024)->notNull(),
+                'title' => $this->string(128)->notNull(),
+                'description' => $this->text()->notNull(),
             ],
             [
-                'icon' => $this->string(64)->notNull(),
+                'icon' => $this->string(128)->notNull(),
             ]
         );
     }

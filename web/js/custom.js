@@ -230,96 +230,6 @@ function addEvent(element, event_name, event_handler) {
     }
 }
 
-// FEEDBACK
-
-var recaptcha_status = 'passive';
-
-$(document).ready(function() {
-    /**
-     * Single upload file.
-     */
-    var feedbackBlock = $('#feedback');
-    feedbackBlock.on("click", '[role="send"]', function(e) {
-        e.preventDefault();
-        if (recaptcha_status == 'passive' || recaptcha_status == 'unvalid') {
-            var textAlert;
-            switch (recaptcha_status) {
-                case 'passive':
-                    textAlert = window.need_captcha;
-                    break;
-                case 'unvalid':
-                    textAlert = window.error_captcha;
-                    break;
-            }
-            showAlert(feedbackBlock, textAlert, 'danger');
-            return;
-        }
-        closeAlert(feedbackBlock);
-
-        var url = '/ajax/feedback-ajax/send',
-            nameBlock = feedbackBlock.find('[role="name"]'),
-            emailBlock = feedbackBlock.find('[role="email"]'),
-            subjectBlock = feedbackBlock.find('[role="subject"]'),
-            messageBlock = feedbackBlock.find('[role="message"]'),
-            params = {
-                _csrf: window.yii.getCsrfToken(),
-                name: nameBlock.val(),
-                email: emailBlock.val(),
-                subject: subjectBlock.val(),
-                message: messageBlock.val(),
-                short_language: window.short_language
-            };
-
-        AJAX(url, 'POST', params, {
-            response_json: true,
-            func_waiting: function () {
-                showPreloader();
-            },
-            func_callback: function (resp) {
-                hidePreloader();
-                if (resp.meta.status == 'success') {
-
-                    feedbackBlock.find('.form-group').each(function () {
-                        if ($(this).hasClass('has-error')) {
-                            $(this).removeClass('has-error');
-                        }
-                        $(this).find('.help-block').text('');
-                        $(this).find('.form-control').val('');
-                    });
-
-                    showAlert(feedbackBlock, window.sent_message, 'success');
-                    setTimeout(function () {
-                        closeAlert(feedbackBlock);
-                        grecaptcha_reset();
-                        recaptcha_status = 'passive';
-                    }, 3000);
-
-                } else if (resp.meta.status == 'fail') {
-                    var errors = resp.data.errors;
-                    feedbackBlock.find('.form-group').each(function () {
-                        var dataGroup = $(this).attr('data-group');
-                        var help_block = $('#help_block_'+dataGroup);
-                        if (dataGroup in errors) {
-                            if (!$(this).hasClass('has-error')) {
-                                $(this).addClass('has-error');
-                            }
-                            help_block.text(errors[dataGroup][0]);
-                        } else {
-                            if ($(this).hasClass('has-error')) {
-                                $(this).removeClass('has-error');
-                            }
-                            help_block.text('');
-                        }
-                    });
-                }
-            },
-            func_error: function (resp) {
-                console.log(resp.message);
-            }
-        });
-    });
-});
-
 /**
  * @param {element} parentBlock
  * @param {string} textAlert
@@ -337,11 +247,11 @@ function showAlert(parentBlock, textAlert, status) {
         'danger'
     ];
     var alertBlock = parentBlock.find('[role="alert"]');
-    if (alertBlock.hasClass('nodisplay')) {
-        alertBlock.removeClass('nodisplay');
+    if (alertBlock.hasClass('hidden')) {
+        alertBlock.removeClass('hidden');
     }
-    if (!alertBlock.hasClass('display')) {
-        alertBlock.addClass('display');
+    if (!alertBlock.hasClass('show')) {
+        alertBlock.addClass('show');
     }
     for (var i = 0; i < possibleStatuses.length; i++) {
         if (status != possibleStatuses[i]) {
@@ -368,11 +278,11 @@ function closeAlert(parentBlock) {
         'danger'
     ];
     var alertBlock = parentBlock.find('[role="alert"]');
-    if (alertBlock.hasClass('display')) {
-        alertBlock.removeClass('display');
+    if (alertBlock.hasClass('show')) {
+        alertBlock.removeClass('show');
     }
-    if (!alertBlock.hasClass('nodisplay')) {
-        alertBlock.addClass('nodisplay');
+    if (!alertBlock.hasClass('hidden')) {
+        alertBlock.addClass('hidden');
     }
     for (var i = 0; i < possibleStatuses.length; i++) {
         if (alertBlock.hasClass('alert-'+possibleStatuses[i])) {
@@ -382,24 +292,9 @@ function closeAlert(parentBlock) {
     alertBlock.text('');
 }
 
-var validateRecaptchaFeedback = function () {
-    validateRecaptcha({
-        func_waiting: function () {
-            showPreloader();
-        },
-        func_callback_error: function () {
-            hidePreloader();
-            recaptcha_status = 'unvalid';
-        },
-        func_callback_success: function () {
-            hidePreloader();
-            recaptcha_status = 'valid';
-            closeAlert($('#feedback'));
-        }
-    });
-};
-
 // CAPTCHA
+
+var recaptcha_status = 'passive';
 
 function grecaptcha_reset() {
     grecaptcha.reset();

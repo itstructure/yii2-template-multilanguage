@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use Yii;
 use yii\helpers\ArrayHelper;
 use Itstructure\MultiLevelMenu\MenuWidget;
 use Itstructure\AdminModule\models\{MultilanguageTrait, Language, ActiveRecord};
@@ -21,7 +22,6 @@ use app\traits\ThumbnailTrait;
  * @property string $created_at
  * @property string $updated_at
  * @property int $parentId
- * @property int $newParentId
  * @property string $icon
  * @property string $alias
  * @property int $active
@@ -41,24 +41,23 @@ class Page extends ActiveRecord
     public $thumbnail;
 
     /**
+     * @var array image(array of 'mediafile id' or 'mediafile url').
+     */
+    public $image;
+
+    /**
      * @var array
      */
     public $albums = [];
 
     /**
-     * @var int
+     * Init albums.
      */
-    public $newParentId;
-
-    /**
-     * Initialize.
-     * Set albums, that page has.
-     */
-    public function init()
+    public function afterFind()
     {
         $this->albums = $this->getAlbums();
 
-        parent::init();
+        parent::afterFind();
     }
 
     /**
@@ -85,27 +84,34 @@ class Page extends ActiveRecord
             [
                 [
                     'active',
-                    'alias',
                 ],
                 'required',
             ],
             [
                 [
                     'parentId',
-                    'newParentId',
                     'active'
                 ],
                 'integer',
             ],
             [
-                'icon',
+                [
+                    'icon',
+                    'alias',
+                ],
                 'string',
-                'max' => 64,
+                'max' => 128,
             ],
             [
-                'alias',
-                'string',
-                'max' => 255,
+                'parentId',
+                'filter',
+                'filter' => function ($value) {
+                    if (empty($value)) {
+                        return null;
+                    } else {
+                        return MenuWidget::checkNewParentId($this, $value) ? $value : $this->getOldAttribute('parentId');
+                    }
+                }
             ],
             [
                 'alias',
@@ -131,6 +137,15 @@ class Page extends ActiveRecord
                 'skipOnError' => false,
             ],
             [
+                UploadModelInterface::FILE_TYPE_IMAGE,
+                function($attribute) {
+                    if (!is_array($this->{$attribute})) {
+                        $this->addError($attribute, 'Image field content must be an array.');
+                    }
+                },
+                'skipOnError' => false,
+            ],
+            [
                 'albums',
                 'each',
                 'rule' => ['integer'],
@@ -149,6 +164,7 @@ class Page extends ActiveRecord
                 'name' => static::tableName(),
                 'attributes' => [
                     UploadModelInterface::FILE_TYPE_THUMB,
+                    UploadModelInterface::FILE_TYPE_IMAGE,
                 ],
             ],
             'albums' => [
@@ -168,13 +184,13 @@ class Page extends ActiveRecord
     {
         return [
             UploadModelInterface::FILE_TYPE_THUMB,
+            UploadModelInterface::FILE_TYPE_IMAGE,
             'albums',
             'id',
             'parentId',
             'icon',
             'alias',
             'active',
-            'newParentId',
             'created_at',
             'updated_at',
         ];
@@ -187,32 +203,13 @@ class Page extends ActiveRecord
     {
         return [
             'id' => 'ID',
-            'parentId' => 'Parent Id',
-            'icon' => 'Icon',
-            'alias' => 'URL Alias',
-            'active' => 'Active',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'parentId' => Yii::t('app', 'Parent object'),
+            'icon' => Yii::t('app', 'Icon'),
+            'active' => Yii::t('app', 'Active status'),
+            'alias' => Yii::t('app', 'URL Alias'),
+            'created_at' => Yii::t('app', 'Created date'),
+            'updated_at' => Yii::t('app', 'Updated date'),
         ];
-    }
-
-    /**
-     * @param bool $insert
-     *
-     * @return bool
-     */
-    public function beforeSave($insert)
-    {
-        $this->parentId = empty($this->newParentId) ? null : (int)$this->newParentId;
-
-        if (empty($this->newParentId)) {
-            $this->parentId = null;
-
-        } elseif (MenuWidget::checkNewParentId($this, $this->newParentId)) {
-            $this->parentId = $this->newParentId;
-        }
-
-        return parent::beforeSave($insert);
     }
 
     /**
@@ -277,7 +274,7 @@ class Page extends ActiveRecord
     public function getAlbums()
     {
         return OwnerAlbum::getAlbumsQuery([
-            'owner' => $this->tableName(),
+            'owner' => static::tableName(),
             'ownerId' => $this->id,
             'ownerAttribute' => 'albums',
         ])->all();

@@ -14,7 +14,7 @@ class m180602_191217_create_social_table extends Migration
     {
         $this->createTable('social', [
             'id' => $this->primaryKey(),
-            'icon' => $this->string(64)->notNull(),
+            'icon' => $this->string(128)->notNull(),
             'url' => $this->string()->notNull(),
             'created_at' => $this->dateTime(),
             'updated_at' => $this->dateTime(),

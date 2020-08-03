@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use Yii;
 use Itstructure\AdminModule\models\{MultilanguageTrait, Language, ActiveRecord};
 
 /**
@@ -75,9 +76,9 @@ class About extends ActiveRecord
     {
         return [
             'id' => 'ID',
-            'default' => 'Default',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'default' => Yii::t('app', 'Default'),
+            'created_at' => Yii::t('app', 'Created date'),
+            'updated_at' => Yii::t('app', 'Updated date'),
         ];
     }
 

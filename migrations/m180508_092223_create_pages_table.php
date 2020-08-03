@@ -14,16 +14,17 @@ class m180508_092223_create_pages_table extends MultilanguageMigration
     {
         $this->createMultiLanguageTable('pages',
             [
-                'title' => $this->string(),
+                'title' => $this->string(128)->notNull(),
                 'description' => $this->text(),
                 'content' => $this->text(),
-                'metaKeys' => $this->string(),
+                'metaKeys' => $this->string(128),
                 'metaDescription' => $this->string(),
             ],
             [
                 'parentId' => $this->integer(),
-                'active' => $this->tinyInteger(1)->notNull()->defaultValue(0),
-                'icon' => $this->string(64)
+                'active' => $this->tinyInteger()->notNull()->defaultValue(0),
+                'icon' => $this->string(128),
+                'alias' => $this->string(128),
             ]
         );
 
@@ -37,6 +38,12 @@ class m180508_092223_create_pages_table extends MultilanguageMigration
             'idx-pages-active',
             'pages',
             'active'
+        );
+
+        $this->createIndex(
+            'idx-pages-alias',
+            'pages',
+            'alias'
         );
     }
 
@@ -52,6 +59,11 @@ class m180508_092223_create_pages_table extends MultilanguageMigration
 
         $this->dropIndex(
             'idx-pages-active',
+            'pages'
+        );
+
+        $this->dropIndex(
+            'idx-pages-alias',
             'pages'
         );
 

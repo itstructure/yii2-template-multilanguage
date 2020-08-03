@@ -79,7 +79,7 @@ $config = [
                 '<shortLanguage:\w+>/<action:(reg|login)>' => 'site/<action>',
                 '<shortLanguage:\w+>/<controller:(contact|site)>/captcha' => '<controller>/captcha',
                 '<shortLanguage:\w+>/<controller:(home|about|contact|site)>' => '<controller>/index',
-                '<shortLanguage:\w+>/<controller:(page|product)>/<alias>' => '<controller>/view',
+                '<shortLanguage:\w+>/<controller:(page|category|article|product)>/<alias>' => '<controller>/view',
                 '<controller:(ajax/feedback-ajax)>/<action:(send)>' => '<controller>/<action>',
                 '<controller:(ajax/recaptcha-ajax)>/<action:(validate)>' => '<controller>/<action>',
 
@@ -92,9 +92,17 @@ $config = [
                 '<shortLanguage:\w+>/<module:(mfuploader)>/<controller:(image-album|audio-album|video-album|application-album|text-album|other-album)>/<action:(index|view|create|update|delete)>' => '<module>/<controller>/<action>',
             ],
         ],
+        /*'assetManager' => [
+            'linkAssets' => YII_DEBUG
+        ],*/
         'i18n' => [
             'translations' => $translations
         ],
+        /*'basket' => [
+            'class' => app\components\BasketComponent::class,
+            'modelClass' => app\models\Product::class,
+            'modelAdditionKeys' => ['alias', 'title', 'description']
+        ],*/
     ],
     'defaultRoute' => '/en/home/index',
     'params' => $params,

@@ -6,7 +6,7 @@ use Yii;
 use yii\db\ActiveRecord;
 use yii\web\Controller;
 use app\helpers\BaseHelper;
-use app\models\{Page, Contact};
+use app\models\{Page, Category, Contact};
 use app\traits\LanguageTrait;
 use Itstructure\AdminModule\models\Language;
 
@@ -32,6 +32,7 @@ class BaseController extends Controller
     public function beforeAction($action)
     {
         $this->view->params['pages'] = Page::getActiveMenu();
+        $this->view->params['categories'] = Category::getActiveMenu();
         $this->view->params['contacts'] = Contact::getDefaultContacts();
         $this->view->params['controllerId'] = Yii::$app->controller->id;
 

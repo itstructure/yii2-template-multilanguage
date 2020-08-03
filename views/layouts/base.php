@@ -25,13 +25,15 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php echo Html::csrfMetaTags(); ?>
 
-    <link rel="shortcut icon" href="/images/favicon.ico">
+    <!--<link rel="shortcut icon" href="/images/favicon.ico">-->
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
     <?php $this->head() ?>
 </head>
 <body>
 <?php $this->beginBody() ?>
+
+<?php echo $this->render('preloader') ?>
 
 <div class="wrap">
     <?php
@@ -57,6 +59,34 @@ AppAsset::register($this);
             <?php echo MenuWidget::widget([
                 'data' => $this->params['pages'],
                 'itemTemplate' => '@app/views/menu/pageItem.php',
+                'itemTemplateParams' => function ($level, $item) {
+                    return [
+                        'shortLanguage' => $this->params['shortLanguage'],
+                        'linkOptions' => isset($item['items']) && count($item['items']) > 0 ? [
+                            'class' => 'dropdown-toggle',
+                            'data-toggle' => 'dropdown',
+                            'aria-haspopup' => 'true',
+                            'aria-expanded' => 'false',
+                        ] : [],
+                    ];
+                },
+                'mainContainerOptions' => [
+                    'class' => 'dropdown-menu'
+                ],
+                'itemContainerOptions' => function ($level, $item) {
+                    return [
+                        'class' => isset($item['items']) && count($item['items']) > 0 ? 'dropdown-item dropdown' : 'dropdown-item'
+                    ];
+                }
+            ]) ?>
+        </li>
+        <li class="nav-item dropdown <?php if($controllerId=='category'): ?>active<?php endif; ?>">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <?php echo Yii::t('categories', 'Categories') ?>
+            </a>
+            <?php echo MenuWidget::widget([
+                'data' => $this->params['categories'],
+                'itemTemplate' => '@app/views/menu/categoryItem.php',
                 'itemTemplateParams' => function ($level, $item) {
                     return [
                         'shortLanguage' => $this->params['shortLanguage'],

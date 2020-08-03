@@ -13,8 +13,9 @@ class m171230_130253_create_settings_table extends Migration
     public function up()
     {
         $this->createTable('settings', [
-            'initUserStatus' => $this->integer(2),
+            'initUserStatus' => $this->tinyInteger(),
             'initUserRole' => $this->string(64),
+            'regBlock' => $this->tinyInteger(),
         ]);
     }
 

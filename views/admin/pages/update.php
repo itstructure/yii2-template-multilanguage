@@ -4,6 +4,7 @@
 /* @var $model Itstructure\AdminModule\models\MultilanguageValidateModel */
 /* @var $pages array|\yii\db\ActiveRecord[] */
 /* @var $albums Itstructure\MFUploader\models\album\Album[] */
+/* @var $images array */
 
 $this->title = Yii::t('pages', 'Update page').': ' . $model->mainModel->getDefaultTranslate('title');
 $this->params['breadcrumbs'][] = [
@@ -27,6 +28,7 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
         'model' => $model,
         'pages' => $pages,
         'albums' => $albums,
+        'images' => $images,
         'ownerParams' => [
             'owner' => \app\models\Page::tableName(),
             'ownerId' => $model->getId(),

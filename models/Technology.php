@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use Yii;
 use Itstructure\AdminModule\interfaces\ModelInterface;
 use Itstructure\AdminModule\models\ActiveRecord;
 
@@ -63,7 +64,7 @@ class Technology extends ActiveRecord implements ModelInterface
                     'icon'
                 ],
                 'string',
-                'max' => 64
+                'max' => 128
             ],
         ];
     }
@@ -92,12 +93,12 @@ class Technology extends ActiveRecord implements ModelInterface
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'share' => 'Share, %',
-            'icon' => 'Icon',
-            'about' => 'About',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'name' => Yii::t('technologies', 'Name'),
+            'share' => Yii::t('technologies', 'Share'),
+            'icon' => Yii::t('app', 'Icon'),
+            'about' => Yii::t('about', 'About'),
+            'created_at' => Yii::t('app', 'Created date'),
+            'updated_at' => Yii::t('app', 'Updated date'),
         ];
     }
 
