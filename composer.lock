@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a816bdefa8618e91d2dc654b9c5926fe",
+    "content-hash": "4b7c195b5782b472f2f3dd231874313a",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -669,16 +669,16 @@
         },
         {
             "name": "itstructure/yii2-admin-module",
-            "version": "1.8.2",
+            "version": "1.8.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itstructure/yii2-admin-module.git",
-                "reference": "7f45a148d83f792ed1d637ea1aef4dcb9e51db56"
+                "reference": "6afdf1912209df5e5227772aed1d24efc68ab10b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itstructure/yii2-admin-module/zipball/7f45a148d83f792ed1d637ea1aef4dcb9e51db56",
-                "reference": "7f45a148d83f792ed1d637ea1aef4dcb9e51db56",
+                "url": "https://api.github.com/repos/itstructure/yii2-admin-module/zipball/6afdf1912209df5e5227772aed1d24efc68ab10b",
+                "reference": "6afdf1912209df5e5227772aed1d24efc68ab10b",
                 "shasum": ""
             },
             "require": {
@@ -712,7 +712,11 @@
                 "yii 2",
                 "yii2"
             ],
-            "time": "2020-08-01T05:45:24+00:00"
+            "support": {
+                "issues": "https://github.com/itstructure/yii2-admin-module/issues",
+                "source": "https://github.com/itstructure/yii2-admin-module/tree/1.8.3"
+            },
+            "time": "2021-02-23T05:36:05+00:00"
         },
         {
             "name": "itstructure/yii2-ckeditor",
@@ -805,16 +809,16 @@
         },
         {
             "name": "itstructure/yii2-multi-format-uploader",
-            "version": "3.0.2",
+            "version": "3.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itstructure/yii2-multi-format-uploader.git",
-                "reference": "73cca6a304cd3508a8f5ef729bd2af5c8a2f2b23"
+                "reference": "dc9ce93b54db2a7f6acd9155432f0785be400031"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itstructure/yii2-multi-format-uploader/zipball/73cca6a304cd3508a8f5ef729bd2af5c8a2f2b23",
-                "reference": "73cca6a304cd3508a8f5ef729bd2af5c8a2f2b23",
+                "url": "https://api.github.com/repos/itstructure/yii2-multi-format-uploader/zipball/dc9ce93b54db2a7f6acd9155432f0785be400031",
+                "reference": "dc9ce93b54db2a7f6acd9155432f0785be400031",
                 "shasum": ""
             },
             "require": {
@@ -851,20 +855,24 @@
                 "yii 2",
                 "yii2"
             ],
-            "time": "2020-07-22T16:50:40+00:00"
+            "support": {
+                "issues": "https://github.com/itstructure/yii2-multi-format-uploader/issues",
+                "source": "https://github.com/itstructure/yii2-multi-format-uploader/tree/3.2.2"
+            },
+            "time": "2021-02-23T05:40:24+00:00"
         },
         {
             "name": "itstructure/yii2-multi-level-menu",
-            "version": "3.2.6",
+            "version": "3.2.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itstructure/yii2-multi-level-menu.git",
-                "reference": "74f1f547dec69969b1b45ca293cba4852b8cf85b"
+                "reference": "10d3f3e87634e5daa8621227d6acf93e749866fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itstructure/yii2-multi-level-menu/zipball/74f1f547dec69969b1b45ca293cba4852b8cf85b",
-                "reference": "74f1f547dec69969b1b45ca293cba4852b8cf85b",
+                "url": "https://api.github.com/repos/itstructure/yii2-multi-level-menu/zipball/10d3f3e87634e5daa8621227d6acf93e749866fb",
+                "reference": "10d3f3e87634e5daa8621227d6acf93e749866fb",
                 "shasum": ""
             },
             "require": {
@@ -894,20 +902,24 @@
                 "yii 2",
                 "yii2"
             ],
-            "time": "2020-07-17T16:21:46+00:00"
+            "support": {
+                "issues": "https://github.com/itstructure/yii2-multi-level-menu/issues",
+                "source": "https://github.com/itstructure/yii2-multi-level-menu/tree/3.2.8"
+            },
+            "time": "2021-02-23T06:41:56+00:00"
         },
         {
             "name": "itstructure/yii2-rbac-module",
-            "version": "3.0.2",
+            "version": "3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itstructure/yii2-rbac-module.git",
-                "reference": "3f24f875dfb2e05589427060702fd03474ea23c9"
+                "reference": "42984c618ed355c370ccfa4928ffcb6091f6b9b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itstructure/yii2-rbac-module/zipball/3f24f875dfb2e05589427060702fd03474ea23c9",
-                "reference": "3f24f875dfb2e05589427060702fd03474ea23c9",
+                "url": "https://api.github.com/repos/itstructure/yii2-rbac-module/zipball/42984c618ed355c370ccfa4928ffcb6091f6b9b1",
+                "reference": "42984c618ed355c370ccfa4928ffcb6091f6b9b1",
                 "shasum": ""
             },
             "require": {
@@ -938,7 +950,11 @@
                 "yii 2",
                 "yii2"
             ],
-            "time": "2020-07-26T07:54:17+00:00"
+            "support": {
+                "issues": "https://github.com/itstructure/yii2-rbac-module/issues",
+                "source": "https://github.com/itstructure/yii2-rbac-module/tree/3.0.3"
+            },
+            "time": "2021-02-23T05:44:46+00:00"
         },
         {
             "name": "itstructure/yii2-sitemap-generator",
@@ -1935,5 +1951,6 @@
     "platform": {
         "php": ">=7.1.0"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
 }
