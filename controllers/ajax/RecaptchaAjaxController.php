@@ -34,6 +34,8 @@ class RecaptchaAjaxController extends Controller
      */
     public function init()
     {
+        parent::init();
+
         $this->recaptchaDriver = new ReCaptcha(Yii::$app->params['captcha']['secret_key']);
     }
 
