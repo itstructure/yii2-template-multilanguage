@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4b7c195b5782b472f2f3dd231874313a",
+    "content-hash": "51813710dcd7d3b13b94f01973a15542",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -716,16 +716,16 @@
         },
         {
             "name": "itstructure/yii2-admin-module",
-            "version": "1.8.4",
+            "version": "1.8.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itstructure/yii2-admin-module.git",
-                "reference": "a8e16e0ea1291ea57504c827f45880b5e07d62e0"
+                "reference": "17520463e554c30f75e39357552a979021442a29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itstructure/yii2-admin-module/zipball/a8e16e0ea1291ea57504c827f45880b5e07d62e0",
-                "reference": "a8e16e0ea1291ea57504c827f45880b5e07d62e0",
+                "url": "https://api.github.com/repos/itstructure/yii2-admin-module/zipball/17520463e554c30f75e39357552a979021442a29",
+                "reference": "17520463e554c30f75e39357552a979021442a29",
                 "shasum": ""
             },
             "require": {
@@ -761,9 +761,9 @@
             ],
             "support": {
                 "issues": "https://github.com/itstructure/yii2-admin-module/issues",
-                "source": "https://github.com/itstructure/yii2-admin-module/tree/1.8.4"
+                "source": "https://github.com/itstructure/yii2-admin-module/tree/1.8.5"
             },
-            "time": "2021-04-17T15:48:17+00:00"
+            "time": "2021-04-18T09:55:04+00:00"
         },
         {
             "name": "itstructure/yii2-ckeditor",
@@ -864,16 +864,16 @@
         },
         {
             "name": "itstructure/yii2-multi-format-uploader",
-            "version": "3.2.3",
+            "version": "3.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itstructure/yii2-multi-format-uploader.git",
-                "reference": "0f8268a30b8f4b2b71e169fc9127847ae0980f3c"
+                "reference": "e79e3d28f7d234790fa98944c9a770c82124af56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itstructure/yii2-multi-format-uploader/zipball/0f8268a30b8f4b2b71e169fc9127847ae0980f3c",
-                "reference": "0f8268a30b8f4b2b71e169fc9127847ae0980f3c",
+                "url": "https://api.github.com/repos/itstructure/yii2-multi-format-uploader/zipball/e79e3d28f7d234790fa98944c9a770c82124af56",
+                "reference": "e79e3d28f7d234790fa98944c9a770c82124af56",
                 "shasum": ""
             },
             "require": {
@@ -912,9 +912,9 @@
             ],
             "support": {
                 "issues": "https://github.com/itstructure/yii2-multi-format-uploader/issues",
-                "source": "https://github.com/itstructure/yii2-multi-format-uploader/tree/3.2.3"
+                "source": "https://github.com/itstructure/yii2-multi-format-uploader/tree/3.2.4"
             },
-            "time": "2021-04-17T16:11:54+00:00"
+            "time": "2021-04-18T09:01:30+00:00"
         },
         {
             "name": "itstructure/yii2-multi-level-menu",
