@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "51813710dcd7d3b13b94f01973a15542",
+    "content-hash": "2da4b75e96972ff9ab687d4d3ce00a5c",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -143,7 +143,7 @@
             "version": "v3.4.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/twbs/bootstrap.git",
+                "url": "git@github.com:twbs/bootstrap.git",
                 "reference": "68b0d231a13201eb14acd3dc84e51543d16e5f7e"
             },
             "dist": {
@@ -161,16 +161,16 @@
         },
         {
             "name": "bower-asset/inputmask",
-            "version": "3.3.11",
+            "version": "5.0.8",
             "source": {
                 "type": "git",
                 "url": "git@github.com:RobinHerbots/Inputmask.git",
-                "reference": "5e670ad62f50c738388d4dcec78d2888505ad77b"
+                "reference": "e0f39e0c93569c6b494c3a57edef2c59313a6b64"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RobinHerbots/Inputmask/zipball/5e670ad62f50c738388d4dcec78d2888505ad77b",
-                "reference": "5e670ad62f50c738388d4dcec78d2888505ad77b"
+                "url": "https://api.github.com/repos/RobinHerbots/Inputmask/zipball/e0f39e0c93569c6b494c3a57edef2c59313a6b64",
+                "reference": "e0f39e0c93569c6b494c3a57edef2c59313a6b64"
             },
             "require": {
                 "bower-asset/jquery": ">=1.7"
@@ -182,16 +182,16 @@
         },
         {
             "name": "bower-asset/jquery",
-            "version": "3.6.3",
+            "version": "3.6.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:jquery/jquery-dist.git",
-                "reference": "da0f228131a578aea168b799fe4d7fe01764c98b"
+                "reference": "91ef2d8836342875f2519b5815197ea0f23613cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jquery/jquery-dist/zipball/da0f228131a578aea168b799fe4d7fe01764c98b",
-                "reference": "da0f228131a578aea168b799fe4d7fe01764c98b"
+                "url": "https://api.github.com/repos/jquery/jquery-dist/zipball/91ef2d8836342875f2519b5815197ea0f23613cf",
+                "reference": "91ef2d8836342875f2519b5815197ea0f23613cf"
             },
             "type": "bower-asset",
             "license": [
@@ -200,16 +200,16 @@
         },
         {
             "name": "bower-asset/punycode",
-            "version": "v1.3.2",
+            "version": "v1.4.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:bestiejs/punycode.js.git",
-                "reference": "38c8d3131a82567bfef18da09f7f4db68c84f8a3"
+                "url": "https://github.com/mathiasbynens/punycode.js.git",
+                "reference": "0fbadd6e81f3a0ce06c38998040d6db6bdfbc5c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bestiejs/punycode.js/zipball/38c8d3131a82567bfef18da09f7f4db68c84f8a3",
-                "reference": "38c8d3131a82567bfef18da09f7f4db68c84f8a3"
+                "url": "https://api.github.com/repos/mathiasbynens/punycode.js/zipball/0fbadd6e81f3a0ce06c38998040d6db6bdfbc5c9",
+                "reference": "0fbadd6e81f3a0ce06c38998040d6db6bdfbc5c9"
             },
             "type": "bower-asset"
         },
@@ -218,7 +218,7 @@
             "version": "2.0.8",
             "source": {
                 "type": "git",
-                "url": "git@github.com:yiisoft/jquery-pjax.git",
+                "url": "https://github.com/yiisoft/jquery-pjax.git",
                 "reference": "a9298d57da63d14a950f1b94366a864bc62264fb"
             },
             "dist": {
@@ -303,12 +303,12 @@
             "version": "4.7.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/ckeditor/ckeditor-releases.git",
+                "url": "https://github.com/ckeditor/ckeditor4-releases.git",
                 "reference": "97b8f412f6b36985c734daf0717e81009a885dba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ckeditor/ckeditor-releases/zipball/97b8f412f6b36985c734daf0717e81009a885dba",
+                "url": "https://api.github.com/repos/ckeditor/ckeditor4-releases/zipball/97b8f412f6b36985c734daf0717e81009a885dba",
                 "reference": "97b8f412f6b36985c734daf0717e81009a885dba",
                 "shasum": ""
             },
@@ -347,20 +347,20 @@
         },
         {
             "name": "ezyang/htmlpurifier",
-            "version": "v4.16.0",
+            "version": "v4.19.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ezyang/htmlpurifier.git",
-                "reference": "523407fb06eb9e5f3d59889b3978d5bfe94299c8"
+                "reference": "b287d2a16aceffbf6e0295559b39662612b77fcf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/523407fb06eb9e5f3d59889b3978d5bfe94299c8",
-                "reference": "523407fb06eb9e5f3d59889b3978d5bfe94299c8",
+                "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/b287d2a16aceffbf6e0295559b39662612b77fcf",
+                "reference": "b287d2a16aceffbf6e0295559b39662612b77fcf",
                 "shasum": ""
             },
             "require": {
-                "php": "~5.6.0 || ~7.0.0 || ~7.1.0 || ~7.2.0 || ~7.3.0 || ~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0"
+                "php": "~5.6.0 || ~7.0.0 || ~7.1.0 || ~7.2.0 || ~7.3.0 || ~7.4.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0"
             },
             "require-dev": {
                 "cerdic/css-tidy": "^1.7 || ^2.0",
@@ -402,9 +402,9 @@
             ],
             "support": {
                 "issues": "https://github.com/ezyang/htmlpurifier/issues",
-                "source": "https://github.com/ezyang/htmlpurifier/tree/v4.16.0"
+                "source": "https://github.com/ezyang/htmlpurifier/tree/v4.19.0"
             },
-            "time": "2022-09-18T07:06:19+00:00"
+            "time": "2025-10-17T16:34:55+00:00"
         },
         {
             "name": "google/recaptcha",
@@ -831,24 +831,24 @@
         },
         {
             "name": "itstructure/yii2-admin-module",
-            "version": "1.8.7",
+            "version": "1.8.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itstructure/yii2-admin-module.git",
-                "reference": "774d1c430cde4ec7a283a76f238dad78fb09d781"
+                "reference": "72a2309fd2be878a2774b7849aa293c54346ec75"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itstructure/yii2-admin-module/zipball/774d1c430cde4ec7a283a76f238dad78fb09d781",
-                "reference": "774d1c430cde4ec7a283a76f238dad78fb09d781",
+                "url": "https://api.github.com/repos/itstructure/yii2-admin-module/zipball/72a2309fd2be878a2774b7849aa293c54346ec75",
+                "reference": "72a2309fd2be878a2774b7849aa293c54346ec75",
                 "shasum": ""
             },
             "require": {
                 "almasaeed2010/adminlte": "~2.4.3",
-                "itstructure/yii2-field-widgets": "^1.2.0",
+                "itstructure/yii2-field-widgets": "^1.2.5",
                 "php": ">=7.1.0",
-                "yiisoft/yii2": "2.*",
-                "yiisoft/yii2-bootstrap": "^2.0"
+                "yiisoft/yii2": "~2.0.0",
+                "yiisoft/yii2-bootstrap": "~2.0.0"
             },
             "type": "package",
             "autoload": {
@@ -876,28 +876,28 @@
             ],
             "support": {
                 "issues": "https://github.com/itstructure/yii2-admin-module/issues",
-                "source": "https://github.com/itstructure/yii2-admin-module/tree/1.8.7"
+                "source": "https://github.com/itstructure/yii2-admin-module/tree/1.8.8"
             },
-            "time": "2023-01-22T08:43:18+00:00"
+            "time": "2025-10-20T07:34:44+00:00"
         },
         {
             "name": "itstructure/yii2-ckeditor",
-            "version": "1.1.6",
+            "version": "1.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itstructure/yii2-ckeditor.git",
-                "reference": "ebf7da4d4cd51fcaeea49397601af34f0cdd6fcb"
+                "reference": "09632e2a369bcb56f4d6d6414528b2ce146961cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itstructure/yii2-ckeditor/zipball/ebf7da4d4cd51fcaeea49397601af34f0cdd6fcb",
-                "reference": "ebf7da4d4cd51fcaeea49397601af34f0cdd6fcb",
+                "url": "https://api.github.com/repos/itstructure/yii2-ckeditor/zipball/09632e2a369bcb56f4d6d6414528b2ce146961cd",
+                "reference": "09632e2a369bcb56f4d6d6414528b2ce146961cd",
                 "shasum": ""
             },
             "require": {
-                "ckeditor/ckeditor": "~4.7.1",
+                "ckeditor/ckeditor": "~4.7.0",
                 "php": ">=7.1.0",
-                "yiisoft/yii2": "2.*"
+                "yiisoft/yii2": "~2.0.0"
             },
             "type": "yii2-extension",
             "autoload": {
@@ -923,29 +923,29 @@
             ],
             "support": {
                 "issues": "https://github.com/itstructure/yii2-ckeditor/issues",
-                "source": "https://github.com/itstructure/yii2-ckeditor/tree/1.1.6"
+                "source": "https://github.com/itstructure/yii2-ckeditor/tree/1.1.7"
             },
-            "time": "2023-01-22T08:46:50+00:00"
+            "time": "2025-10-20T06:14:14+00:00"
         },
         {
             "name": "itstructure/yii2-field-widgets",
-            "version": "1.2.4",
+            "version": "1.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itstructure/yii2-field-widgets.git",
-                "reference": "7e712150bb5f60f595b417a4723e9bc8d117dbb2"
+                "reference": "62fcd0d404dc15513b77f0865b2873d453b8db79"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itstructure/yii2-field-widgets/zipball/7e712150bb5f60f595b417a4723e9bc8d117dbb2",
-                "reference": "7e712150bb5f60f595b417a4723e9bc8d117dbb2",
+                "url": "https://api.github.com/repos/itstructure/yii2-field-widgets/zipball/62fcd0d404dc15513b77f0865b2873d453b8db79",
+                "reference": "62fcd0d404dc15513b77f0865b2873d453b8db79",
                 "shasum": ""
             },
             "require": {
-                "itstructure/yii2-ckeditor": "^1.1.3",
+                "itstructure/yii2-ckeditor": "^1.1.7",
                 "php": ">=7.1.0",
-                "yiisoft/yii2": "2.*",
-                "yiisoft/yii2-bootstrap": "~2.0"
+                "yiisoft/yii2": "~2.0.0",
+                "yiisoft/yii2-bootstrap": "~2.0.0"
             },
             "type": "yii2-extension",
             "autoload": {
@@ -973,30 +973,30 @@
             ],
             "support": {
                 "issues": "https://github.com/itstructure/yii2-field-widgets/issues",
-                "source": "https://github.com/itstructure/yii2-field-widgets/tree/1.2.4"
+                "source": "https://github.com/itstructure/yii2-field-widgets/tree/1.2.5"
             },
-            "time": "2023-01-29T04:18:46+00:00"
+            "time": "2025-10-20T06:47:13+00:00"
         },
         {
             "name": "itstructure/yii2-multi-format-uploader",
-            "version": "3.2.7",
+            "version": "3.2.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itstructure/yii2-multi-format-uploader.git",
-                "reference": "c92d2cddff89ec49fa99a2e76d3901894c15e64f"
+                "reference": "1430dfc3f6176b05cf283dec53b2cc717d3501d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itstructure/yii2-multi-format-uploader/zipball/c92d2cddff89ec49fa99a2e76d3901894c15e64f",
-                "reference": "c92d2cddff89ec49fa99a2e76d3901894c15e64f",
+                "url": "https://api.github.com/repos/itstructure/yii2-multi-format-uploader/zipball/1430dfc3f6176b05cf283dec53b2cc717d3501d6",
+                "reference": "1430dfc3f6176b05cf283dec53b2cc717d3501d6",
                 "shasum": ""
             },
             "require": {
                 "aws/aws-sdk-php": "~3.55.7",
-                "itstructure/yii2-field-widgets": "^1.2.2",
+                "itstructure/yii2-field-widgets": "^1.2.5",
                 "php": ">=7.1.0",
-                "yiisoft/yii2": "2.*",
-                "yiisoft/yii2-bootstrap": "^2.0",
+                "yiisoft/yii2": "~2.0.0",
+                "yiisoft/yii2-bootstrap": "~2.0.0",
                 "yiisoft/yii2-imagine": "~2.1.0"
             },
             "type": "package",
@@ -1027,27 +1027,27 @@
             ],
             "support": {
                 "issues": "https://github.com/itstructure/yii2-multi-format-uploader/issues",
-                "source": "https://github.com/itstructure/yii2-multi-format-uploader/tree/3.2.7"
+                "source": "https://github.com/itstructure/yii2-multi-format-uploader/tree/3.2.9"
             },
-            "time": "2023-01-23T00:04:48+00:00"
+            "time": "2025-10-20T10:55:15+00:00"
         },
         {
             "name": "itstructure/yii2-multi-level-menu",
-            "version": "3.2.9",
+            "version": "3.2.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itstructure/yii2-multi-level-menu.git",
-                "reference": "c07ee2680c02f4d0f3c617d583d38b0244fcdc2c"
+                "reference": "b11d4ece755fe05dc9176303de189808711cc626"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itstructure/yii2-multi-level-menu/zipball/c07ee2680c02f4d0f3c617d583d38b0244fcdc2c",
-                "reference": "c07ee2680c02f4d0f3c617d583d38b0244fcdc2c",
+                "url": "https://api.github.com/repos/itstructure/yii2-multi-level-menu/zipball/b11d4ece755fe05dc9176303de189808711cc626",
+                "reference": "b11d4ece755fe05dc9176303de189808711cc626",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "yiisoft/yii2": "2.*"
+                "yiisoft/yii2": "~2.0.0"
             },
             "type": "package",
             "autoload": {
@@ -1074,28 +1074,28 @@
             ],
             "support": {
                 "issues": "https://github.com/itstructure/yii2-multi-level-menu/issues",
-                "source": "https://github.com/itstructure/yii2-multi-level-menu/tree/3.2.9"
+                "source": "https://github.com/itstructure/yii2-multi-level-menu/tree/3.2.10"
             },
-            "time": "2023-01-30T13:47:19+00:00"
+            "time": "2025-10-20T09:18:32+00:00"
         },
         {
             "name": "itstructure/yii2-rbac-module",
-            "version": "3.0.5",
+            "version": "3.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itstructure/yii2-rbac-module.git",
-                "reference": "1fe07e90de2969c86460d7b90b4c2a1b9a630e7e"
+                "reference": "7abfb6a74001272af5cf1ed1eb487dea59e88437"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itstructure/yii2-rbac-module/zipball/1fe07e90de2969c86460d7b90b4c2a1b9a630e7e",
-                "reference": "1fe07e90de2969c86460d7b90b4c2a1b9a630e7e",
+                "url": "https://api.github.com/repos/itstructure/yii2-rbac-module/zipball/7abfb6a74001272af5cf1ed1eb487dea59e88437",
+                "reference": "7abfb6a74001272af5cf1ed1eb487dea59e88437",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
-                "yiisoft/yii2": "2.*",
-                "yiisoft/yii2-bootstrap": "^2.0"
+                "yiisoft/yii2": "~2.0.0",
+                "yiisoft/yii2-bootstrap": "~2.0.0"
             },
             "type": "package",
             "autoload": {
@@ -1122,9 +1122,9 @@
             ],
             "support": {
                 "issues": "https://github.com/itstructure/yii2-rbac-module/issues",
-                "source": "https://github.com/itstructure/yii2-rbac-module/tree/3.0.5"
+                "source": "https://github.com/itstructure/yii2-rbac-module/tree/3.0.6"
             },
-            "time": "2023-01-30T13:45:00+00:00"
+            "time": "2025-10-20T08:10:38+00:00"
         },
         {
             "name": "itstructure/yii2-sitemap-generator",
@@ -1232,56 +1232,6 @@
                 "source": "https://github.com/jmespath/jmespath.php/tree/2.6.1"
             },
             "time": "2021-06-14T00:11:39+00:00"
-        },
-        {
-            "name": "paragonie/random_compat",
-            "version": "v9.99.100",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "996434e5492cb4c3edcb9168db6fbb1359ef965a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/996434e5492cb4c3edcb9168db6fbb1359ef965a",
-                "reference": "996434e5492cb4c3edcb9168db6fbb1359ef965a",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">= 7"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "4.*|5.*",
-                "vimeo/psalm": "^1"
-            },
-            "suggest": {
-                "ext-libsodium": "Provides a modern crypto API that can be used to generate random bytes."
-            },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Paragon Initiative Enterprises",
-                    "email": "security@paragonie.com",
-                    "homepage": "https://paragonie.com"
-                }
-            ],
-            "description": "PHP 5.x polyfill for random_bytes() and random_int() from PHP 7",
-            "keywords": [
-                "csprng",
-                "polyfill",
-                "pseudorandom",
-                "random"
-            ],
-            "support": {
-                "email": "info@paragonie.com",
-                "issues": "https://github.com/paragonie/random_compat/issues",
-                "source": "https://github.com/paragonie/random_compat"
-            },
-            "time": "2020-10-15T08:29:30+00:00"
         },
         {
             "name": "psr/http-message",
@@ -1771,30 +1721,29 @@
         },
         {
             "name": "yiisoft/yii2",
-            "version": "2.0.47",
+            "version": "2.0.53",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "8ecf57895d9c4b29cf9658ffe57af5f3d0e25254"
+                "reference": "6c622fb8243181d7912b62ad80821cc0e1c745db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/8ecf57895d9c4b29cf9658ffe57af5f3d0e25254",
-                "reference": "8ecf57895d9c4b29cf9658ffe57af5f3d0e25254",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/6c622fb8243181d7912b62ad80821cc0e1c745db",
+                "reference": "6c622fb8243181d7912b62ad80821cc0e1c745db",
                 "shasum": ""
             },
             "require": {
-                "bower-asset/inputmask": "~3.2.2 | ~3.3.5",
-                "bower-asset/jquery": "3.6.*@stable | 3.5.*@stable | 3.4.*@stable | 3.3.*@stable | 3.2.*@stable | 3.1.*@stable | 2.2.*@stable | 2.1.*@stable | 1.11.*@stable | 1.12.*@stable",
-                "bower-asset/punycode": "1.3.*",
+                "bower-asset/inputmask": "^5.0.8 ",
+                "bower-asset/jquery": "3.7.*@stable | 3.6.*@stable | 3.5.*@stable | 3.4.*@stable | 3.3.*@stable | 3.2.*@stable | 3.1.*@stable | 2.2.*@stable | 2.1.*@stable | 1.11.*@stable | 1.12.*@stable",
+                "bower-asset/punycode": "^1.4",
                 "bower-asset/yii2-pjax": "~2.0.1",
                 "cebe/markdown": "~1.0.0 | ~1.1.0 | ~1.2.0",
                 "ext-ctype": "*",
                 "ext-mbstring": "*",
-                "ezyang/htmlpurifier": "~4.6",
+                "ezyang/htmlpurifier": "^4.17",
                 "lib-pcre": "*",
-                "paragonie/random_compat": ">=1",
-                "php": ">=5.4.0",
+                "php": ">=7.3.0",
                 "yiisoft/yii2-composer": "~2.0.4"
             },
             "bin": [
@@ -1889,7 +1838,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-11-18T16:21:58+00:00"
+            "time": "2025-06-27T07:42:53+00:00"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -1915,17 +1864,17 @@
             },
             "type": "yii2-extension",
             "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0.x-dev"
-                },
                 "patches": {
-                    "phpunit/phpunit-mock-objects": {
-                        "Fix PHP 7 and 8 compatibility": "https://yiisoft.github.io/phpunit-patches/phpunit_mock_objects.patch"
-                    },
                     "phpunit/phpunit": {
                         "Fix PHP 7 compatibility": "https://yiisoft.github.io/phpunit-patches/phpunit_php7.patch",
                         "Fix PHP 8 compatibility": "https://yiisoft.github.io/phpunit-patches/phpunit_php8.patch"
+                    },
+                    "phpunit/phpunit-mock-objects": {
+                        "Fix PHP 7 and 8 compatibility": "https://yiisoft.github.io/phpunit-patches/phpunit_mock_objects.patch"
                     }
+                },
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
                 }
             },
             "autoload": {
@@ -1987,16 +1936,16 @@
         },
         {
             "name": "yiisoft/yii2-composer",
-            "version": "2.0.10",
+            "version": "2.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-composer.git",
-                "reference": "94bb3f66e779e2774f8776d6e1bdeab402940510"
+                "reference": "b684b01ecb119c8287721def726a0e24fec2fef2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/94bb3f66e779e2774f8776d6e1bdeab402940510",
-                "reference": "94bb3f66e779e2774f8776d6e1bdeab402940510",
+                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/b684b01ecb119c8287721def726a0e24fec2fef2",
+                "reference": "b684b01ecb119c8287721def726a0e24fec2fef2",
                 "shasum": ""
             },
             "require": {
@@ -2039,11 +1988,11 @@
                 "yii2"
             ],
             "support": {
-                "forum": "http://www.yiiframework.com/forum/",
-                "irc": "irc://irc.freenode.net/yii",
+                "forum": "https://www.yiiframework.com/forum/",
+                "irc": "ircs://irc.libera.chat:6697/yii",
                 "issues": "https://github.com/yiisoft/yii2-composer/issues",
                 "source": "https://github.com/yiisoft/yii2-composer",
-                "wiki": "http://www.yiiframework.com/wiki/"
+                "wiki": "https://www.yiiframework.com/wiki/"
             },
             "funding": [
                 {
@@ -2059,7 +2008,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-06-24T00:04:01+00:00"
+            "time": "2025-02-13T20:59:36+00:00"
         },
         {
             "name": "yiisoft/yii2-imagine",
@@ -2424,27 +2373,45 @@
         },
         {
             "name": "yiisoft/yii2-debug",
-            "version": "2.0.14",
+            "version": "2.1.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-debug.git",
-                "reference": "dc5a4a8529de1a41dbb037dbabf1f3f93002f21d"
+                "reference": "44e158914911ef81cd7111fd6d46b918f65fae7c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/dc5a4a8529de1a41dbb037dbabf1f3f93002f21d",
-                "reference": "dc5a4a8529de1a41dbb037dbabf1f3f93002f21d",
+                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/44e158914911ef81cd7111fd6d46b918f65fae7c",
+                "reference": "44e158914911ef81cd7111fd6d46b918f65fae7c",
                 "shasum": ""
             },
             "require": {
-                "yiisoft/yii2": "~2.0.13",
-                "yiisoft/yii2-bootstrap": "~2.0.0"
+                "ext-mbstring": "*",
+                "php": ">=5.4",
+                "yiisoft/yii2": "~2.0.13"
+            },
+            "require-dev": {
+                "cweagans/composer-patches": "^1.7",
+                "phpunit/phpunit": "4.8.34",
+                "yiisoft/yii2-coding-standards": "~2.0",
+                "yiisoft/yii2-swiftmailer": "*"
             },
             "type": "yii2-extension",
             "extra": {
+                "patches": {
+                    "phpunit/phpunit": {
+                        "Fix PHP 7 compatibility": "https://yiisoft.github.io/phpunit-patches/phpunit_php7.patch",
+                        "Fix PHP 8 compatibility": "https://yiisoft.github.io/phpunit-patches/phpunit_php8.patch",
+                        "Fix PHP 8.1 compatibility": "https://yiisoft.github.io/phpunit-patches/phpunit_php81.patch"
+                    },
+                    "phpunit/phpunit-mock-objects": {
+                        "Fix PHP 7 and 8 compatibility": "https://yiisoft.github.io/phpunit-patches/phpunit_mock_objects.patch"
+                    }
+                },
                 "branch-alias": {
                     "dev-master": "2.0.x-dev"
-                }
+                },
+                "composer-exit-on-patch-failure": true
             },
             "autoload": {
                 "psr-4": {
@@ -2459,22 +2426,41 @@
                 {
                     "name": "Qiang Xue",
                     "email": "qiang.xue@gmail.com"
+                },
+                {
+                    "name": "Simon Karlen",
+                    "email": "simi.albi@outlook.com"
                 }
             ],
             "description": "The debugger extension for the Yii framework",
             "keywords": [
                 "debug",
                 "debugger",
+                "dev",
                 "yii2"
             ],
             "support": {
-                "forum": "http://www.yiiframework.com/forum/",
-                "irc": "irc://irc.freenode.net/yii",
+                "forum": "https://www.yiiframework.com/forum/",
+                "irc": "ircs://irc.libera.chat:6697/yii",
                 "issues": "https://github.com/yiisoft/yii2-debug/issues",
                 "source": "https://github.com/yiisoft/yii2-debug",
-                "wiki": "http://www.yiiframework.com/wiki/"
+                "wiki": "https://www.yiiframework.com/wiki/"
             },
-            "time": "2018-09-23T21:41:04+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/yiisoft",
+                    "type": "github"
+                },
+                {
+                    "url": "https://opencollective.com/yiisoft",
+                    "type": "open_collective"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/yiisoft/yii2-debug",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2025-06-08T13:32:11+00:00"
         },
         {
             "name": "yiisoft/yii2-faker",
@@ -2617,12 +2603,12 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": ">=7.1.0"
     },
-    "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "platform-dev": {},
+    "plugin-api-version": "2.6.0"
 }

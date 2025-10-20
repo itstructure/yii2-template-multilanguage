@@ -16,18 +16,18 @@
     "prefer-stable": true,
     "require": {
         "php": ">=7.1.0",
-        "yiisoft/yii2": "~2.0.14",
-        "yiisoft/yii2-bootstrap": "~2.0.0",
-        "yiisoft/yii2-swiftmailer": "~2.0.0",
-        "itstructure/yii2-admin-module": "~1.8.5",
-        "itstructure/yii2-multi-level-menu": "~3.2.8",
-        "itstructure/yii2-multi-format-uploader": "~3.2.4",
+        "yiisoft/yii2": "~2.0.53",
+        "yiisoft/yii2-bootstrap": "~2.0.11",
+        "yiisoft/yii2-swiftmailer": "~2.0.7",
+        "itstructure/yii2-admin-module": "~1.8.8",
+        "itstructure/yii2-multi-level-menu": "~3.2.10",
+        "itstructure/yii2-multi-format-uploader": "~3.2.9",
         "google/recaptcha": "^1.2",
         "itstructure/yii2-sitemap-generator": "~1.0.0",
-        "itstructure/yii2-rbac-module": "~3.0.3"
+        "itstructure/yii2-rbac-module": "~3.0.6"
     },
     "require-dev": {
-        "yiisoft/yii2-debug": "~2.0.0",
+        "yiisoft/yii2-debug": "~2.1.27",
         "yiisoft/yii2-gii": "~2.0.0",
         "yiisoft/yii2-faker": "~2.0.0"
     },

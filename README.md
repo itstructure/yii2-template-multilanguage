@@ -7,13 +7,13 @@ Yii2 template multilanguage install documentation
 1 Introduction
 ----------------------------
 
-Yii2 project template with multilanguage mode, based on [Yii2 basic framework](https://github.com/yiisoft/yii2-app-basic).
+Yii2 project template with multilanguage mode, based on [Yii2 basic framework](https://github.com/yiisoft/yii2-app-basic) v2.0.x.
 
 Project is available to install at [Git Hub repository](https://github.com/itstructure/yii2-template-multilanguage).
 
 This template includes:
 
-- Admin panel, based on [AdminLTE](https://github.com/almasaeed2010/AdminLTE)
+- Admin panel, based on [AdminLTE](https://github.com/almasaeed2010/AdminLTE) v2.4
 
 - Ability to content manage with some number of languages.
 
@@ -39,9 +39,9 @@ This template helps you to easy start your Yii2 project. And then you can change
 2 Requirements
 ----------------------------
 
-- php >= 7.1
-- composer
-- MySql >= 5.5
+- php >= 7.4
+- composer 2
+- MySql >= 5.5 or MariaDB >= 10.1
 
 3 Installation
 ----------------------------
